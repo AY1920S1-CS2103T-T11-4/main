@@ -36,12 +36,11 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
+<li><a href="#saving-data">F.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -623,94 +622,58 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
+<p><strong>Target user profile:</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>Has a need to manage multiple trips</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>Prefers using a notebook to other types</p>
 </li>
 <li>
-<p>can type fast</p>
+<p>Frequently uses the computer while overseas</p>
 </li>
 <li>
-<p>prefers typing over mouse input</p>
+<p>Wants to micromanage all parts of their trips</p>
 </li>
 <li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>Wants to plan all details of the trip before leaving</p>
+</li>
+<li>
+<p>Wants to manage a trip even without an internet connection</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition:</strong> Able to micromanage a trip and access one’s plans
+more conveniently than traditional forms of trip planning</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/us1.PNG" alt="us1">
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Priority</th>
-<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/us2.PNG" alt="us2">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/us3.PNG" alt="us3">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/us4.PNG" alt="us4">
+</div>
 </div>
 </div>
 </div>
@@ -718,59 +681,497 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p><strong>Use case: UC1 - Add Trip</strong></p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p><strong><strong>MSS</strong></strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to <strong>Trip Manager</strong> to list trips</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>TravelPal shows a list of <strong>Trips</strong></p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to add a specific <strong>Trip</strong> to the list</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+<p>User &lt;span class="underline"&gt;edits the <strong>Trip</strong> (UC2)&lt;/span&gt;</p>
+</li>
+<li>
+<p>TravelPal adds the <strong>Trip</strong></p>
+</li>
+<li>
+<p>TravelPal shows the list of <strong>Trips</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>Use case ends.</pre>
+</div>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong><strong>Extensions</strong></strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="paragraph">
+<p>5a. The trip added clashes with another trip</p>
+</div>
+<div class="paragraph">
+<p>5a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>5a2. TravelPal does not discard information the user has provided</p>
+</div>
+<div class="paragraph">
+<p>5a3. TravelPal displays the <strong>Edit Trip</strong> page containing the user’s
+previous input</p>
+</div>
+<div class="paragraph">
+<p>5a4. TravelPal requests the user to change the dates of the <strong>Trip</strong></p>
+</div>
+<div class="paragraph">
+<p>Steps 5a1-5a2 are repeated until no clashes occur between trips</p>
+</div>
+<div class="paragraph">
+<p>&lt;span class="underline"&gt;Use case: UC2 – Edit Trip&lt;/span&gt;</p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>2a. The list is empty.</p>
+<p>User chooses to edit specific <strong>Trip</strong></p>
+</li>
+<li>
+<p>Travelpal shows <strong>Edit Trip Screen</strong> with fields to edit/enter</p>
+</li>
+<li>
+<p>User edits the information in the specified <strong>Trip</strong></p>
+</li>
+<li>
+<p>User submits the details and confirms the edit</p>
+<div class="literalblock">
+<div class="content">
+<pre>Use case ends</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>3a. User enters an invalid field</p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not edit invalid field</p>
+</div>
+<div class="paragraph">
+<p>Use case continues at step 2</p>
+</div>
+<div class="paragraph">
+<p>3b. User requests to list of <strong>Days</strong> in the trip</p>
+</div>
+<div class="paragraph">
+<p>3b1. TravelPal shows a list of days to the user (can be empty)</p>
+</div>
+<div class="paragraph">
+<p>3b2. User chooses to &lt;span class="underline"&gt;add/edit/delete (UC4/5/6)
+<strong>Day</strong>&lt;/span&gt;</p>
+</div>
+<div class="paragraph">
+<p>Use case continues at step 4</p>
+</div>
+<div class="paragraph">
+<p>4b. User leaves necessary information empty</p>
+</div>
+<div class="paragraph">
+<p>4a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>4a2. TravelPal does not submit the details and does not confirm the edit</p>
+</div>
+<div class="paragraph">
+<p>4a3. User enters new data</p>
+</div>
+<div class="paragraph">
+<p>Steps 4a1-4a3 are repeated until the data entered are non empty</p>
+</div>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
-</li>
-<li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. AddressBook shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p><strong>Use case: UC3 – Delete Trip</strong></p>
 </div>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <strong>Trip Manager</strong> to list <strong>Trips</strong></p>
+</li>
+<li>
+<p>TravelPal shows a list of <strong>Trips</strong></p>
+</li>
+<li>
+<p>User requests to delete a specific <strong>Trip</strong> in the list</p>
+</li>
+<li>
+<p>TravelPal deletes the <strong>Trip</strong></p>
+</li>
+</ol>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Use case ends
+`
+<strong><strong>Extensions</strong></strong></p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>2a. The list is empty</p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p>3a. The <strong>Name</strong> provided is invalid</p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not delete any trips</p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Use case: UC4 – Add Day</strong></p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to add a <strong>Day</strong> to a specified <strong>Trip</strong></p>
+</li>
+<li>
+<p>User <em>edits the day (UC5)</em></p>
+</li>
+<li>
+<p>TravelPal saves the <strong>Day</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>3a <strong>Day</strong> added clashes with other days in the <strong>Trip</strong></p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not discard information the user has provided</p>
+</div>
+<div class="paragraph">
+<p>3a3. TravelPal displays the <strong>Edit Day</strong> page containing the user’s
+input</p>
+</div>
+<div class="paragraph">
+<p>3a4. TravelPal requests the user to change the date of the <strong>Day</strong></p>
+</div>
+<div class="paragraph">
+<p>Steps 3a1 – 3a4 are repeated until the user provided non clashing date</p>
+</div>
+<div class="paragraph">
+<p><strong>Use case: UC5 – Edit Day</strong></p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit specific <strong>Day</strong></p>
+</li>
+<li>
+<p>TravelPal shows the <strong>Edit Day</strong> page with fields to enter</p>
+</li>
+<li>
+<p>User edits information in the specified <strong>Day</strong></p>
+</li>
+<li>
+<p>User submits and confirms the edit</p>
+</li>
+</ol>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>3a. User enters an invalid field</p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not edit invalid field</p>
+</div>
+<div class="paragraph">
+<p>Use case continues at step 2</p>
+</div>
+<div class="paragraph">
+<p>3b. User requests to list of <strong>Events</strong> in the trip</p>
+</div>
+<div class="paragraph">
+<p>3b1. TravelPal shows a list of <strong>Events</strong> to the user (can be empty)</p>
+</div>
+<div class="paragraph">
+<p>3b2. User chooses to <em>add/edit/delete (UC 7/8/9) <strong>Event</strong></em></p>
+</div>
+<div class="paragraph">
+<p>Use case continues at step 4</p>
+</div>
+<div class="paragraph">
+<p>4b. User leaves necessary information empty</p>
+</div>
+<div class="paragraph">
+<p>4a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>4a2. TravelPal does not submit the details and does not confirm the edit</p>
+</div>
+<div class="paragraph">
+<p>4a3. User enters new data</p>
+</div>
+<div class="paragraph">
+<p>Steps 4a1-4a3 are repeated until the data entered are correct</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>User case: UC6 – Delete Day</strong></p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete a specific <strong>Day</strong> in the list</p>
+</li>
+<li>
+<p>TravelPal deletes the <strong>Day</strong></p>
+</li>
+</ol>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>2a. The list is empty</p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p>3a. The <strong>Name</strong> provided is invalid</p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not delete any <strong>Day</strong></p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>User case: UC7 – Add Event</strong></p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to add a <strong>Event</strong> to a specified <strong>Day</strong></p>
+</li>
+<li>
+<p>User <em>edits the event (UC5)</em></p>
+</li>
+<li>
+<p>TravelPal saves the <strong>Event</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>3a <strong>Event</strong> added clashes with other <strong>Events</strong> in the <strong>Day</strong></p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not discard information the user has provided</p>
+</div>
+<div class="paragraph">
+<p>3a3. TravelPal displays the <strong>Edit Event</strong> page containing the user’s
+input</p>
+</div>
+<div class="paragraph">
+<p>3a4. TravelPal requests the user to change the date of the <strong>Event</strong></p>
+</div>
+<div class="paragraph">
+<p>Steps 3a1 – 3a4 are repeated until the user provided non clashing date</p>
+</div>
+<div class="paragraph">
+<p><strong>User case UC8 – Edit Event</strong></p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit specific <strong>Day</strong></p>
+</li>
+<li>
+<p>TravelPal shows the <strong>Edit Day</strong> page with fields to enter</p>
+</li>
+<li>
+<p>User edits information in the specified <strong>Day</strong></p>
+</li>
+<li>
+<p>User submits and confirms the edit</p>
+</li>
+</ol>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>3a. User enters an invalid field</p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not edit invalid field</p>
+</div>
+<div class="paragraph">
+<p>Use case continues at step 2</p>
+</div>
+<div class="paragraph">
+<p>3b. User requests to list of <strong>Events</strong> in the <strong>trip</strong></p>
+</div>
+<div class="paragraph">
+<p>3b1. TravelPal shows a list of <strong>Events</strong> to the user (can be empty)</p>
+</div>
+<div class="paragraph">
+<p>3b2. User chooses to <em>add/edit/delete (UC 7/8/9) <strong>Event</strong></em>
+Use case continues at step 4</p>
+</div>
+<div class="paragraph">
+<p>4b. User leaves necessary information empty</p>
+</div>
+<div class="paragraph">
+<p>4a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>4a2. TravelPal does not submit the details and does not confirm the edit</p>
+</div>
+<div class="paragraph">
+<p>4a3. User enters new data</p>
+</div>
+<div class="paragraph">
+<p>Steps 4a1-4a3 are repeated until the data entered are non empty</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>User case UC9 – Delete Event</strong></p>
+</div>
+<div class="paragraph">
+<p><strong><strong>MSS</strong></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete a specific <strong>Event</strong> in the list</p>
+</li>
+<li>
+<p>TravelPal deletes the <strong>Event</strong></p>
+</li>
+</ol>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong><strong>Extensions</strong></strong></p>
+</div>
+<div class="paragraph">
+<p>2a. The list is empty</p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p>3a. The <strong>Name</strong> provided is invalid</p>
+</div>
+<div class="paragraph">
+<p>3a1. TravelPal shows an error message</p>
+</div>
+<div class="paragraph">
+<p>3a2. TravelPal does not delete any <strong>Event</strong></p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
 </div>
 </div>
 </div>
@@ -780,77 +1181,62 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
+<p>Should work on any [mainstream OS] as
+long as it has Java 11 or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>A user with above average typing speed for regular English text
+(i.e. not code, not system admin commands) should be able to
+accomplish most of the tasks faster using commands than using the
+mouse.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>Should be able to hold up to 30 trips without a noticeable
+sluggishness in performance for typical usage.</p>
+</li>
+<li>
+<p>A user familiar with travelling should be able to navigate the app
+easily</p>
+</li>
+<li>
+<p>A novice user should be able to navigate without prior experience</p>
+</li>
+<li>
+<p>Application does not depend on online resources to operate</p>
+</li>
+<li>
+<p>Products is not required to make decisions for the user</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
-<dd>
-<p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
-</dd>
-</dl>
+<div class="paragraph">
+<p><strong>TravelPal</strong> – Our cross-platform desktop application for those who
+love to plan and micromanage their travels</p>
+</div>
+<div class="paragraph">
+<p><strong>CLI</strong> – Command Line Interface. CLI is a command line program that
+accepts text input to execute operating system functions.</p>
+</div>
+<div class="paragraph">
+<p><strong>GUI</strong> – Graphical User Interface. The graphical user interface is a
+form of user interface that allows users to interact</p>
+</div>
+<div class="paragraph">
+<p><strong>OS</strong> - An operating system, or "OS," is software that communicates
+with the hardware and allows other programs to run</p>
+</div>
+<div class="paragraph">
+<p><strong>Mainstream OS</strong> - Windows, Linux, Unix, OS-X</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -868,7 +1254,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -906,7 +1292,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -938,7 +1324,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -958,4 +1344,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 13:57:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-03 08:56:26 UTC</div></div></div></body></html>
