@@ -22,7 +22,7 @@
 <li><a href="#expense-manager">3.7. Expense Manager</a></li>
 <li><a href="#bookings-manager">3.8. Bookings Manager</a></li>
 <li><a href="#contacts-manager">3.9. Contacts Manager</a></li>
-<li><a href="#diary-coming-in-v2-0">3.10. Diary [coming in v2.0]</a></li>
+<li><a href="#diary">3.10. Diary</a></li>
 <li><a href="#pre-trip-inventory-manager">3.11. Pre-trip Inventory Manager</a></li>
 </ul>
 </li>
@@ -384,8 +384,183 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-coming-in-v2-0"><a class="link" href="#diary-coming-in-v2-0">3.10. Diary [coming in v2.0]</a></h3>
-
+<h3 id="diary"><a class="link" href="#diary">3.10. Diary</a></h3>
+<div class="sect3">
+<h4 id="diary-commands"><a class="link" href="#diary-commands">3.10.1. Diary Commands</a></h4>
+<div class="sect4">
+<h5 id="creating-a-diary-entry"><a class="link" href="#creating-a-diary-entry">Creating a diary entry</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>create &lt;day index&gt;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: creates a new diary entry for the specified day index. The entry for the day must not already exist.</p>
+</li>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;day index&gt; - integer day index of the nth day of the trip</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Example: create 1</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="navigating-to-a-diary-entry"><a class="link" href="#navigating-to-a-diary-entry">Navigating to a diary entry</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>flip &lt;day index&gt;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Flips the diary to the day index specified.</p>
+</li>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;day index&gt; - integer day index of the nth day&#8217;s diary entry of the trip to flip to</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Example: flip 7</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="editing-a-diary-entry"><a class="link" href="#editing-a-diary-entry">Editing a diary entry</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>edit &lt;initial edit box message&gt;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Brings up the edit box, with the specified initial text. If no text is specified, then the text editor is populated with the currently viewed diary entry&#8217;s text.</p>
+</li>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;initial edit box message&gt; - initial text to use in the edit box</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="commiting-your-edits"><a class="link" href="#commiting-your-edits">Commiting your edits</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>done</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Commits the text currently in the edit box to the diary entry.</p>
+</li>
+<li>
+<p>Example: done</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="adding-a-photo"><a class="link" href="#adding-a-photo">Adding a photo</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>addphoto fp/&lt;file path to png or jpg image file&gt; OR fc/&lt;no arguments&gt; (d/&lt;description to be shown in the gallery&gt; dts/&lt;date time of photo&gt;)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>fc/ - opens the OS file gui dialog to allow choosing an image, instead of using the file path</p>
+</li>
+<li>
+<p>&lt;file path&gt; - relative file path from the location of the application&#8217;s jar file, or an absolute file path.</p>
+</li>
+<li>
+<p>Optional: &lt;description&gt; - description to be shown in the gallery, of maximum length 20. (uses the file name otherwise)</p>
+</li>
+<li>
+<p>Optional: &lt;date time&gt; - date time of the format d/M/yyyy HHmm (uses the file modification date otherwise)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Example: addphoto fp/snowymountains.jpg d/picturesque mountains</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-a-photo"><a class="link" href="#deleting-a-photo">Deleting a photo</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>delphoto &lt;photo index&gt;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Deletes the photo indicated by the specified index in the gallery.</p>
+</li>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;photo index&gt; - integer index of photo to delete</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Example: delphoto 1</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="pre-trip-inventory-manager"><a class="link" href="#pre-trip-inventory-manager">3.11. Pre-trip Inventory Manager</a></h3>
@@ -440,4 +615,4 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-16 15:23:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-16 15:44:51 UTC</div></div></div></body></html>
