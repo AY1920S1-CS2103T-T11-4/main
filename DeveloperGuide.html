@@ -176,13 +176,15 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>,
+<code>PersonListPanel</code>, <code>Page</code> etc. All these, including the <code>MainWindow</code>,
+inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component,</p>
+<p>Overall, the <code>UI</code> component,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -193,6 +195,43 @@ The following class plays an important role at the architecture level:</p>
 <p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
 </li>
 </ul>
+</div>
+<div class="sect3">
+<h4 id="page_api"><a class="link" href="#page_api">2.2.1. Page API</a></h4>
+<div class="paragraph">
+<p>The <code>Page</code> <code>UiPart</code>, as contained by <code>MainWindow</code>, is the key component that reflects the differences
+in the data displayed across different pages of the application.</p>
+</div>
+<div class="paragraph">
+<p>Each class extending <code>Page</code> is able to implement its various components and root JavaFX node types
+separately, allowing for much flexibility in terms of the different user interfaces of the pages.</p>
+</div>
+<div class="paragraph">
+<p>Due to its flexibility, the <code>Page</code> abstract class is mainly only responsible for :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Providing its child classes with the supporting
+instances of <code>Model</code> and <code>MainWindow</code> in order to,</p>
+<div class="ulist">
+<ul>
+<li>
+<p>populate the classes' components with data</p>
+</li>
+<li>
+<p>execute commands from the user interface, outside of the <code>CommandBox</code> (e.g. an <em>add</em> button).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Providing a way to execute any callback function (such as one to update display data),
+through use of the abstract method <code>fillPage</code>. The <code>fillPage</code> method is registered inside
+<code>MainWindow</code>, such that it runs after each command execution.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -687,17 +726,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>The photo manager pertains to components for storing, and displaying user specified photos on the disk.</p>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-of-photos"><a class="link" href="#aspect-logic-of-photos">3.5.1. Aspect : Logic of photos</a></h4>
-<div class="paragraph">
-<p>The logic for photo manager plays to the same page parser structure.</p>
-</div>
-<div class="paragraph">
-<p>Specifically, <code>DiaryParser</code> returns either <code>AddPhotoParser</code>, <code>DeletePhotoParser</code> when the appropriate command word is parsed.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="photo_model"><a class="link" href="#photo_model">3.5.2. Aspect : Model</a></h4>
-<div class="imageblock">
+<h4 id="photo_model"><a class="link" href="#photo_model">3.5.1. Aspect : Model</a></h4>
+<div id="diary_photo_model_class_diagram" class="imageblock">
 <div class="content">
 <img src="images/diary/DiaryPhotoModelClassDiagram.png" alt="DiaryPhotoModelClassDiagram">
 </div>
@@ -709,17 +739,19 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="paragraph">
 <p>It contains three key fields, that is, the <code>imagePath</code>, <code>description</code>, and <code>dateTaken</code> fields which are used to display key information of the image to the user.
-In addition, a JavaFX <code>Image</code> is also stored inside the photo, which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface.</p>
+The <code>imagePath</code> and <code>dateTaken</code> were implemented respectively with the robust java apis of <code>Path</code> and <code>LocalDateTime</code>, while <code>description</code> is simply a <code>String</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>imagePath</code> and <code>dateTaken</code> were implemented respectively with the robust java apis of <code>Path</code> and <code>LocalDateTime</code>, while <code>description</code> is simply a <code>String</code>.</p>
+<p>In addition, a JavaFX <code>Image</code> is also stored inside the photo (not shown in <a href="#diary_photo_model_class_diagram">[diary_photo_model_class_diagram]</a> for brevity),
+which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
+as the <code>Image</code> construction directly in the user interface involves costly I/O operations.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="photolist"><a class="link" href="#photolist">PhotoList</a></h5>
 <div class="paragraph">
 <p>On the other hand, the <code>Photo</code> models are contained within a <code>PhotoList</code>. It stores the photos in a JavaFX <code>ObservableList</code>,
-so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.5.3, &#8220;Aspect : User interface of photo manager&#8221;</a>)</p>
+so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.5.2, &#8220;Aspect : User interface of photo manager&#8221;</a>)</p>
 </div>
 <div class="paragraph">
 <p>It also supports several convenience wrapper methods around the underlying <code>ObservableList</code>, tailored for use for the logic components.</p>
@@ -757,10 +789,11 @@ Restrictions on fields during <code>Photo</code> instance construction:
 </div>
 </div>
 <div class="sect3">
-<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.5.3. Aspect : User interface of photo manager</a></h4>
+<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.5.2. Aspect : User interface of photo manager</a></h4>
 <div class="paragraph">
 <p>The main <code>UiPart</code> component that displays photos is the <code>DiaryGallery</code>.
-It abides by the <code>DiaryPage</code> implementation, and is thus contained within in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
+It abides by the <code>Page</code> implementation (see <a href="#page_api">Section 2.2.1, &#8220;Page API&#8221;</a>), and is thus contained within
+in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -781,14 +814,28 @@ Additionally, the index of the card as displayed in the <code>DiaryGallery</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#aspect-adding-photos-through-command-line-file-path-or-os-file-chooser">3.5.4. Aspect : Adding photos (through command line file path or os file chooser)</a></h4>
+<h4 id="aspect-logic-of-photos"><a class="link" href="#aspect-logic-of-photos">3.5.3. Aspect : Logic of photos</a></h4>
 <div class="paragraph">
-<p>Following <code>DiaryParser</code> returning an instance of <code>AddPhotoParser</code> that calls <code>parse()</code> on the user specified arguments, a number of operations happen, as per the UML activity diagram below.</p>
+<p>The logic for photo manager plays to the same <code>PageParser</code> structure of parsing commands, that is,
+<code>DiaryParser</code> returns either <code>AddPhotoParser</code>, <code>DeletePhotoParser</code> when the appropriate command word is parsed, which
+in turn returns instances of <code>AddPhotoCommand</code> and <code>DeletePhotoCommand</code> respectively.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Parsing the image file path <a id="adding_photo_diary_step_1"></a></p>
+<div class="sect4">
+<h5 id="aspect-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#aspect-adding-photos-through-command-line-file-path-or-os-file-chooser">Aspect : Adding photos (through command line file path or os file chooser)</a></h5>
+<div class="paragraph">
+<p>Following <code>DiaryParser</code> returning an instance of <code>AddPhotoParser</code> that calls <code>parse()</code> on the user specified arguments,
+a number of operations happen, as per the UML sequence diagram below (<a href="#AddPhotoParser parse sequence diagram">[AddPhotoParser parse sequence diagram]</a>). The specifics of <code>getFilePath</code>,
+<code>parseDescription</code>, <code>parseDateTime</code> are detailed further down below. ()</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/DiaryAddPhotoParser.png" alt="AddPhotoParser parse sequence diagram">
+</div>
+<div class="title">Figure 10. Sequence diagram of the parse method in AddPhotoParser</div>
+</div>
+<hr>
+<div class="sect5">
+<h6 id="adding_photo_diary_step_1"><a class="link" href="#adding_photo_diary_step_1">Parsing the image file path</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -804,44 +851,57 @@ as a valid image file.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Parsing the description</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram">
+</div>
+<div class="title">Figure 11. Activity diagram of getFilePath subroutine</div>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="parsing-the-description"><a class="link" href="#parsing-the-description">Parsing the description</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>Photo</code> instance with it. If validation of the description,
-as described in the <a href="#photo_model">Section 3.5.2, &#8220;Aspect : Model&#8221;</a> fails, then a ParseException is thrown.</p>
+<p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>Photo</code> instance with the specified input.
+If validation of the description, as described in the <a href="#photo_model">Section 3.5.1, &#8220;Aspect : Model&#8221;</a> fails, then a ParseException is thrown during the instance construction.</p>
 </li>
 <li>
-<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">[adding_photo_diary_step_1]</a> is used.</p>
+<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Section 3.5.3.1.1, &#8220;Parsing the image file path&#8221;</a> (truncated to match <code>Photo&#8217;s</code> description constraints) is used.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Parsing the date of the photo</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/AddPhotoParserParseDescriptionActivityDiagram.png" alt="AddPhotoParserParseDescriptionActivityDiagram">
+</div>
+<div class="title">Figure 12. Activity diagram of parseDescription subroutine</div>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="parsing-the-date-of-the-photo"><a class="link" href="#parsing-the-date-of-the-photo">Parsing the date of the photo</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the date time as per the app level date formats. A <code>ParseException</code> is automatically thrown in the case of
-date parsing failure, by <code>ParserDateUtil</code>.</p>
+<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the date time as per the app level date formats.
+A <code>ParseException</code> is automatically thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
 </li>
 <li>
-<p>Otherwise, the last modified date of the validate file from <a href="#adding_photo_diary_step_1">[adding_photo_diary_step_1]</a> is used.</p>
+<p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Section 3.5.3.1.1, &#8220;Parsing the image file path&#8221;</a> is used.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
+<hr>
+<div class="paragraph">
 <p>The <code>Photo</code> instance is then constructed, and passed to <code>AddPhotoCommand</code> which simply adds the <code>Photo</code> to the
 current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
-</li>
-</ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="aspect-deleting-photos"><a class="link" href="#aspect-deleting-photos">3.5.5. Aspect : Deleting photos</a></h4>
+</div>
+<div class="sect4">
+<h5 id="aspect-deleting-photos"><a class="link" href="#aspect-deleting-photos">Aspect : Deleting photos</a></h5>
 <div class="paragraph">
 <p>Following <code>DiaryParser</code> parsing the 'delphoto' command from the user, an instance of <code>DeletePhotoParser</code> is created, which parses the received arguments.</p>
 </div>
@@ -851,19 +911,20 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 <p>The <code>DeletePhotoParser</code> simply parses the arguments for a valid integer, failing which a <code>ParseException</code> is thrown.</p>
 </li>
 <li>
-<p>An instance of <code>DeletePhotoCommand</code> is returned, which attempts a delete operation on the current <code>PhotoList</code> of the <code>DiaryEntry</code> with the specified index. A <code>CommandException</code> is thrown
-to alert the user if the index was out of bounds.</p>
+<p>An instance of <code>DeletePhotoCommand</code> is returned, which attempts a delete operation on the current <code>PhotoList</code> of the
+<code>DiaryEntry</code> with the specified index. A <code>CommandException</code> is thrown to alert the user if the index was out of bounds.</p>
 </li>
 </ol>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.6. Design considerations</a></h4>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.4. Design considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 40%;">
+<col style="width: 11.1111%;">
+<col style="width: 44.4444%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
@@ -878,11 +939,11 @@ to alert the user if the index was out of bounds.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The first option is to implement the file path validation directly inside the <code>Photo</code> model.</p>
 <p class="tableblock">This would have enforced a stricter level of validation on the image file path throughout the code,
 if an instance of <code>Photo</code> needed to be instantiated somewhere else other than the <code>AddPhotoParser</code> for future use.</p>
-<p class="tableblock">However, since the storage model for <code>Photo</code>, that is - <code>JsonAdaptedPhoto</code>, initializes the model
+<p class="tableblock">However, since the storage model for <code>Photo</code> (which is <code>JsonAdaptedPhoto</code>), initializes the model
 through deserializing the saved file path, this would have led to needing to a separate constructor for <code>Photo</code>
-in the case that the file path was invalidated on app startup, to create a placeholder image.</p></td>
+in the case that the file path was invalidated on app startup in order to create a placeholder image.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The second, chosen option, was to implement the file path validation inside the parser itself.</p>
-<p class="tableblock">Although this option limited the validation to only the 'addphoto' command, it allows for leeway in
+<p class="tableblock">Although this option limited the validation to only the 'addphoto' command, it allowed for leeway in
 image path validation in other areas such as <code>JsonAdaptedPhoto</code>, where it is possible for deletion of an
 image file by the user, outside of the application, to invalidate the stored file path and erroneous data to be loaded on application start.</p>
 <p class="tableblock">Moreover, Since the function for parsing the image file can and was abstracted into a single utility function,
@@ -900,17 +961,19 @@ extensibility as the first option.</p></td>
 <p>The diary entry is capable of displaying text with inline images, or lines consisting of only images.</p>
 </div>
 <div class="paragraph">
-<p>There are two primary facets of input styles to this feature, one being one-shot commands that edits
-a part or the whole of the entry, and the other being the JavaFX text editor.</p>
+<p>There are two primary facets of input styles to this feature, one being commands that edits
+a part or the whole of the entry through the command line input, and the other being the JavaFX text editor.</p>
 </div>
 <div class="sect3">
 <h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.6.1. Aspect : Models</a></h4>
 <div class="paragraph">
-<p>The main model abstraction holding the data of an entry is the <code>DiaryEntry</code> class.<br>
-It stores three key fields, namely:<br>
+<p>The main model abstraction holding the data of an entry is the <code>DiaryEntry</code> class.<br></p>
+</div>
+<div class="paragraph">
+<p>It stores three key fields, namely:<br>
 1. An <code>Index</code> denoting the day the entry is for<br>
 2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.6.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
-3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.5.2, &#8220;Aspect : Model&#8221;</a>.</p>
+3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.5.1, &#8220;Aspect : Model&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DiaryEntry</code> models are contained within a <code>DiaryEntryList</code>, which enforces the uniqueness of the <code>Index</code> (denoting the day index)
@@ -927,7 +990,8 @@ of each <code>DiaryEntry</code>, and supports common list operations.</p>
 to be non final until the <code>done</code> command is executed, a separate buffer model, <code>EditDiaryEntryDescriptor</code>, was needed to store the edit information.</p>
 </div>
 <div class="paragraph">
-<p>It stores the same <code>PhotoList</code> and <code>Index</code> as the initial <code>DiaryEntry</code> it is constructed from, but the diary text references a different String.</p>
+<p>This buffer model stores the same <code>PhotoList</code> and <code>Index</code> as the initial <code>DiaryEntry</code> it is constructed from,
+but the diary text references a different String, that is, the buffered diary text String.</p>
 </div>
 </div>
 <div class="sect3">
@@ -940,17 +1004,15 @@ of its placeholders as a <code>UiPart</code>.</p>
 <div class="content">
 <img src="images/diary/DiaryUiClassDiagram.png" alt="DiaryUiClassDiagram">
 </div>
+<div class="title">Figure 13. Class diagram showing the user interface of the main diary entry text display</div>
 </div>
 <div class="paragraph">
 <p>In the diagram above, all parts and subparts of the composition of <code>DiaryPage</code> extend from <code>UiPart</code>, although not shown.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DiaryEntryDisplay</code> is the component responsible for displaying the content of the <code>DiaryEntry</code> model.
-Internally, it uses a JavaFX <code>ListView&lt;CharSequence&gt;</code> with a custom cell factory that returns <code>DiaryTextLineCell</code>, which uses
-<code>DiaryLine</code> as its graphic.</p>
-</div>
-<div class="paragraph">
-<p><code>DiaryTextLineCell</code></p>
+Internally, it uses a JavaFX <code>ListView&lt;CharSequence&gt;</code> with a custom cell factory that
+returns <code>DiaryTextLineCell</code> (as detailed in <a href="#DiaryTextLineCell_details">Section 3.6.2.1.3, &#8220;Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code>&#8221;</a>), which uses the <code>DiaryLine</code> <code>UiPart</code> as its graphic.</p>
 </div>
 <div class="sect4">
 <h5 id="diary-entry-parsing"><a class="link" href="#diary-entry-parsing">Entry text parsing</a></h5>
@@ -958,27 +1020,18 @@ Internally, it uses a JavaFX <code>ListView&lt;CharSequence&gt;</code> with a cu
 <p>In both facets of input styles, special entry text parsing is required to display the various formats of lines, and
 dynamic text updates that occur when the text in the text editor is changed should propagate to the display immediately.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/diary/DiaryEntryParsing.png" alt="DiaryEntryParsing">
-</div>
-</div>
 <div class="paragraph">
 <p>To accomplish this, the internal <code>ListView</code> is set to observe the paragraphs of the <code>DiaryEditBox</code>, which is done in the
 constructor of <code>DiaryEntryDisplay</code> in the initialisation of <code>DiaryPage</code>.</p>
 </div>
 <div class="paragraph">
-<p>The two facets of inputs dictate two separate ways the paragraphs can change.</p>
+<p>The two facets of inputs dictate <em>two separate ways the paragraphs can change</em>.</p>
 </div>
 <div class="sect5">
 <h6 id="1-changes-as-a-result-of-edits-by-the-user-in-the-text-edit-box"><a class="link" href="#1-changes-as-a-result-of-edits-by-the-user-in-the-text-edit-box">1. Changes as a result of edits by the user in the text edit box</a></h6>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The edits to the <code>TextArea</code> input in <code>DiaryEditBox</code> are immediately propagated to the observable paragraphs, since the
+<div class="paragraph">
+<p>In this case, the edits to the <code>TextArea</code> input in <code>DiaryEditBox</code> are immediately propagated to the observable paragraphs, since the
 <code>ListView</code> was set to observe the same list provided by <code>DiaryEditBox</code>.</p>
-</li>
-</ol>
 </div>
 </div>
 <div class="sect5">
@@ -987,24 +1040,28 @@ constructor of <code>DiaryEntryDisplay</code> in the initialisation of <code>Dia
 <div class="content">
 <img src="images/diary/DiaryFillPageCallbackTrimmed.png" alt="DiaryFillPageCallbackTrimmed">
 </div>
-<div class="title">Figure 10. Sequence diagram of updating of DiaryPage UI post command execution</div>
+<div class="title">Figure 14. Sequence diagram of updating of DiaryPage UI post command execution</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>The <code>model</code> is updated, depending on whether the edit box is currently shown to the user.<br>
-1.1. The edited but uncommitted text stored in the current <code>EditDiaryEntryDescriptor</code> will be updated if the edit box is shown. (branch 2 <a href="#DiaryPageFillPage">Figure 10, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
-1.2. Otherwise, the current <code>DiaryEntry</code> in the <code>PageStatus</code> of the <code>model</code> is updated immediately. (branch 1 in the <a href="#DiaryPageFillPage">Figure 10, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
+1.1. The edited but uncommitted text stored in the current <code>EditDiaryEntryDescriptor</code> will be updated
+if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 14, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
+1.2. Otherwise, the current <code>DiaryEntry</code> in the <code>PageStatus</code> of the <code>model</code> is updated immediately.
+(first branch in the diagram <a href="#DiaryPageFillPage">Figure 14, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
 </li>
 <li>
-<p>The text in the <code>DiaryEntryEditBox</code> is then updated with the updated <code>model</code> in the <code>fillPage</code> callback function executed by <code>MainWindow</code> as per
-the <code>Page</code> api, resulting in the changes reflecting in the observable paragraphs.</p>
+<p>The text in the <code>DiaryEntryEditBox</code> is then refreshed with the updated <code>model</code> in the <code>fillPage</code>
+callback function executed by <code>MainWindow</code> (as per the <code>Page</code> api), resulting in the changes
+reflecting in the observable paragraphs.</p>
 </li>
 </ol>
 </div>
+<hr>
 </div>
 <div class="sect5">
-<h6 id="graphic-of-code-listview-code-cells-in-code-diaryentrydisplay-code"><a class="link" href="#graphic-of-code-listview-code-cells-in-code-diaryentrydisplay-code">Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code></a></h6>
+<h6 id="DiaryTextLineCell_details"><a class="link" href="#DiaryTextLineCell_details">Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code></a></h6>
 <div class="paragraph">
 <p>The <code>ListView</code> of <code>DiaryEntryDisplay</code> uses a custom cell factory and cell implementation, that is, <code>DiaryTextLineCell</code>.</p>
 </div>
@@ -1013,7 +1070,8 @@ the <code>Page</code> api, resulting in the changes reflecting in the observable
 </div>
 <div class="paragraph">
 <p>The parsing is done in the inner class <code>DiaryTextLineCell</code> based on the text line received, using a
-customised regex pattern, creating new instances of <code>DiaryLines</code> based on the parsed input.</p>
+customised regex pattern. <code>DiaryTextLineCell</code> then creates new instances of <code>DiaryLines</code>
+based on the parsed input, setting them as the <code>graphic</code> for the <code>ListCell</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1023,7 +1081,7 @@ customised regex pattern, creating new instances of <code>DiaryLines</code> base
 </td>
 <td class="content">
 For <code>DiaryLines</code> with photos, the parsing process uses the photoList as set in the <code>DiaryPage&#8217;s</code>
-<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 10, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
+<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 14, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
 </td>
 </tr>
 </table>
@@ -1054,10 +1112,10 @@ multimedia and text to the user, which puts considerable strain on the system th
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 28.5714%;">
-<col style="width: 28.5714%;">
-<col style="width: 28.5715%;">
+<col style="width: 7.6923%;">
+<col style="width: 30.7692%;">
+<col style="width: 30.7692%;">
+<col style="width: 30.7693%;">
 </colgroup>
 <thead>
 <tr>
@@ -1085,26 +1143,30 @@ the <code>ObservableList</code>, allowing the <code>ListView</code> to only upda
 edited only a specific line of text inside the <code>DiaryEntry model</code> pertaining to the edited text paragraph.<br>
 Subsequent iterations of development and testing showed that this erased the performance benefit of implementing the observable list,
 presumably due to the overhead of firing commands whenever the text in the <code>DiaryEntryEditBox</code> changed.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chosen option</strong>
-Another option was to set the <code>ListView</code> to only observe <code>ObservableList</code> of paragraphs already provided by the <code>TextArea</code> JavaFX component
-located in <code>DiaryEntryEditBox</code>.</p>
-<p class="tableblock">Edits to the paragraphs in the <code>DiaryEntryEditBox</code> would be directly reflected in the <code>DiaryEntryDisplay</code>.</p>
-<p class="tableblock">On the other hand, edits using commands would reflect in the UI through setting the text of the <code>DiaryEntryEditBox</code>.</p>
-<p class="tableblock">A hybrid solution built upon <strong>alternatives 2 and 3</strong> was also proposed, in that two <code>DiaryEntryDisplay</code> s would be maintained, one observing the <code>DiaryEntryEditBox</code>
-and the other observing the <code>DiaryEntry model</code>. However, this also proved to be costly, as it required maintaining two list views
-in memory, and loading them into the JavaFX node tree, also causing a noticeable delay when switching to and fro the <code>DiaryEntryEditBox</code>.</p>
-<p class="tableblock">Having considered the performance impacts of <strong>alternatives 1 and 2</strong>, and the desired specifications of the application, the chosen solution was <strong>alternative 3</strong>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last, <strong>chosen</strong> option was to set the <code>ListView</code> to only observe <code>ObservableList</code> of paragraphs already
+provided by the <code>TextArea</code> JavaFX component located in <code>DiaryEntryEditBox</code>.</p>
+<p class="tableblock">Edits to the paragraphs in the <code>DiaryEntryEditBox</code> would be directly reflected in the
+<code>DiaryEntryDisplay</code>.</p>
+<p class="tableblock">On the other hand, edits using commands would reflect in the UI through setting the text
+of the <code>DiaryEntryEditBox</code>.</p>
+<p class="tableblock">A hybrid solution built upon <strong>alternatives 2 and 3</strong> was also proposed, in that two
+<code>DiaryEntryDisplay</code> s would be maintained, one observing the <code>DiaryEntryEditBox</code>
+and the other observing the <code>DiaryEntry model</code>. However, this also proved to be costly, as it
+required maintaining two list views in memory. Moreover, the two <code>ListViews</code> would have to be
+alternated into and out of the JavaFX node tree whenever the user switched to and
+fro the <code>DiaryEntryEditBox</code>, causing a noticeable delay.</p>
+<p class="tableblock">Having considered the performance impacts of <strong>alternatives 1 and 2</strong>, and the desired
+specifications of the application, the chosen solution was <strong>alternative 3</strong>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation / Composition of <code>DiaryEntryDisplay</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High level composition of <code>DiaryEntryDisplay</code> component</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The first solution to was to make <code>DiaryEntryDisplay</code> hold a JavaFX <code>TextFlow</code> component, which
 supports displaying images alongside text.</p>
 <p class="tableblock">Although it supports various apis to format and position text, displaying multimedia with it required
 complex parsing logic of the <code>DiaryEntry</code> text to achieve desired positioning.</p>
 <p class="tableblock">Moreover, the parsing would be re run on the entire text of the <code>DiaryEntry</code> for any form of user input,
 posing a clear performance downside.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chosen option</strong></p>
-<p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">[diary-entry-ui-class-diagram]</a>)</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second, <strong>chosen</strong> solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 13, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
 <p class="tableblock">On one hand, this increases extensibility, as the the graphic of a <code>ListViewCell</code> (<code>DiaryTextLineCell</code>) is not fixed.
 This allows <em>building other variants of diary lines easily</em>, such as a diary line containing a playable audio file.</p>
 <p class="tableblock">Secondly, <code>ListViews</code> render only the visible cells on the screen. Apart from the reducing the amount of nodes loaded
@@ -1904,4 +1966,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 03:01:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 12:08:58 UTC</div></div></div></body></html>
