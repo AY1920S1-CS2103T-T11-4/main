@@ -22,12 +22,14 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#diary-photo-manager">3.3. [Diary] Photo Manager</a></li>
-<li><a href="#diary-diary-entry-text-editing">3.4. [Diary] Diary Entry Text Editing</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#itinerary-edit-trip-day-event-feature">3.1. [Itinerary] Edit trip/day/event feature</a></li>
+<li><a href="#itinerary-delete-trip-day-event">3.2. [Itinerary] Delete Trip/Day/Event</a></li>
+<li><a href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#diary-photo-manager">3.5. [Diary] Photo Manager</a></li>
+<li><a href="#diary-diary-entry-text-editing">3.6. [Diary] Diary Entry Text Editing</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -331,9 +333,138 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="itinerary-edit-trip-day-event-feature"><a class="link" href="#itinerary-edit-trip-day-event-feature">3.1. [Itinerary] Edit trip/day/event feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<div class="paragraph">
+<p>Editing of trip/day/event can be accessed from <code>TripsPage/DaysPage/EventsPage</code> respectively. The
+The execution of commands in the each page is facilitated by <code>TripManagerParser/DayViewParser/EventViewParser</code> and respectively.
+They extends from <code>PageParser</code> class which serves as the abstraction for all parsers related to each <em>Page</em>.</p>
+</div>
+<div class="paragraph">
+<p>The operations are exposed to the <code>Model</code> interface through the <code>Model#getPageStatus()</code>
+method that returns the <code>PageStatus</code> containing the current state of application.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the program behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. When the user launches the application. The <code>PageStatus</code> is initialized under along with other <code>Model</code> components. <code>PageStatus</code> at launch does not contain any <code>EditTripDescriptor/EditDayDescriptor/EditEventDescriptor</code> responsible for storing information for the edit.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryEdit0.png" alt="ItineraryEdit0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user currently on the <code>TripsPage/DaysPage/EventsPage</code> is displayed a list of <code>Trip/Day/Event</code> respectively. The user executes the edit command <code>EDIT1</code> using the <code>OneBasedIndex</code> on the list to edit it.This executes the <code>EnterEditTripFieldCommand/EnterEditDayFieldCommand/EnterEditEventFieldCommand</code> that initializes a new descriptor within <code>PageStatus</code> before switching over to the <code>EditTripPage/EditDayPage/EditEventPage</code> containing to perform the editing.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryEdit1.png" alt="ItineraryEdit1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user is now on the edit page displaying a list of fields that the user can edit in the <code>Trip/Day/Event</code>.
+The following is an example list of commands available in <code>DaysPage</code> and the execution of the program when a field is edited in <code>DaysPage</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit n/&lt;name&gt; ds/&lt;startDate&gt; de/&lt;endDate&gt; b/&lt;totalBudget&gt; l/&lt;destination&gt; d/&lt;description&gt;</code> - Edits the relevant fields</p>
+</li>
+<li>
+<p><code>done</code> - Completes the edit and returns to the <em>Overall View</em></p>
+</li>
+<li>
+<p><code>cancel</code> - Discards the edit and returns to the <em>Overall View</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The user executes the command <code>edit n/EditedName</code> on the <code>DaysPage</code>. The command creates a new descriptor from the contents of the original, replacing the fields only if they are edited. The new descriptor is then assigned to <code>PageStatus</code> replacing the original <code>EditDayDescriptor</code>. The result of the edit is then displayed to the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryEdit2.png" alt="ItineraryEdit2">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The user has completed editing the <code>Trip/Day/Event</code> and executes <code>done</code>/<code>cancel</code> to confirm/discard the edit. The execution of the two cases are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The user executes <code>done</code> to confirm the edit. This executes the <code>DoneEditTripCommand/DoneEditDayCommand/DoneEditEventCommand</code> and a <code>Trip/Day/Event</code> is built from the descriptor respective to the type it describes. <code>DayList#set(target, edited)</code> proceeds to be executed which accesses the <code>Day</code> to edit from the <code>day</code> field in <code>PageStatus</code> as the target. The method replaces the original day with the newly built day from the descriptor. The descriptor in <code>PageStatus</code> is then reset to contain empty fields.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryEdit3.png" alt="ItineraryEdit3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The User executes <code>cancel</code> to discard the edit. This executes the <code>CancelEditTripCommand/CancelEditDayCommand/CancelEditEventCommand</code> which resets the descriptor in <code>PageStatus</code> to contain all empty fields.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryEdit4.png" alt="ItineraryEdit4">
+</div>
+</div>
+<div class="paragraph">
+<p>Upon completion of the edit, the user is returned to the <code>TripPage/DaysPage/EventsPage</code> depending on where the user entered the edit page from.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="itinerary-delete-trip-day-event"><a class="link" href="#itinerary-delete-trip-day-event">3.2. [Itinerary] Delete Trip/Day/Event</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>Deletion of <code>Trip/Day/Event</code> is facilitated by <code>PageStatus</code>. <code>PageStatus</code> stores the current state of execution of the user program.
+Upon initial startup of the program <code>Model</code> is initialized with <code>PageStatus</code> with the <code>PageType</code> set to enum <code>PageType#TRIP_MANAGER</code>. This indicates the current page displayed to the user. <code>PageStatus</code> is initialized with empty references to the <code>Trip/Day/Event</code> the user executes an action for.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. When the user launches the application. <code>PageStatus</code> is initialized along with other <code>Model</code> components with empty references.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryDelete0.png" alt="ItineraryDelete0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters the <code>DaysPage/EventsPage</code> using the goto command. This instantiates a new <code>PageStatus</code> object from the the existing <code>PageStatus</code> with a modified <code>Day/Trip</code>, providing the context for subsequent actions. Below is an example execution of the command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryDelete1.png" alt="ItineraryDelete1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user is now on the <code>TripManager/DaysPage/EventsPage</code>, the user can execute the <code>delete</code> command in accordance to the display ordered index on any of the aforementioned pages.</p>
+</div>
+<div class="paragraph">
+<p>When the command <code>delete &lt;index&gt;</code> is executed, <code>DeleteTripCommand/DeleteDayCommand/DeleteEventCommand</code> is executed. This command accesses <code>Trip/Day</code> reference in <code>PageStatus</code> assigned by the previous step. (Note: deleting <code>Trips</code> do not require <code>PageStatus</code>, it being directly accessible to <code>Model</code> using <code>TripList</code> accessors).</p>
+</div>
+<div class="paragraph">
+<p>The <code>Day/Trip</code> reference contains the list of <code>Events/Days</code> in memory respectively (<code>DayList/EventList</code>). <code>DayList#remove/EventList#remove</code> are methods in the respective list classes used to delete the day/event. These are executed, modifying the in memory <code>TravelPal</code> and <code>Trip/Event/Day</code> is removed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ItineraryDelete2.png" alt="ItineraryDelete2">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -475,7 +606,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -545,18 +676,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">3.3. [Diary] Photo Manager</a></h3>
+<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">3.5. [Diary] Photo Manager</a></h3>
 <div class="paragraph">
 <p>The photo manager pertains to components for storing, and displaying user specified photos on the disk.</p>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-of-photos"><a class="link" href="#aspect-logic-of-photos">3.3.1. Aspect : Logic of photos</a></h4>
+<h4 id="aspect-logic-of-photos"><a class="link" href="#aspect-logic-of-photos">3.5.1. Aspect : Logic of photos</a></h4>
 <div class="paragraph">
 <p>The logic for photo manager plays to the same page parser structure.</p>
 </div>
@@ -565,7 +696,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="photo_model"><a class="link" href="#photo_model">3.3.2. Aspect : Model</a></h4>
+<h4 id="photo_model"><a class="link" href="#photo_model">3.5.2. Aspect : Model</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/diary/DiaryPhotoModelClassDiagram.png" alt="DiaryPhotoModelClassDiagram">
@@ -588,7 +719,7 @@ In addition, a JavaFX <code>Image</code> is also stored inside the photo, which 
 <h5 id="photolist"><a class="link" href="#photolist">PhotoList</a></h5>
 <div class="paragraph">
 <p>On the other hand, the <code>Photo</code> models are contained within a <code>PhotoList</code>. It stores the photos in a JavaFX <code>ObservableList</code>,
-so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.3.3, &#8220;Aspect : User interface of photo manager&#8221;</a>)</p>
+so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.5.3, &#8220;Aspect : User interface of photo manager&#8221;</a>)</p>
 </div>
 <div class="paragraph">
 <p>It also supports several convenience wrapper methods around the underlying <code>ObservableList</code>, tailored for use for the logic components.</p>
@@ -626,7 +757,7 @@ Restrictions on fields during <code>Photo</code> instance construction:
 </div>
 </div>
 <div class="sect3">
-<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.3.3. Aspect : User interface of photo manager</a></h4>
+<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.5.3. Aspect : User interface of photo manager</a></h4>
 <div class="paragraph">
 <p>The main <code>UiPart</code> component that displays photos is the <code>DiaryGallery</code>.
 It abides by the <code>DiaryPage</code> implementation, and is thus contained within in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
@@ -650,7 +781,7 @@ Additionally, the index of the card as displayed in the <code>DiaryGallery</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#aspect-adding-photos-through-command-line-file-path-or-os-file-chooser">3.3.4. Aspect : Adding photos (through command line file path or os file chooser)</a></h4>
+<h4 id="aspect-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#aspect-adding-photos-through-command-line-file-path-or-os-file-chooser">3.5.4. Aspect : Adding photos (through command line file path or os file chooser)</a></h4>
 <div class="paragraph">
 <p>Following <code>DiaryParser</code> returning an instance of <code>AddPhotoParser</code> that calls <code>parse()</code> on the user specified arguments, a number of operations happen, as per the UML activity diagram below.</p>
 </div>
@@ -680,7 +811,7 @@ as a valid image file.</p>
 <ul>
 <li>
 <p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>Photo</code> instance with it. If validation of the description,
-as described in the <a href="#photo_model">Section 3.3.2, &#8220;Aspect : Model&#8221;</a> fails, then a ParseException is thrown.</p>
+as described in the <a href="#photo_model">Section 3.5.2, &#8220;Aspect : Model&#8221;</a> fails, then a ParseException is thrown.</p>
 </li>
 <li>
 <p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">[adding_photo_diary_step_1]</a> is used.</p>
@@ -710,7 +841,7 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-deleting-photos"><a class="link" href="#aspect-deleting-photos">3.3.5. Aspect : Deleting photos</a></h4>
+<h4 id="aspect-deleting-photos"><a class="link" href="#aspect-deleting-photos">3.5.5. Aspect : Deleting photos</a></h4>
 <div class="paragraph">
 <p>Following <code>DiaryParser</code> parsing the 'delphoto' command from the user, an instance of <code>DeletePhotoParser</code> is created, which parses the received arguments.</p>
 </div>
@@ -727,7 +858,7 @@ to alert the user if the index was out of bounds.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.6. Design considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.6. Design considerations</a></h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -764,7 +895,7 @@ extensibility as the first option.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-diary-entry-text-editing"><a class="link" href="#diary-diary-entry-text-editing">3.4. [Diary] Diary Entry Text Editing</a></h3>
+<h3 id="diary-diary-entry-text-editing"><a class="link" href="#diary-diary-entry-text-editing">3.6. [Diary] Diary Entry Text Editing</a></h3>
 <div class="paragraph">
 <p>The diary entry is capable of displaying text with inline images, or lines consisting of only images.</p>
 </div>
@@ -773,13 +904,13 @@ extensibility as the first option.</p></td>
 a part or the whole of the entry, and the other being the JavaFX text editor.</p>
 </div>
 <div class="sect3">
-<h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.4.1. Aspect : Models</a></h4>
+<h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.6.1. Aspect : Models</a></h4>
 <div class="paragraph">
 <p>The main model abstraction holding the data of an entry is the <code>DiaryEntry</code> class.<br>
 It stores three key fields, namely:<br>
 1. An <code>Index</code> denoting the day the entry is for<br>
-2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.4.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
-3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.3.2, &#8220;Aspect : Model&#8221;</a>.</p>
+2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.6.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
+3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.5.2, &#8220;Aspect : Model&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DiaryEntry</code> models are contained within a <code>DiaryEntryList</code>, which enforces the uniqueness of the <code>Index</code> (denoting the day index)
@@ -800,7 +931,7 @@ to be non final until the <code>done</code> command is executed, a separate buff
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.4.2. Aspect : User interface</a></h4>
+<h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.6.2. Aspect : User interface</a></h4>
 <div class="paragraph">
 <p>The diary entry UI abides by the <code>DiaryPage</code> implementation, and is thus contained within in one
 of its placeholders as a <code>UiPart</code>.</p>
@@ -901,7 +1032,7 @@ For <code>DiaryLines</code> with photos, the parsing process uses the photoList 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.3. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.3. Design considerations</a></h4>
 <div class="paragraph">
 <p>Numerous design decisions and comprimised had to be made due to the desired specifications of text editing and displaying.<br>
 Specifically, the following had to be achieved :</p>
@@ -944,7 +1075,7 @@ with the new text after each command execution.</p>
 <p class="tableblock">However, this implies updating all <code>DiaryLineTextCell</code> inside the list view after each command execution, which puts a clear
 burden on the system, and defeats the intended way <code>ListView</code> is to be used (as specified in JavaFX documentation).</p>
 <p class="tableblock"><strong>Alternative 2</strong> attempts to solve this performance bottleneck.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second option, was to implement the diary text in <code>DiaryEntry model</code> (see <a href="#diary_text_editing_model">Section 3.4.1, &#8220;Aspect : Models&#8221;</a>) using an <code>ObservableList</code> of
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second option, was to implement the diary text in <code>DiaryEntry model</code> (see <a href="#diary_text_editing_model">Section 3.6.1, &#8220;Aspect : Models&#8221;</a>) using an <code>ObservableList</code> of
 strings. The <code>ListView</code> would then be set to observe this list, and when the current entry changed, a new <code>DiaryEntryDisplay</code>
 would be created (as <code>ListView</code> does not support changing the <code>ObservableList</code> instance after setting it).</p>
 <p class="tableblock">For user commands, this solves the problem posed by <strong>alternative 1</strong>, since user commands can make edits only where needed in
@@ -986,14 +1117,14 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1024,7 +1155,7 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1773,4 +1904,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:24:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 03:01:05 UTC</div></div></div></body></html>
