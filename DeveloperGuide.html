@@ -757,18 +757,8 @@ so that changes are registered with the user interface. (see <a href="#photo_man
 <p>It also supports several convenience wrapper methods around the underlying <code>ObservableList</code>, tailored for use for the logic components.</p>
 </div>
 <hr>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Restrictions on fields during <code>Photo</code> instance construction:
-</td>
-</tr>
-</table>
-</div>
+<div class="sect5">
+<h6 id="restrictions-on-fields-during-code-photo-code-instance-construction"><a class="link" href="#restrictions-on-fields-during-code-photo-code-instance-construction">Restrictions on fields during <code>Photo</code> instance construction:</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -785,6 +775,7 @@ Restrictions on fields during <code>Photo</code> instance construction:
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -983,6 +974,7 @@ of each <code>DiaryEntry</code>, and supports common list operations.</p>
 <div class="content">
 <img src="images/diary/DiaryModelClassDiagram.png" alt="DiaryModelClassDiagram">
 </div>
+<div class="title">Figure 13. Class diagram of the models used in diary text editing</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1004,10 +996,19 @@ of its placeholders as a <code>UiPart</code>.</p>
 <div class="content">
 <img src="images/diary/DiaryUiClassDiagram.png" alt="DiaryUiClassDiagram">
 </div>
-<div class="title">Figure 13. Class diagram showing the user interface of the main diary entry text display</div>
+<div class="title">Figure 14. Class diagram showing the user interface of the main diary entry text display</div>
 </div>
-<div class="paragraph">
-<p>In the diagram above, all parts and subparts of the composition of <code>DiaryPage</code> extend from <code>UiPart</code>, although not shown.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the diagram above, all parts and subparts of the composition of <code>DiaryPage</code> extend from <code>UiPart</code>, although not shown.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The <code>DiaryEntryDisplay</code> is the component responsible for displaying the content of the <code>DiaryEntry</code> model.
@@ -1040,16 +1041,16 @@ constructor of <code>DiaryEntryDisplay</code> in the initialisation of <code>Dia
 <div class="content">
 <img src="images/diary/DiaryFillPageCallbackTrimmed.png" alt="DiaryFillPageCallbackTrimmed">
 </div>
-<div class="title">Figure 14. Sequence diagram of updating of DiaryPage UI post command execution</div>
+<div class="title">Figure 15. Sequence diagram of updating of DiaryPage UI post command execution</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>The <code>model</code> is updated, depending on whether the edit box is currently shown to the user.<br>
 1.1. The edited but uncommitted text stored in the current <code>EditDiaryEntryDescriptor</code> will be updated
-if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 14, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
+if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 15, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
 1.2. Otherwise, the current <code>DiaryEntry</code> in the <code>PageStatus</code> of the <code>model</code> is updated immediately.
-(first branch in the diagram <a href="#DiaryPageFillPage">Figure 14, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
+(first branch in the diagram <a href="#DiaryPageFillPage">Figure 15, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
 </li>
 <li>
 <p>The text in the <code>DiaryEntryEditBox</code> is then refreshed with the updated <code>model</code> in the <code>fillPage</code>
@@ -1081,7 +1082,7 @@ based on the parsed input, setting them as the <code>graphic</code> for the <cod
 </td>
 <td class="content">
 For <code>DiaryLines</code> with photos, the parsing process uses the photoList as set in the <code>DiaryPage&#8217;s</code>
-<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 14, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
+<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 15, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
 </td>
 </tr>
 </table>
@@ -1122,7 +1123,7 @@ multimedia and text to the user, which puts considerable strain on the system th
 <th class="tableblock halign-left valign-top">Aspect</th>
 <th class="tableblock halign-left valign-top">Alternative 1</th>
 <th class="tableblock halign-left valign-top">Alternative 2</th>
-<th class="tableblock halign-left valign-top">Alternative 3</th>
+<th class="tableblock halign-left valign-top">Chosen option</th>
 </tr>
 </thead>
 <tbody>
@@ -1143,7 +1144,7 @@ the <code>ObservableList</code>, allowing the <code>ListView</code> to only upda
 edited only a specific line of text inside the <code>DiaryEntry model</code> pertaining to the edited text paragraph.<br>
 Subsequent iterations of development and testing showed that this erased the performance benefit of implementing the observable list,
 presumably due to the overhead of firing commands whenever the text in the <code>DiaryEntryEditBox</code> changed.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The last, <strong>chosen</strong> option was to set the <code>ListView</code> to only observe <code>ObservableList</code> of paragraphs already
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last option was to set the <code>ListView</code> to only observe <code>ObservableList</code> of paragraphs already
 provided by the <code>TextArea</code> JavaFX component located in <code>DiaryEntryEditBox</code>.</p>
 <p class="tableblock">Edits to the paragraphs in the <code>DiaryEntryEditBox</code> would be directly reflected in the
 <code>DiaryEntryDisplay</code>.</p>
@@ -1166,13 +1167,13 @@ supports displaying images alongside text.</p>
 complex parsing logic of the <code>DiaryEntry</code> text to achieve desired positioning.</p>
 <p class="tableblock">Moreover, the parsing would be re run on the entire text of the <code>DiaryEntry</code> for any form of user input,
 posing a clear performance downside.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second, <strong>chosen</strong> solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 13, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 14, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
 <p class="tableblock">On one hand, this increases extensibility, as the the graphic of a <code>ListViewCell</code> (<code>DiaryTextLineCell</code>) is not fixed.
 This allows <em>building other variants of diary lines easily</em>, such as a diary line containing a playable audio file.</p>
 <p class="tableblock">Secondly, <code>ListViews</code> render only the visible cells on the screen. Apart from the reducing the amount of nodes loaded
 in the JavaFX scene graph, it also allows running the parsing logic on only parts (paragraphs) of the text in the <code>DiaryEntry</code> model.
 This results in a considerable performance benefit.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 </tbody>
 </table>
@@ -1966,4 +1967,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 11:54:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 15:01:16 UTC</div></div></div></body></html>

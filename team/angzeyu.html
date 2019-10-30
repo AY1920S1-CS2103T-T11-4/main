@@ -1,0 +1,687 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ang Ze Yu - Project Portfolio for TravelPal</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TravelPal</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ang Ze Yu - Project Portfolio for <em>TravelPal</em></h1></div><div id="content"><div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My team and I were tasked with enhancing, or morphing an existing <em>address book</em> application, built on JavaFX, for our software engineering
+project.</p>
+</div>
+<div class="paragraph">
+<p>We chose the latter, which&#8217;s end end product was <em>TravelPal</em>,  a desktop travelling companion application catered
+for leisure travellers. This application allows travellers to manage their travelling itinerary, bookings, expenses and inventory
+conveniently in one place, while also providing various other features catered to leisure travellers.</p>
+</div>
+<div class="paragraph">
+<p>As per the constraint given to us in developing this project, the user interacts with <em>TravelPal</em> mainly using a command line interface (CLI),
+although it has user interface alternatives for most of its operations.</p>
+</div>
+<div class="paragraph">
+<p>My main role was to develop the <strong>diary</strong> feature, which allows the user to store and edit memorable details of their
+trip with both multimedia and text.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Main contribution</strong>: added the <strong>diary</strong> feature.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/welcome_to_diary_image.png" alt="welcome to diary image">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Overall, this feature allows the user to key in memorable details of his / her travels, and store multimedia such
+as photos of the trip, displayed in a user friendly and eye-catching format.</p>
+</li>
+<li>
+<p>Justification: Leisure travellers often want to reminisce on previous trips they have made long after the trip,
+or share its details with friends and loved ones.</p>
+</li>
+<li>
+<p>Highlights: Due to the large amounts of displayable multimedia, the user interface of this feature was most
+challenging to implement, requiring much analysis and consideration
+in striking a balance between code performance and organization.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Second Main Contribution</strong>: Base <em>address book</em> code refactor</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What: Refactored all of the <code>logic</code> code component of the base <em>address book</em> code for common use in <em>TravelPal</em>,
+along with several <code>ui</code> components.</p>
+</li>
+<li>
+<p>Justification: Although the code base given to us was extensive, many of the common functionality we had in mind for
+<em>TravelPal</em>, such as the ability to switch between pages of the application, was not immediately implementable from <em>address book</em>.</p>
+</li>
+<li>
+<p>Highlights: In considering the common functionality needed by the team, it was challenging to find solutions to
+build upon the existing code rather than make intrusive code changes. Given the limited time frame of our project, it was crucial that
+we utilised much of the existing code to speed our development process.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Third Main Contribution</strong>: Implemented the base trip manager and preferences screens</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What: The trip manager allows the user to create and delete trips, and serves as the entry point into a single trip&#8217;s
+sub-features. The preferences screen allows the user to change several configuration options in the application without having to go into the
+<code>json</code> text configuration file to edit it.
+other sub-features.</p>
+</li>
+<li>
+<p>Justification: These were common features required before the team commence on developing their own sub-features. Moreover,
+having the ability to edit configurations in the application saves the user from having to go manually edit the configuration files
+on their system manually, which can be daunting.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pulls?q=is%3Apr+author%3Aang-zeyu+is%3Aclosed">Functional code</a>] [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pulls?q=is%3Apr+author%3Aang-zeyu+is%3Aclosed">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Idea generation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>contributed main idea of <em>TravelPal</em> and its various sub-features (itinerary, diary, expenses, etc.) during project
+inception, which the team agreed upon. (see <a href="https://docs.google.com/document/d/1mKmIZghbtYwgSWdDTiRQDLdXjKNhjuys8uSO8Y6McyI/edit">travelpal idea generation google docs</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1</code> - <code>v1.21</code> (3 releases) on GitHub: <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/releases">releases</a></p>
+</li>
+<li>
+<p>Maintained issue tracker for milestones <code>1.1</code> through <code>1.3</code> <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/issues?q=is%3Aissue+is%3Aclosed">issues</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up several continuous integration services (appveyor, coveralls)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below is one of the sections I contributed to the User Guide, on the <code>addphoto</code> command of the <strong>diary</strong> feature. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="diary_addphoto_command"><a class="link" href="#diary_addphoto_command">Adding a photo</a></h5>
+<div class="paragraph">
+<p>If you have just created a fresh diary entry, and you&#8217;re wondering where to go next, then you
+may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">[diary_gallery_display]</a>).</p>
+</div>
+<div class="paragraph">
+<p>Here, there are up to 3 options for you to choose, the last option being the least flexible but also the fastest, if
+you are more comfortable with the using the user interface than the command line input.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-addphoto-code-command-with-the-code-fp-code-prefix"><a class="link" href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Typing in the command <code>addphoto fp/&lt;file path&gt; [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the
+arguments described below, will add the image file located at the specified file
+path on your computer to the gallery display.</p>
+</li>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;file path&gt;</code> - Relative file path from the location of the <em>TravelPal&#8217;s</em> jar file, or an absolute file path.</p>
+</li>
+<li>
+<p><code>&lt;description&gt;</code> (optional) - The description of the photo to be shown in the gallery, of maximum length 20.
+If left unspecified, the file name, truncated to the maximum length is used instead.</p>
+</li>
+<li>
+<p><code>&lt;date taken&gt;</code> (optional) - The date taken of the photo, of the format d/M/yyyy HHmm.
+If left unspecified, the last modified date of the file is used instead.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage"><a class="link" href="#example-usage">Example Usage</a></h6>
+<div class="paragraph">
+<p>Scenario:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You are currently viewing the diary entry for day 1, which is empty, and you want to add a new photo.</p>
+</li>
+<li>
+<p>You are also a command line savvy user that loves and understands how to manually specify relative or absolute
+file paths (see <a href="#glossary">[glossary]</a>), hence you opted for this option,
+rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
+</li>
+<li>
+<p>Also, you want to give the photo a custom description, but want to use the last modified date of the image file in your
+computer as the date taken for the photo. Shown below is an example of the photo on your computer you want to add,
+<code>snowymountains.jpg</code>, that is located in the same place as the <em>TravelPal</em> application.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_filepath_directory.png" alt="diary addphoto filepath directory">
+</div>
+<div class="title">Figure 1. Example file directory structure of the TravelPal application and snowymountains.jpg</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You should type in the <code>addphoto fp/snowymountains.jpg d/picturesque mountains</code> command in the command line input, then press enter, or click the navigation button <code>3</code> for
+day 3, as highlighted below.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Here, the relative <code>&lt;file path&gt;</code> is simply the name of the file, <code>snowymountains.jpg</code>, since the image file is located in the
+same directory as the <em>TravelPal</em> application.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_command_filepath.png" alt="diary addphoto command filepath">
+</div>
+<div class="title">Figure 2. Example usage of the <code>addphoto</code> command with the <code>fp/</code> option</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The photo, with the specified description and last modified date will be added. You should see a brief confirmation message in
+the command result box.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">[diary_text_displaying_images]</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_command_filepath_result.png" alt="diary addphoto command filepath result">
+</div>
+<div class="title">Figure 3. Example result of after executing the <code>addphoto</code> command with the <code>fp/</code> option</div>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-addphoto-code-command-with-the-code-fc-code-prefix"><a class="link" href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Typing in the command <code>addphoto fc/ [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the
+arguments described below, will add the image file located at the specified file
+path on your computer to the gallery display.</p>
+</li>
+<li>
+<p>Arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fc/</code> - opens your system&#8217;s user interface dialog to allow choosing an image (of file types <code>.jpg .jpeg .png</code>).</p>
+</li>
+<li>
+<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>fc/</code> prefix takes precedence over the <code>fp/</code> argument if both are specified.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-add-code-button-under-the-gallery-display"><a class="link" href="#using-the-code-add-code-button-under-the-gallery-display">Using the <code>Add</code> button under the gallery display</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">[diary_gallery_button_bar]</a>) will open your
+system&#8217;s user interface dialog to choose an image file.</p>
+</li>
+<li>
+<p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described
+in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a>.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage-for-code-addphoto-code-command-with-code-fc-code-option-or-code-add-code-button"><a class="link" href="#example-usage-for-code-addphoto-code-command-with-code-fc-code-option-or-code-add-code-button">Example Usage for <code>addphoto</code> command with <code>fc/</code> option or <code>add</code> button</a></h6>
+<div class="paragraph">
+<p>Scenario:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You are currently viewing the diary entry for day 1, which is empty, and you want to add a new photo using your system&#8217;s
+file choosing user interface, leaving the
+application to generate the <code>&lt;description&gt;</code> and <code>&lt;date taken&gt;</code> fields automatically.</p>
+</li>
+<li>
+<p>Also, the image file you want to add is <code>snowymountains.jpg</code>, and is not located in the same place as the <em>TravelPal</em> application.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You can type in the <code>addphoto fc/</code> command in the command line input as highlighted in yellow below, and press the 'enter' key,
+or you can click the <code>Add</code> button.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_command_filechooser.png" alt="diary addphoto command filechooser">
+</div>
+<div class="title">Figure 4. Example usage of adding a photo through the <code>addphoto</code> command using the <code>fc/</code> option, or the <code>Add</code> button</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In this example, the <code>&lt;description&gt;</code> and <code>&lt;date taken&gt;</code> fields are automatically generated. However, if you are using
+the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Your system&#8217;s file chooser user interface, which may look different depending on your operating system (windows / mac / linux) (see <a href="#glossary">[glossary]</a>)
+will be opened, as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_command_filechooser_step2.png" alt="diary addphoto command filechooser step2">
+</div>
+<div class="title">Figure 5. Example file chooser user interface for the windows operating system</div>
+</div>
+</li>
+<li>
+<p>Next, you can simply use the file chooser user interface to choose an image located anywhere on your computer!</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_command_filechooser_step3.png" alt="diary addphoto command filechooser step3">
+</div>
+<div class="title">Figure 6. Example image file in the file chooser user interface to add</div>
+</div>
+</li>
+<li>
+<p>That&#8217;s it! Your photo, with the auto generated image name and date will be placed into your gallery, and you will see a
+confirmation message in the result display.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">[diary_text_displaying_images]</a>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/userguide/diary_addphoto_command_filechooser_result.png" alt="diary addphoto command filechooser result">
+</div>
+<div class="title">Figure 7. Result after choosing the image 'qidu_marketplace.jpg' in step 3</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-a-photo"><a class="link" href="#deleting-a-photo">Deleting a photo</a></h5>
+<div class="paragraph">
+<p>If you mistakenly added a photo to the wrong diary entry, or want to remove a certain photo from an entry, you can
+use the <code>delphoto</code> command to do so.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below is one of the sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">[Diary] Photo Manager</a></h3>
+<div class="paragraph">
+<p>The photo manager pertains to components for storing, and displaying user specified photos on the disk.</p>
+</div>
+<div class="sect3">
+<h4 id="photo_model"><a class="link" href="#photo_model">Aspect : Model</a></h4>
+<div id="diary_photo_model_class_diagram" class="imageblock">
+<div class="content">
+<img src="../images/diary/DiaryPhotoModelClassDiagram.png" alt="DiaryPhotoModelClassDiagram">
+</div>
+</div>
+<div class="sect4">
+<h5 id="photo"><a class="link" href="#photo">Photo</a></h5>
+<div class="paragraph">
+<p>The model for a photo stored in memory is stored in the <code>Photo</code> class.</p>
+</div>
+<div class="paragraph">
+<p>It contains three key fields, that is, the <code>imagePath</code>, <code>description</code>, and <code>dateTaken</code> fields which are used to display key information of the image to the user.
+The <code>imagePath</code> and <code>dateTaken</code> were implemented respectively with the robust java apis of <code>Path</code> and <code>LocalDateTime</code>, while <code>description</code> is simply a <code>String</code>.</p>
+</div>
+<div class="paragraph">
+<p>In addition, a JavaFX <code>Image</code> is also stored inside the photo (not shown in <a href="#diary_photo_model_class_diagram">[diary_photo_model_class_diagram]</a> for brevity),
+which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
+as the <code>Image</code> construction directly in the user interface involves costly I/O operations.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="photolist"><a class="link" href="#photolist">PhotoList</a></h5>
+<div class="paragraph">
+<p>On the other hand, the <code>Photo</code> models are contained within a <code>PhotoList</code>. It stores the photos in a JavaFX <code>ObservableList</code>,
+so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Aspect : User interface of photo manager</a>)</p>
+</div>
+<div class="paragraph">
+<p>It also supports several convenience wrapper methods around the underlying <code>ObservableList</code>, tailored for use for the logic components.</p>
+</div>
+<hr>
+<div class="sect5">
+<h6 id="restrictions-on-fields-during-code-photo-code-instance-construction"><a class="link" href="#restrictions-on-fields-during-code-photo-code-instance-construction">Restrictions on fields during <code>Photo</code> instance construction:</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Several restrictions on the description are enforced by class level <code>Pattern</code> matchers, such as the length of the description.</p>
+</li>
+<li>
+<p>While the image file path is parsed and checked using the java <code>Files</code> api, it is non-strict in that a path to an invalid image will result in the <code>Image</code> field referring to the default class level variable that specifies a placeholder image.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>However, the original user entered file path is still stored inside the Model, to guard against accidental file deletion.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">Aspect : User interface of photo manager</a></h4>
+<div class="paragraph">
+<p>The main <code>UiPart</code> component that displays photos is the <code>DiaryGallery</code>.
+It abides by the <code>Page</code> implementation (see <a href="#page_api">[page_api]</a>), and is thus contained within
+in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/DiaryPhotoUiObjectDiagram.png" alt="DiaryPhotoUiObjectDiagram">
+</div>
+<div class="title">Figure 8. Diary gallery component object diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>DiaryGallery</code> contains a <code>PhotoList</code>, with which it uses to populate its <code>ListView&lt;Photo&gt;</code> component.</p>
+</div>
+<div class="paragraph">
+<p>The ListView uses a small, clean custom cell factory, which sets the <code>cells</code> of the <code>ListView</code> to use <code>DiaryGalleryCards</code>
+as its graphic, generated via the <code>ListCell</code> index and the <code>Photo</code> item.</p>
+</div>
+<div class="paragraph">
+<p><code>DiaryGalleryCards</code> display the information in the <code>Photo</code> model supplied with a series of <code>Labels</code> and one <code>ImageView</code>.
+Additionally, the index of the card as displayed in the <code>DiaryGallery</code> is also displayed, but not stored in the model.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-of-photos"><a class="link" href="#aspect-logic-of-photos">Aspect : Logic of photos</a></h4>
+<div class="paragraph">
+<p>The logic for photo manager plays to the same <code>PageParser</code> structure of parsing commands, that is,
+<code>DiaryParser</code> returns either <code>AddPhotoParser</code>, <code>DeletePhotoParser</code> when the appropriate command word is parsed, which
+in turn returns instances of <code>AddPhotoCommand</code> and <code>DeletePhotoCommand</code> respectively.</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#aspect-adding-photos-through-command-line-file-path-or-os-file-chooser">Aspect : Adding photos (through command line file path or os file chooser)</a></h5>
+<div class="paragraph">
+<p>Following <code>DiaryParser</code> returning an instance of <code>AddPhotoParser</code> that calls <code>parse()</code> on the user specified arguments,
+a number of operations happen, as per the UML sequence diagram below (<a href="#AddPhotoParser parse sequence diagram">[AddPhotoParser parse sequence diagram]</a>). The specifics of <code>getFilePath</code>,
+<code>parseDescription</code>, <code>parseDateTime</code> are detailed further down below. ()</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/DiaryAddPhotoParser.png" alt="AddPhotoParser parse sequence diagram">
+</div>
+<div class="title">Figure 9. Sequence diagram of the parse method in AddPhotoParser</div>
+</div>
+<hr>
+<div class="sect5">
+<h6 id="adding_photo_diary_step_1"><a class="link" href="#adding_photo_diary_step_1">Parsing the image file path</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Using <code>ArgumentMultimap</code>, the file chooser prefix, "fc/", is checked for.
+If present, the OS file choosing gui is opened using <code>ImageChooser</code> (a simple extension of JavaFX&#8217;s <code>FileChooser</code> enforcing image file extensions), and the data file path prefix is ignored.</p>
+</li>
+<li>
+<p>Otherwise, the presence of the data file prefix is checked, and its subsequent argument is validated
+as a valid image file.</p>
+</li>
+<li>
+<p>If the file chooser prefix is unspecified and the data file path is invalid, <code>AddPhotoParser</code> throws a <code>ParseException</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram">
+</div>
+<div class="title">Figure 10. Activity diagram of getFilePath subroutine</div>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="parsing-the-description"><a class="link" href="#parsing-the-description">Parsing the description</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>Photo</code> instance with the specified input.
+If validation of the description, as described in the <a href="#photo_model">Aspect : Model</a> fails, then a ParseException is thrown during the instance construction.</p>
+</li>
+<li>
+<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Parsing the image file path</a> (truncated to match <code>Photo&#8217;s</code> description constraints) is used.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diary/AddPhotoParserParseDescriptionActivityDiagram.png" alt="AddPhotoParserParseDescriptionActivityDiagram">
+</div>
+<div class="title">Figure 11. Activity diagram of parseDescription subroutine</div>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="parsing-the-date-of-the-photo"><a class="link" href="#parsing-the-date-of-the-photo">Parsing the date of the photo</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the date time as per the app level date formats.
+A <code>ParseException</code> is automatically thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
+</li>
+<li>
+<p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Parsing the image file path</a> is used.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>The <code>Photo</code> instance is then constructed, and passed to <code>AddPhotoCommand</code> which simply adds the <code>Photo</code> to the
+current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-deleting-photos"><a class="link" href="#aspect-deleting-photos">Aspect : Deleting photos</a></h5>
+<div class="paragraph">
+<p>Following <code>DiaryParser</code> parsing the 'delphoto' command from the user, an instance of <code>DeletePhotoParser</code> is created, which parses the received arguments.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>DeletePhotoParser</code> simply parses the arguments for a valid integer, failing which a <code>ParseException</code> is thrown.</p>
+</li>
+<li>
+<p>An instance of <code>DeletePhotoCommand</code> is returned, which attempts a delete operation on the current <code>PhotoList</code> of the
+<code>DiaryEntry</code> with the specified index. A <code>CommandException</code> is thrown to alert the user if the index was out of bounds.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 44.4444%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Validation of image file path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first option is to implement the file path validation directly inside the <code>Photo</code> model.</p>
+<p class="tableblock">This would have enforced a stricter level of validation on the image file path throughout the code,
+if an instance of <code>Photo</code> needed to be instantiated somewhere else other than the <code>AddPhotoParser</code> for future use.</p>
+<p class="tableblock">However, since the storage model for <code>Photo</code> (which is <code>JsonAdaptedPhoto</code>), initializes the model
+through deserializing the saved file path, this would have led to needing to a separate constructor for <code>Photo</code>
+in the case that the file path was invalidated on app startup in order to create a placeholder image.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second, chosen option, was to implement the file path validation inside the parser itself.</p>
+<p class="tableblock">Although this option limited the validation to only the 'addphoto' command, it allowed for leeway in
+image path validation in other areas such as <code>JsonAdaptedPhoto</code>, where it is possible for deletion of an
+image file by the user, outside of the application, to invalidate the stored file path and erroneous data to be loaded on application start.</p>
+<p class="tableblock">Moreover, Since the function for parsing the image file can and was abstracted into a single utility function,
+any other areas in future development needing this functionality can simply reuse this code.</p>
+<p class="tableblock">Overall, this leads to a more robust behaviour of the application, while providing the same level of
+extensibility as the first option.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 15:01:17 UTC</div></div></div></body></html>
