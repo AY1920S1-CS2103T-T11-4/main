@@ -13,16 +13,15 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#general-commands">3.1. General commands</a></li>
-<li><a href="#user-preferences">3.2. User preferences</a></li>
-<li><a href="#trip-manager">3.3. Trip manager</a></li>
-<li><a href="#trip-setup">3.4. Trip setup</a></li>
-<li><a href="#event-setup">3.5. Event Setup</a></li>
-<li><a href="#itinerary">3.6. Itinerary</a></li>
-<li><a href="#expense-manager">3.7. Expense Manager</a></li>
-<li><a href="#bookings-manager">3.8. Bookings Manager</a></li>
-<li><a href="#diary">3.9. Diary</a></li>
-<li><a href="#pre-trip-inventory-manager">3.10. Pre-trip Inventory Manager</a></li>
+<li><a href="#user-preferences">3.1. User preferences</a></li>
+<li><a href="#trip-manager">3.2. Trip manager</a></li>
+<li><a href="#trip-setup">3.3. Trip setup</a></li>
+<li><a href="#event-setup">3.4. Event Setup</a></li>
+<li><a href="#itinerary">3.5. Itinerary</a></li>
+<li><a href="#expense-manager">3.6. Expense Manager</a></li>
+<li><a href="#bookings-manager">3.7. Bookings Manager</a></li>
+<li><a href="#diary">3.8. Diary</a></li>
+<li><a href="#pre-trip-inventory-manager">3.9. Pre-trip Inventory Manager</a></li>
 </ul>
 </li>
 <li><a href="#general-info">4. General info</a></li>
@@ -34,7 +33,23 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>What is TravelPal? First and foremost, it is a cross-platform desktop application for those who love to plan and micromanage their travels. It includes various features to help in planning the trip beforehand, such as an itinerary planner, a pre-trip inventory manager, bookings and expense manager. During the trip, there is also an inbuilt diary application that allows the user to record details of the trip, and a contacts manager to store important contacts related to the trip. In addition, it’s primary preferred form of input from the user is the Command Line Interface (CLI), but it also provides a Graphical User Interface (GUI) for those who like to use alternative inputs, such as a mouse. Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
+<p>What is TravelPal? First and foremost, it is a cross-platform desktop application for those
+who love to plan and micromanage their travels. It includes various features to help in
+planning the trip beforehand, such as an itinerary planner, a pre-trip inventory manager,
+bookings and expense manager.</p>
+</div>
+<div class="paragraph">
+<p>During the trip, there is also an inbuilt diary application that
+allows the user to record details of the trip, and a contacts manager to store important
+contacts related to the trip.</p>
+</div>
+<div class="paragraph">
+<p>In addition, it’s primary preferred form of input from the user is
+the Command Line Interface (CLI), but it also provides a Graphical User Interface (GUI) for
+those who like to use alternative inputs.</p>
+</div>
+<div class="paragraph">
+<p>Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
 </div>
 </div>
 </div>
@@ -101,132 +116,108 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Most commands are in the format of &lt;command&gt; &lt;argument1&gt; &lt;argument2&gt; &lt;&#8230;&#8203;&gt;.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>&lt;command&gt; is case insensitive, so typing it in any combination of UPPER_CASE or lower_case will work.</p>
+<p>Most commands are in the format of <code>&lt;command&gt; &lt;argument1&gt; &lt;argument2&gt; &lt;&#8230;&#8203;&gt;</code></p>
 </li>
 <li>
-<p>When an argument is optional, it will be tagged be enclosed in square brackets [&#8230;&#8203;] instead of angle brackets &lt;&#8230;&#8203;&gt;</p>
-</li>
-<li>
-<p>When required, a separator / delimiter between arguments will be displayed with <strong>separator</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Commands support tab-autocomplete when appropriate.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Autocompletion for commands : For example, typing he then pressing tab will autocomplete the command to help.
-**Autocompletion for separators : When a command requires a separator, and the command name is already in the text input, pressing tab again will append the separator automatically.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Commands help popup</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Once the command name is already in the text input, a handy, non-intrusive popup will appear slightly above the text input.</p>
-</li>
-<li>
-<p>You can disable this feature in the user preferences.</p>
-</li>
-</ul>
-</div>
+<p><code>&lt;command&gt;</code> is case insensitive, so typing it in any combination of UPPER_CASE or lower_case will work.</p>
 </li>
 <li>
 <p>Leading and trailing white spaces in the inputted command are ignored.</p>
 </li>
+<li>
+<p>Some <code>&lt;arguments&gt;</code> consists of two parts, namely a <code>prefix/</code> followed immediately by an <code>argument</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>prefix/</code> s are a combination of no more than three letters, followed by a <code>/</code>, and are case sensitive</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="general-commands"><a class="link" href="#general-commands">3.1. General commands</a></h3>
+<h3 id="user-preferences"><a class="link" href="#user-preferences">3.1. User preferences</a></h3>
+<div class="sect4">
+<h5 id="entering-the-preferences-screen"><a class="link" href="#entering-the-preferences-screen">Entering the preferences screen</a></h5>
+<div class="paragraph">
+<p>If you want to edit various user interface settings, you can start by typing
+the command <code>prefs</code> to enter the preferences screen.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="changing-preferences"><a class="link" href="#changing-preferences">Changing preferences</a></h5>
+<div class="sect5">
+<h6 id="using-the-code-edit-field-value-code-command"><a class="link" href="#using-the-code-edit-field-value-code-command">Using the <code>edit &lt;field&gt;&lt;value&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>help : brings a pdf version of the user guide</p>
+<p>Usage: <code>&lt;field&gt;</code> is the field you want to edit as shown in the interface,
+and <code>&lt;value&gt;</code> is the respective value for the field, as detailed below.</p>
 </li>
 <li>
-<p>goto &lt;page&gt; : all navigation between pages in the app follows this format. &lt;page&gt; will be detailed in each of the relevant sections</p>
+<p>Arguments (<code>&lt;field&gt;</code>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ww/</code> - The width of the <em>TravelPal</em> application window, which&#8217;s <code>&lt;value&gt;</code> should be a positive number</p>
 </li>
 <li>
-<p>undo : this will undo the last undoable operation attempted by the user, prompting the user with the details of the operation first.</p>
+<p><code>wh/</code> - The height of the <em>TravelPal</em> application window, which&#8217;s <code>&lt;value&gt;</code> should be a positive number</p>
 </li>
 <li>
-<p>exit : this will exit the program, discarding any unsaved changes.</p>
+<p><code>wx/</code> - The x position of the <em>TravelPal</em> application window, which&#8217;s <code>&lt;value&gt;</code> should be a positive number</p>
+</li>
+<li>
+<p><code>wy/</code> - The y position of the <em>TravelPal</em> application window, which&#8217;s <code>&lt;value&gt;</code> should be a positive number</p>
+</li>
+<li>
+<p><code>lg/</code> - Whether the gui settings should be locked, which&#8217;s <code>&lt;value&gt;</code> should be either <code>t</code> for true, or <code>f</code> for false.</p>
+</li>
+<li>
+<p><code>fp/</code> - The file path to a existing writable file.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="using-the-user-interface-text-fields"><a class="link" href="#using-the-user-interface-text-fields">Using the user interface text fields</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Clicking on the text fields and editing them will also change the values of those fields,
+with the same constraints as noted above.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="returning-to-the-trip-manager-and-saving-preferences"><a class="link" href="#returning-to-the-trip-manager-and-saving-preferences">Returning to the trip manager and saving preferences</a></h5>
+<div class="sect5">
+<h6 id="using-the-code-done-code-command"><a class="link" href="#using-the-code-done-code-command">Using the <code>done</code> command</a></h6>
+<div class="paragraph">
+<p>Usage: Saves your changes to the preferences and returns you to the trip manager</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="returning-to-the-trip-manager-and-discarding-changes"><a class="link" href="#returning-to-the-trip-manager-and-discarding-changes">Returning to the trip manager and discarding changes</a></h5>
+<div class="sect5">
+<h6 id="using-the-code-cancel-code-command"><a class="link" href="#using-the-code-cancel-code-command">Using the <code>cancel</code> command</a></h6>
+<div class="paragraph">
+<p>Usage: Discards your changes to the preferences and returns you to the trip manager</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-preferences"><a class="link" href="#user-preferences">3.2. User preferences</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>To access the user preferences gui, you can :</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Click the user icon in the top right of the app</p>
-</li>
-<li>
-<p>Type the command “preferences”</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>To change preferences, you can :</p>
-<div class="ulist">
-<ul>
-<li>
-<p>As per the user interface, you can click on various fields and edit them.</p>
-</li>
-<li>
-<p>Use the command edit &lt;field&gt; &lt;value&gt;, where field is the field you want to edit as shown in the interface, and value is the respective value for the field, as detailed below.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Types of fields :</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Checkboxes &amp; toggles : edit &lt;field&gt; will toggle the current value of the checkbox</p>
-</li>
-<li>
-<p>Text fields : edit &lt;field&gt; &lt;value&gt; will change the value of the checkbox to the new value specified.</p>
-</li>
-<li>
-<p>Dropdowns :</p>
-<div class="ulist">
-<ul>
-<li>
-<p>To see the available options for a dropdown, first type edit &lt;field&gt;</p>
-</li>
-<li>
-<p>To change the value, type edit &lt;field&gt; &lt;value&gt;, where &lt;value&gt; is one of the options shown, or the number of the option in the order in which they were shown.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trip-manager"><a class="link" href="#trip-manager">3.3. Trip manager</a></h3>
+<h3 id="trip-manager"><a class="link" href="#trip-manager">3.2. Trip manager</a></h3>
 <div class="paragraph">
 <p>The trip manager is the main starting ground of the application. Here, the user is able to create, delete and archive trips. There is also an archive section, where the archived trips are displayed exclusively.</p>
 </div>
@@ -248,7 +239,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="trip-setup"><a class="link" href="#trip-setup">3.4. Trip setup</a></h3>
+<h3 id="trip-setup"><a class="link" href="#trip-setup">3.3. Trip setup</a></h3>
 <div class="paragraph">
 <p>Trip setup is the first page in configuring a new/existing task. Upon commands to create or edit a specified trip from the Trip Manager, the user will be directed to a page where they can edit the necessary details to create a new trip. This page will contain a form with 2 necessary fields:</p>
 </div>
@@ -277,7 +268,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="event-setup"><a class="link" href="#event-setup">3.5. Event Setup</a></h3>
+<h3 id="event-setup"><a class="link" href="#event-setup">3.4. Event Setup</a></h3>
 <div class="paragraph">
 <p>Event setup creates/edits properties of a specified event. It is necessary for event to contains a starting and ending time. Events contains mostly optional fields that the user can edit in future</p>
 </div>
@@ -302,7 +293,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="itinerary"><a class="link" href="#itinerary">3.6. Itinerary</a></h3>
+<h3 id="itinerary"><a class="link" href="#itinerary">3.5. Itinerary</a></h3>
 <div class="paragraph">
 <p>tinerary contains commands to view the list of relevant event/day/trips. The order can be changed by using different commands</p>
 </div>
@@ -323,7 +314,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="expense-manager"><a class="link" href="#expense-manager">3.7. Expense Manager</a></h3>
+<h3 id="expense-manager"><a class="link" href="#expense-manager">3.6. Expense Manager</a></h3>
 <div class="paragraph">
 <p>Expense manager records the expenditure by the user. Expenses are connected to bookings/events to automatically update the current known expenditure for any date/trip/event. There are two types of expenditure: 1. Planned expenditure 2. Miscellaneous/Unplanned expenditure</p>
 </div>
@@ -343,7 +334,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="bookings-manager"><a class="link" href="#bookings-manager">3.8. Bookings Manager</a></h3>
+<h3 id="bookings-manager"><a class="link" href="#bookings-manager">3.7. Bookings Manager</a></h3>
 <div class="paragraph">
 <p>Bookings manager manages bookings and reservations made by the user. The bookings under this feature include hotel reservations and transport bookings (flight, train and bus).</p>
 </div>
@@ -371,9 +362,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary"><a class="link" href="#diary">3.9. Diary</a></h3>
+<h3 id="diary"><a class="link" href="#diary">3.8. Diary</a></h3>
 <div class="sect3">
-<h4 id="introduction-2"><a class="link" href="#introduction-2">3.9.1. Introduction</a></h4>
+<h4 id="introduction-2"><a class="link" href="#introduction-2">3.8.1. Introduction</a></h4>
 <div class="paragraph">
 <p>Welcome to the diary feature of <em>TravelPal</em>! The diary allows you to key in various thoughts and add photos that tie
 to each day of the trip. It offers a selection of formatting choices for your text display, and has an
@@ -385,7 +376,7 @@ every command, there are gui alternatives that allow you to execute the same ope
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-user-interface-overview"><a class="link" href="#diary-user-interface-overview">3.9.2. Diary User Interface Overview</a></h4>
+<h4 id="diary-user-interface-overview"><a class="link" href="#diary-user-interface-overview">3.8.2. Diary User Interface Overview</a></h4>
 <div class="paragraph">
 <p>Shown below are the key elements of the diary page, while the gallery is in view.</p>
 </div>
@@ -396,8 +387,8 @@ every command, there are gui alternatives that allow you to execute the same ope
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is an alternative mode of display (which will be touched on shortly, or see <a href="#diary_editor_display_mode">Section 3.9.3, &#8220;Diary Editor User Interface&#8221;</a>),
-that shows when you execute the <code>editor</code> command <a href="#diary_editor_command">Section 3.9.5.9, &#8220;Showing the edit box&#8221;</a> or click the <code>Edit</code> button.
+There is an alternative mode of display (which will be touched on shortly, or see <a href="#diary_editor_display_mode">Section 3.8.3, &#8220;Diary Editor User Interface&#8221;</a>),
+that shows when you execute the <code>editor</code> command <a href="#diary_editor_command">Section 3.8.5.9, &#8220;Showing the edit box&#8221;</a> or click the <code>Edit</code> button.
 </td>
 </tr>
 </table>
@@ -412,7 +403,7 @@ that shows when you execute the <code>editor</code> command <a href="#diary_edit
 <h5 id="diary-entry-display-area"><a class="link" href="#diary-entry-display-area">Diary Entry Display Area</a></h5>
 <div class="paragraph">
 <p>This is the main display area of your diary entry. It is able to display text, along with inline images, or just lines of
-images. The content is generated from the diary text of the entry (<a href="#diary_text_info">Section 3.9.4, &#8220;Diary Text&#8221;</a>).</p>
+images. The content is generated from the diary text of the entry (<a href="#diary_text_info">Section 3.8.4, &#8220;Diary Text&#8221;</a>).</p>
 </div>
 </div>
 <div class="sect4">
@@ -429,7 +420,7 @@ images. The content is generated from the diary text of the entry (<a href="#dia
 <div class="paragraph">
 <p>Each image is displayed with a description (bottom left), a date taken (top right), both of which are user specifiable.
 There is also a photo index
-(top left), which is for use in various commands (see <a href="#diary_text_displaying_images">Section 3.9.4.2, &#8220;Displaying images&#8221;</a>).</p>
+(top left), which is for use in various commands (see <a href="#diary_text_displaying_images">Section 3.8.4.2, &#8220;Displaying images&#8221;</a>).</p>
 </div>
 </div>
 <div class="sect4">
@@ -441,34 +432,34 @@ There is also a photo index
 <div class="sect4">
 <h5 id="diary_day_navigation_bar"><a class="link" href="#diary_day_navigation_bar">Diary Day Navigation Bar</a></h5>
 <div class="paragraph">
-<p>This is the button equivalent of the <code>flip</code> command (<a href="#diary_flip_command">Section 3.9.5.2, &#8220;Navigating to a diary entry&#8221;</a>), and allows you to navigate between your
+<p>This is the button equivalent of the <code>flip</code> command (<a href="#diary_flip_command">Section 3.8.5.2, &#8220;Navigating to a diary entry&#8221;</a>), and allows you to navigate between your
 diary entries for different days by clicking on the respective buttons.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="diary_gallery_button_bar"><a class="link" href="#diary_gallery_button_bar">Gallery Button Bar</a></h5>
 <div class="paragraph">
-<p>This smaller button bar is used for executing two other commands. Firstly, the <code>editor</code> (<a href="#diary_editor_command">Section 3.9.5.9, &#8220;Showing the edit box&#8221;</a>)
+<p>This smaller button bar is used for executing two other commands. Firstly, the <code>editor</code> (<a href="#diary_editor_command">Section 3.8.5.9, &#8220;Showing the edit box&#8221;</a>)
 can be executede by clicking on the <em>Edit</em> button. Secondly, the <code>addphoto</code> command may be executed
-(<a href="#diary_addphoto_command">Section 3.9.5.3, &#8220;Adding a photo&#8221;</a>) through <em>Add</em> button.</p>
+(<a href="#diary_addphoto_command">Section 3.8.5.3, &#8220;Adding a photo&#8221;</a>) through <em>Add</em> button.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="diary_add_new_entry_button"><a class="link" href="#diary_add_new_entry_button">Add New Entry Button</a></h5>
 <div class="paragraph">
-<p>Similarly, this button executes the <code>create</code> command through the user interface, as described in <a href="#diary_create_entry_command">Section 3.9.5.1, &#8220;Creating a diary entry&#8221;</a>.</p>
+<p>Similarly, this button executes the <code>create</code> command through the user interface, as described in <a href="#diary_create_entry_command">Section 3.8.5.1, &#8220;Creating a diary entry&#8221;</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary_editor_display_mode"><a class="link" href="#diary_editor_display_mode">3.9.3. Diary Editor User Interface</a></h4>
+<h4 id="diary_editor_display_mode"><a class="link" href="#diary_editor_display_mode">3.8.3. Diary Editor User Interface</a></h4>
 <div class="paragraph">
-<p>This is the screen that shows when the <code>editor</code> command (<a href="#diary_editor_command">Section 3.9.5.9, &#8220;Showing the edit box&#8221;</a>) is executed or the <em>Edit</em> button
-is clicked, as mentioned in <a href="#diary_gallery_button_bar">Section 3.9.2.5, &#8220;Gallery Button Bar&#8221;</a>.</p>
+<p>This is the screen that shows when the <code>editor</code> command (<a href="#diary_editor_command">Section 3.8.5.9, &#8220;Showing the edit box&#8221;</a>) is executed or the <em>Edit</em> button
+is clicked, as mentioned in <a href="#diary_gallery_button_bar">Section 3.8.2.5, &#8220;Gallery Button Bar&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>Components not highlighted in <a href="#diary_edit_view_annotated">Figure 3, &#8220;Overview of diary user interface when the edit box is shown&#8221;</a> below function the same way as mentioned in
-<a href="#diary-user-interface-overview">Section 3.9.2, &#8220;Diary User Interface Overview&#8221;</a>.</p>
+<a href="#diary-user-interface-overview">Section 3.8.2, &#8220;Diary User Interface Overview&#8221;</a>.</p>
 </div>
 <div id="diary_edit_view_annotated" class="imageblock">
 <div class="content">
@@ -481,7 +472,7 @@ is clicked, as mentioned in <a href="#diary_gallery_button_bar">Section 3.9.2.5,
 <div class="paragraph">
 <p>This is the text edit area that allows a convenient form of alternative input to commands for editing the Diary Entry.
 While you may feel that the special clauses <em>"&lt;images 2&gt;"</em> and <em>"&lt;images 5 1 3 4&gt;"</em> being used in the diagram above are
-rather unfamiliar, they are actually quite simple! (see <a href="#diary_text_info">Section 3.9.4, &#8220;Diary Text&#8221;</a>).</p>
+rather unfamiliar, they are actually quite simple! (see <a href="#diary_text_info">Section 3.8.4, &#8220;Diary Text&#8221;</a>).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -500,15 +491,15 @@ back to the command line input!
 <div class="sect4">
 <h5 id="commit-edit-button"><a class="link" href="#commit-edit-button">Commit Edit Button</a></h5>
 <div class="paragraph">
-<p>This is simply the button-equivalent of the <code>done</code> command (<a href="#diary_done_command">Section 3.9.5.10, &#8220;Commiting your edits&#8221;</a>), and allows you to commit the
+<p>This is simply the button-equivalent of the <code>done</code> command (<a href="#diary_done_command">Section 3.8.5.10, &#8220;Committing your edits&#8221;</a>), and allows you to commit the
 changes you made (either through commands, or directly in the edit box) while the edit box was open.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary_text_info"><a class="link" href="#diary_text_info">3.9.4. Diary Text</a></h4>
+<h4 id="diary_text_info"><a class="link" href="#diary_text_info">3.8.4. Diary Text</a></h4>
 <div class="paragraph">
-<p>The <strong>diary text</strong>, as you edit in the edit box (<a href="#diary-edit-box">Section 3.9.3.1, &#8220;Diary Edit Box&#8221;</a>), or edit through the commands described in
+<p>The <strong>diary text</strong>, as you edit in the edit box (<a href="#diary-edit-box">Section 3.8.3.1, &#8220;Diary Edit Box&#8221;</a>), or edit through the commands described in
 <a href="#Diary Commands">[Diary Commands]</a>, are one and the same <strong>diary text!</strong> Hence, any commands you input to edit the text are reflected into
 the edit box automatically, and any edits you make to the edit box are considered by the commands.</p>
 </div>
@@ -529,7 +520,7 @@ in <a href="#diary_text_line_numbering_figure">Figure 4, &#8220;Annotated highli
 </table>
 </div>
 <div class="paragraph">
-<p>Additionally, the diary text can use special clauses to display and format images, as described in <a href="#diary_text_displaying_images">Section 3.9.4.2, &#8220;Displaying images&#8221;</a>.</p>
+<p>Additionally, the diary text can use special clauses to display and format images, as described in <a href="#diary_text_displaying_images">Section 3.8.4.2, &#8220;Displaying images&#8221;</a>.</p>
 </div>
 <div class="sect4">
 <h5 id="diary_text_line_numbering"><a class="link" href="#diary_text_line_numbering">Diary Text Line Numbering</a></h5>
@@ -574,7 +565,7 @@ It is trivial if using the edit box to edit text, as text editing is done direct
 <ul>
 <li>
 <p>Format: Use a diary <strong>text paragraph</strong> consisting of only the clause <code>&lt;images number1 number2 numberN&gt;</code>, where <code>numberN</code>
-is the index of the photo as displayed in the gallery (<a href="#diary_gallery_display">Section 3.9.2.2, &#8220;Gallery Display&#8221;</a>).</p>
+is the index of the photo as displayed in the gallery (<a href="#diary_gallery_display">Section 3.8.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </li>
 <li>
 <p>Example: <code>&lt;images 5 1 3 4&gt;</code> - displays a mini gallery with the images 1, 3 and 5 as shown in the gallery.</p>
@@ -593,7 +584,7 @@ is the index of the photo as displayed in the gallery (<a href="#diary_gallery_d
 <ul>
 <li>
 <p>Format: Use a diary <strong>text paragraph</strong> consisting of your desired text, along with the clause
-<code>&lt;images numberN&gt;</code>, where <code>numberN</code> is the index of the photo as displayed in the gallery <a href="#diary_gallery_display">Section 3.9.2.2, &#8220;Gallery Display&#8221;</a>.</p>
+<code>&lt;images numberN&gt;</code>, where <code>numberN</code> is the index of the photo as displayed in the gallery <a href="#diary_gallery_display">Section 3.8.2.2, &#8220;Gallery Display&#8221;</a>.</p>
 </li>
 <li>
 <p>By default, the clause will place the image on the right, and the text on the left. You can include the <code>'left'</code>
@@ -613,7 +604,7 @@ word inside the <code>&lt;images left numberN&gt;</code> clause as such to rever
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-operations"><a class="link" href="#diary-operations">3.9.5. Diary Operations</a></h4>
+<h4 id="diary-operations"><a class="link" href="#diary-operations">3.8.5. Diary Operations</a></h4>
 <div class="paragraph">
 <p>The diary commands follow the same general format used by the rest of <code>TravelPal</code>.</p>
 </div>
@@ -667,7 +658,7 @@ below.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>For the add entry button <code>+</code> (<a href="#diary_create_entry_command_button">Section 3.9.5.1.2, &#8220;Using the add entry button <code>+</code>&#8221;</a>), since the current latest day&#8217;s entry is day 8,
+<p>For the add entry button <code>+</code> (<a href="#diary_create_entry_command_button">Section 3.8.5.1.2, &#8220;Using the add entry button <code>+</code>&#8221;</a>), since the current latest day&#8217;s entry is day 8,
 it would create an entry for the day right after that, which is day 9.</p>
 <div id="diary_create_entry_command_before" class="imageblock">
 <div class="content">
@@ -681,7 +672,7 @@ it would create an entry for the day right after that, which is day 9.</p>
 </li>
 <li>
 <p>That&#8217;s it! the diary entry will be successfully created, and you will be brought to the new diary entry&#8217;s screen without
-having to navigate to it via <a href="#diary_flip_command">Section 3.9.5.2, &#8220;Navigating to a diary entry&#8221;</a> automatically.</p>
+having to navigate to it via <a href="#diary_flip_command">Section 3.8.5.2, &#8220;Navigating to a diary entry&#8221;</a> automatically.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -731,7 +722,7 @@ are also two options here to suit your needs, both offering the exact same funct
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the the button of with the day number of the diary entry in the navigation bar (<a href="#diary_day_navigation_bar">Section 3.9.2.4, &#8220;Diary Day Navigation Bar&#8221;</a>)
+<p>Usage: Clicking the the button of with the day number of the diary entry in the navigation bar (<a href="#diary_day_navigation_bar">Section 3.8.2.4, &#8220;Diary Day Navigation Bar&#8221;</a>)
 will flip to the diary entry for that day.</p>
 </li>
 </ul>
@@ -757,7 +748,7 @@ day 3, as highlighted below.</p>
 </li>
 <li>
 <p>That&#8217;s all! You will be brought to the entry for day 3, as shown below. You should see a brief confirmation message in
-the command result box, and that the current day indicator will update accordingly (<a href="#diary_current_day_indicator">Section 3.9.2.3, &#8220;Current Day Indicator&#8221;</a>).</p>
+the command result box, and that the current day indicator will update accordingly (<a href="#diary_current_day_indicator">Section 3.8.2.3, &#8220;Current Day Indicator&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -773,11 +764,14 @@ the command result box, and that the current day indicator will update according
 <h5 id="diary_addphoto_command"><a class="link" href="#diary_addphoto_command">Adding a photo</a></h5>
 <div class="paragraph">
 <p>If you have just created a fresh diary entry, and you&#8217;re wondering where to go next, then you
-may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">Section 3.9.2.2, &#8220;Gallery Display&#8221;</a>).</p>
+may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">Section 3.8.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </div>
 <div class="paragraph">
-<p>Here, there are up to 3 options for you to choose, the last option being the least flexible but also the fastest, if
-you are more comfortable with the using the user interface than the command line input.</p>
+<p>Here, there are 3 options for you to choose, the last option being the least flexible but also the fastest, if
+you are more comfortable with using the user interface than the command line input.</p>
+</div>
+<div class="paragraph">
+<p>In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -786,7 +780,8 @@ you are more comfortable with the using the user interface than the command line
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code>
+The image files are not copied to where your the <em>TravelPal</em> application file is. Instead, the absolute file path
+(see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a>) to the image file on your computer is stored!
 </td>
 </tr>
 </table>
@@ -835,7 +830,7 @@ If left unspecified, the last modified date of the file is used instead.</p>
 <li>
 <p>You are also a command line savvy user that loves and understands how to manually specify relative or absolute
 file paths (see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a>), hence you opted for this option,
-rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.9.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
+rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.8.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
 </li>
 <li>
 <p>Also, you want to give the photo a custom description, but want to use the last modified date of the image file in your
@@ -876,7 +871,7 @@ the command result box.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.9.4.2, &#8220;Displaying images&#8221;</a>.</p>
+<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.8.4.2, &#8220;Displaying images&#8221;</a>.</p>
 </li>
 </ol>
 </div>
@@ -908,7 +903,7 @@ path on your computer to the gallery display.</p>
 <p><code>fc/</code> - opens your system&#8217;s user interface dialog to allow choosing an image (of file types <code>.jpg .jpeg .png</code>).</p>
 </li>
 <li>
-<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.9.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
+<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.8.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -933,12 +928,12 @@ The <code>fc/</code> prefix takes precedence over the <code>fp/</code> argument 
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.9.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open your
+<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.8.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open your
 system&#8217;s user interface dialog to choose an image file.</p>
 </li>
 <li>
 <p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described
-in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.9.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
+in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.8.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -983,7 +978,7 @@ or you can click the <code>Add</code> button.</p>
 </td>
 <td class="content">
 In this example, the <code>&lt;description&gt;</code> and <code>&lt;date taken&gt;</code> fields are automatically generated. However, if you are using
-the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.9.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a>
+the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.8.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a>
 </td>
 </tr>
 </table>
@@ -1015,7 +1010,7 @@ confirmation message in the result display.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.9.4.2, &#8220;Displaying images&#8221;</a>.</p>
+<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.8.4.2, &#8220;Displaying images&#8221;</a>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_result.png" alt="diary addphoto command filechooser result">
@@ -1038,7 +1033,7 @@ use the <code>delphoto</code> command to do so.
 ====== Using the <code>delphoto &lt;photo number&gt;</code> command
 * Usage: Deletes a photo, indicated by the specified photo number, as displayed by the photo&#8217;s numbering in the gallery.
 * Arguments:
-** <code>&lt;photo number&gt;</code> - Positive integer number of the photo to delete, as shown by the numbering in the gallery (see <a href="#diary_gallery_display">Section 3.9.2.2, &#8220;Gallery Display&#8221;</a>).</p>
+** <code>&lt;photo number&gt;</code> - Positive integer number of the photo to delete, as shown by the numbering in the gallery (see <a href="#diary_gallery_display">Section 3.8.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </div>
 <hr>
 <div class="sect5">
@@ -1079,7 +1074,21 @@ press the 'enter' key.</p>
 </td>
 <td class="content">
 The commands below are quick command line equivalents of editing the text in the edit box, as described in
-<a href="#diary_editor_display_mode">Section 3.9.3, &#8220;Diary Editor User Interface&#8221;</a>.
+<a href="#diary_editor_display_mode">Section 3.8.3, &#8220;Diary Editor User Interface&#8221;</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you execute any command that changes the diary entry&#8217;s text while the edit box is open, then the command still
+works and the save behaviour is exactly the same as described in <a href="#diary_editor_command">Section 3.8.5.9, &#8220;Showing the edit box&#8221;</a>!. That is, your edits will
+be not be committed until you execute the <code>done</code> command (see <a href="#diary_done_command">Section 3.8.5.10, &#8220;Committing your edits&#8221;</a>).
 </td>
 </tr>
 </table>
@@ -1088,40 +1097,70 @@ The commands below are quick command line equivalents of editing the text in the
 </div>
 <div class="sect4">
 <h5 id="appending-to-a-diary-entry"><a class="link" href="#appending-to-a-diary-entry">Appending to a diary entry</a></h5>
+<div class="paragraph">
+<p>If you are currently viewing a diary entry, and know how to format the entry text (see <a href="#diary_text_info">Section 3.8.4, &#8220;Diary Text&#8221;</a>),
+then you could use with the <code>append</code> command to add a new paragraph of text.</p>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-append-paragraph-code-command"><a class="link" href="#using-the-code-append-paragraph-code-command">Using the <code>append &lt;paragraph&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><code>append &lt;paragraph&gt;</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Usage: Appends the given paragraph of text to the</p>
+<p>Usage: Adds a new paragraph of text as specified by the <code>&lt;paragraph&gt;</code> of text immediately after the the <code>append</code> word.</p>
 </li>
 <li>
 <p>Arguments:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>&lt;paragraph&gt; - The paragraph of text to append, as described in <a href="#diary_text_info">Section 3.9.4, &#8220;Diary Text&#8221;</a>.</p>
+<p><code>&lt;paragraph&gt;</code> - The paragraph of text to append, as described in <a href="#diary_text_info">Section 3.8.4, &#8220;Diary Text&#8221;</a>.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage-5"><a class="link" href="#example-usage-5">Example Usage</a></h6>
+<div class="paragraph">
+<p>Scenario: You are currently viewing your edited diary entry for day 3 of the trip, and want to quickly append a new
+paragraph of text using the handy command line interface.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You type in the <code>append</code> command, along with a simple line of text without images:
+<code>append After an entire day&#8217;s drive, we arrived at the bustling city of Tai Chung</code>, and then you press the 'enter' key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_append_command_before.png" alt="diary append command before">
+</div>
+<div class="title">Figure 18. Example usage of <code>append</code> command to add a new paragraph of text to a diary entry</div>
 </div>
 </li>
 <li>
-<p>Example: <code>append The scenery on the road was breathtaking.</code></p>
-</li>
-</ul>
+<p>That&#8217;s it! Your new paragraph will be saved and displayed automatically as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_append_command_after.png" alt="diary append command after">
+</div>
+<div class="title">Figure 19. Result of <code>append</code> command to add a new paragraph of text</div>
 </div>
 </li>
-</ul>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect4">
 <h5 id="inserting-text-in-a-diary-entry"><a class="link" href="#inserting-text-in-a-diary-entry">Inserting text in a diary entry</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>insert i/&lt;lineNumber&gt; d/&lt;paragraph&gt;</code></p>
+<div class="paragraph">
+<p>If you have a long diary entry, and want to insert a new paragraph of text between some existing paragraphs without
+using the edit box (<a href="#diary_editor_command">Section 3.8.5.9, &#8220;Showing the edit box&#8221;</a>), then you can use the <code>insert</code> command.</p>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-insert-i-linenumber-d-paragraph-code-command"><a class="link" href="#using-the-code-insert-i-linenumber-d-paragraph-code-command">Using the <code>insert i/&lt;lineNumber&gt; d/&lt;paragraph&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1132,16 +1171,10 @@ The commands below are quick command line equivalents of editing the text in the
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;lineNumber&gt;</code> - Line number to insert the <code>&lt;paragraph&gt;</code> at, as described in <a href="#diary_text_line_numbering">Section 3.9.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
+<p><code>&lt;lineNumber&gt;</code> - Line number to insert the <code>&lt;paragraph&gt;</code> at, as described in <a href="#diary_text_line_numbering">Section 3.8.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
 </li>
 <li>
-<p><code>&lt;paragraph&gt;</code> - The paragraph of text to append, as described in <a href="#diary_text_info">Section 3.9.4, &#8220;Diary Text&#8221;</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Example: <code>insert i/10 The food was delicious.</code></p>
+<p><code>&lt;paragraph&gt;</code> - The paragraph of text to insert, as described in <a href="#diary_text_info">Section 3.8.4, &#8220;Diary Text&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1161,13 +1194,47 @@ the required number of new paragraphs and insert the provided text afterward!
 </tr>
 </table>
 </div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage-6"><a class="link" href="#example-usage-6">Example Usage</a></h6>
+<div class="paragraph">
+<p>Scenario: Your diary entry has a sizeable amount of text already present, but you want to add a few more details of your
+day for the trip in between.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You type the <code>insert i/5 d/We passed by quite a few more scenic places on the road, along 合歡山.</code> command to add some
+text in between the existing lines 4 and 5, and press the 'enter' key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_insert_command_before.png" alt="diary insert command before">
+</div>
+<div class="title">Figure 20. Example usage of <code>insert</code> command to insert a new paragraph of text in a diary entry</div>
+</div>
+</li>
+<li>
+<p>The new paragraph of text you type will be inserted into the entry!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_insert_command_after.png" alt="diary insert command after">
+</div>
+<div class="title">Figure 21. Result of <code>insert</code> command to insert a new paragraph of text to a diary entry</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="editing-text-in-a-diary-entry"><a class="link" href="#editing-text-in-a-diary-entry">Editing text in a diary entry</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit [i/&lt;lineNumber&gt;] d/&lt;paragraph&gt;</code></p>
+<div class="paragraph">
+<p>If you have written a sizable diary entry, and want to edit a certain paragraph of text, then you can use the <code>edit</code>
+command to do so.</p>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-edit-i-linenumber-d-paragraph-code-command"><a class="link" href="#using-the-code-edit-i-linenumber-d-paragraph-code-command">Using the <code>edit [i/&lt;lineNumber&gt;] d/&lt;paragraph&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1178,16 +1245,10 @@ the required number of new paragraphs and insert the provided text afterward!
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;lineNumber&gt;</code> (optional) - Line number of the text line to edit, as described in <a href="#diary_text_line_numbering">Section 3.9.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
+<p><code>&lt;lineNumber&gt;</code> (optional) - Line number of the text line to edit, as described in <a href="#diary_text_line_numbering">Section 3.8.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
 </li>
 <li>
-<p><code>&lt;paragraph&gt;</code> - The paragraph of text to edit, as described in <a href="#diary_text_info">Section 3.9.4, &#8220;Diary Text&#8221;</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Example: <code>edit i/10 The food was especially delicious.</code></p>
+<p><code>&lt;paragraph&gt;</code> - The new paragraph of text (as described in <a href="#diary_text_info">Section 3.8.4, &#8220;Diary Text&#8221;</a>) to replace the existing paragraph or entire entry with.</p>
 </li>
 </ul>
 </div>
@@ -1201,18 +1262,51 @@ the required number of new paragraphs and insert the provided text afterward!
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can use this as a quick way to clear the entire diary entry&#8217;s text.
+You can use this as a quick way to clear the entire diary entry&#8217;s text!
 </td>
 </tr>
 </table>
 </div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage-7"><a class="link" href="#example-usage-7">Example Usage</a></h6>
+<div class="paragraph">
+<p>Scenario: You discovered that you made a minor spelling error - 'ou' instead of 'our' in line 1 of your diary entry, and
+want to rectify this.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You type in the command <code>edit i/1 d/On the third day, we departed from the Hua Lian county and began our drive to Tai Chung.</code> command to fix the mistake in the first line, and press the 'enter' key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_edit_command_before.png" alt="diary edit command before">
+</div>
+<div class="title">Figure 22. Example usage of <code>edit</code> command to edit an existing paragraph of text in a diary entry</div>
+</div>
+</li>
+<li>
+<p>The spelling error is gone, and you are shown the confirmation message!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_edit_command_after.png" alt="diary edit command after">
+</div>
+<div class="title">Figure 23. Result of <code>edit</code> command to edit an existing paragraph of text</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="sect4">
-<h5 id="deleting-a-line-of-text-in-a-diary-entry"><a class="link" href="#deleting-a-line-of-text-in-a-diary-entry">Deleting a line of text in a diary entry</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete i/&lt;lineNumber&gt;</code></p>
+<h5 id="deleting-a-paragraph-of-text-in-a-diary-entry"><a class="link" href="#deleting-a-paragraph-of-text-in-a-diary-entry">Deleting a paragraph of text in a diary entry</a></h5>
+<div class="paragraph">
+<p>If you wrote some things in your diary entry that you later rather wish not be there, you can use the <code>delete</code> command
+to delete a paragraph of text in the entry!</p>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-delete-i-linenumber-code-command"><a class="link" href="#using-the-code-delete-i-linenumber-code-command">Using the <code>delete i/&lt;lineNumber&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1223,64 +1317,156 @@ You can use this as a quick way to clear the entire diary entry&#8217;s text.
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;lineNumber&gt;</code> - Line number of the text line to delete, as described in <a href="#diary_text_line_numbering">Section 3.9.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
+<p><code>&lt;lineNumber&gt;</code> - Line number of the text line to delete, as described in <a href="#diary_text_line_numbering">Section 3.8.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage-8"><a class="link" href="#example-usage-8">Example Usage</a></h6>
+<div class="paragraph">
+<p>Scenario: You discovered that you made quite a few rather embarrassing, elementary spelling errors in a line 1 of your diary entry.
+You want to rectify this quickly, because your friend requested you share details of your trip with her.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You type in the command <code>delete 1</code> command to delete first line entirely, and press the 'enter' key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_delete_command_before.png" alt="diary delete command before">
+</div>
+<div class="title">Figure 24. Example usage of <code>delete</code> command to delete an existing paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
-<p>Example: <code>delete i/10</code></p>
-</li>
-</ul>
+<p>The spelling error is gone, and you are shown the confirmation message!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_delete_command_after.png" alt="diary delete command after">
+</div>
+<div class="title">Figure 25. Result of <code>delete</code> command to delete an existing paragraph of text</div>
 </div>
 </li>
-</ul>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect4">
 <h5 id="diary_editor_command"><a class="link" href="#diary_editor_command">Showing the edit box</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editor</code></p>
+<div class="paragraph">
+<p>As an alternative to commands that allow you to edit your diary entry, you can also use the edit box to do so, as described
+in <a href="#diary_editor_display_mode">Section 3.8.3, &#8220;Diary Editor User Interface&#8221;</a>. Note that any edits through the edit box or command made while the editor was opened
+need to be saved by using the <code>done</code> command or button (see <a href="#diary_done_command">Section 3.8.5.10, &#8220;Committing your edits&#8221;</a>).To show the editor, there are two equivalent options.</p>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-editor-code-command"><a class="link" href="#using-the-code-editor-code-command">Using the <code>editor</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
 <p>Usage: Opens the text editor window and shifts the keyboard focus to it, if it is not already opened.</p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-edit-code-button"><a class="link" href="#using-the-code-edit-code-button">Using the <code>Edit</code> button</a></h6>
+<div class="ulist">
+<ul>
 <li>
-<p>Example: <code>editor</code></p>
+<p>Usage: Clicking the <code>Edit</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.8.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open the editor.</p>
 </li>
 </ul>
 </div>
+<hr>
+</div>
+<div class="sect5">
+<h6 id="example-usage-9"><a class="link" href="#example-usage-9">Example Usage</a></h6>
+<div class="paragraph">
+<p>Scenario: You have just begun writing your diary entry, and even though you are a command line enthusiast, you recall the existence of
+command line text editors, such as <em>vim</em>, which can greatly improve the typing experience.</p>
+</div>
+<div class="paragraph">
+<p>Thus, you opted for using the edit box to write your diary entry, instead of repeating the same commands multiple times.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You type in the <code>editor</code> command, and press the 'enter' key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_editor_command_before.png" alt="diary editor command before">
+</div>
+<div class="title">Figure 26. Example usage of <code>editor</code> command to open the edit window</div>
+</div>
 </li>
-</ul>
+<li>
+<p>That&#8217;s all! The edit box is opened, and the keyboard focus is shifted to it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/diary/userguide/diary_editor_command_after.png" alt="diary editor command after">
+</div>
+<div class="title">Figure 27. Result of <code>editor</code> command showing the opened edit window</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In true command line fashion, you can still return the keyboard focus to the command line input without the mouse
+by pressing the 'F1' key!
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="diary_done_command"><a class="link" href="#diary_done_command">Commiting your edits</a></h5>
+<h5 id="diary_done_command"><a class="link" href="#diary_done_command">Committing your edits</a></h5>
+<div class="paragraph">
+<p>If you have the edit box opened, any edits you make, through commands or the editor, are not saved until you tell
+<em>TravelPal</em> to do so! To do this, there are two options, the first being the <code>done</code> command and the second being the
+<code>Done</code> button.</p>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-done-code-command-2"><a class="link" href="#using-the-code-done-code-command-2">Using the <code>done</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><code>done</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Usage: Commits the text currently in the edit box to the diary entry.</p>
+<p>Usage: Saves the text currently in the edit box to the diary entry, and closes the editor.</p>
 </li>
 <li>
 <p>Example: <code>done</code></p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect5">
+<h6 id="using-the-code-done-code-button"><a class="link" href="#using-the-code-done-code-button">Using the <code>Done</code> button</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage: Clicking the <code>Done</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.8.2.5, &#8220;Gallery Button Bar&#8221;</a>) will similarly
+save the changes you made while the editor was open, and close the editor.</p>
 </li>
 </ul>
+</div>
+<hr>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pre-trip-inventory-manager"><a class="link" href="#pre-trip-inventory-manager">3.10. Pre-trip Inventory Manager</a></h3>
+<h3 id="pre-trip-inventory-manager"><a class="link" href="#pre-trip-inventory-manager">3.9. Pre-trip Inventory Manager</a></h3>
 <div class="paragraph">
 <p>Allows the user to make a list of things (inventory of things) he/she needs for the trip.</p>
 </div>
@@ -1309,20 +1495,10 @@ You can use this as a quick way to clear the entire diary entry&#8217;s text.
 <div class="ulist">
 <ul>
 <li>
-<p>The data of the trips is saved in the data directory located in the same directory as where TravelPal.jar is.</p>
+<p>The data of the trips is saved in the data directory located in the data directory where the <em>TravelPal</em> application file, TravelPal.jar is.</p>
 </li>
 <li>
-<p>The data is stored in a human readable json format, allowing manual editing of the data files using a seperate text editor.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Most info, where relevant, can be sent to a printer or saved in pdf format, if the info is needed while travelling without your computer.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The pdfs are output in the output directory located in the same directory as TravelPal.jar</p>
+<p>The data is stored in a human readable json format, allowing manual editing of the data files using a separate text editor.</p>
 </li>
 </ul>
 </div>
@@ -1339,12 +1515,15 @@ You can use this as a quick way to clear the entire diary entry&#8217;s text.
 <div class="ulist">
 <ul>
 <li>
-<p>Relative file path</p>
+<p>Relative file path - the file path from the directory of the <em>TravelPal</em> application file. For example,
+<code>.\sample_picture.jpg</code>  is an relative file path referring to an image file <code>sample_picture.jpg</code> existing in the same directory
+as the <em>TravelPal</em> application file.</p>
 </li>
 <li>
-<p>Absolute file path</p>
+<p>Absolute file path - the file path from your computer&#8217;s root directory, which can vary from system to system. For example,
+<code>C:\Users\Public\Pictures</code>  is an absolute file path from the root directory of your computer&#8217;s <code>C:\</code> drive.</p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:38:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 17:00:04 UTC</div></div></div></body></html>
