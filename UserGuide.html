@@ -17,7 +17,7 @@
 <li><a href="#trip-manager">3.2. Trip manager</a></li>
 <li><a href="#trip-setup">3.3. Trip setup</a></li>
 <li><a href="#event-setup">3.4. Event Setup</a></li>
-<li><a href="#itinerary">3.5. Itinerary</a></li>
+<li><a href="#navbar">3.5. Navbar</a></li>
 <li><a href="#expense-manager">3.6. Expense Manager</a></li>
 <li><a href="#expense-setup">3.7. Expense Setup</a></li>
 <li><a href="#currency-manager">3.8. Currency Manager</a></li>
@@ -239,76 +239,186 @@ with the same constraints as noted above.</p>
 <div class="sect2">
 <h3 id="trip-setup"><a class="link" href="#trip-setup">3.3. Trip setup</a></h3>
 <div class="paragraph">
-<p>Trip setup is the first page in configuring a new/existing task. Upon commands to create or edit a specified trip from the Trip Manager, the user will be directed to a page where they can edit the necessary details to create a new trip. This page will contain a form with 2 necessary fields:</p>
+<p>Trip setup is the first step in configuring a new/existing trip! This requires you to be at the <em>Trip Manager</em> page (the landing page).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TripManager.png" alt="TripManager">
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can enter the command <code>create</code> or <code>edit &lt;index&gt;</code> to create a new trip or edit an existing trip.</p>
+</div>
+<div class="paragraph">
+<p>Upon commands to create or edit a specified trip from the Trip Manager, the user will be directed to a page where they can edit the necessary details to create a new trip. This page will contain a form with 5 necessary fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Start Date</p>
+</li>
+<li>
+<p>End Date</p>
+</li>
+<li>
+<p>Total Budget</p>
+</li>
+<li>
+<p>Destination</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The last field Photo is an optional field, a default image will be used if the user does not submit any image.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>create</code> command was executed, you will be displayed an empty form with no details filled in.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/createTrip.png" alt="createTrip">
+</div>
+</div>
+<div class="paragraph">
+<p>If <code>edit</code> command was executed, you will be displayed a from with details previously filled in.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/editTrip.png" alt="editTrip">
+</div>
+</div>
+<div class="paragraph">
+<p>Now that you on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefixes&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 6 different prefixes, each to edit one of the 6 fields displayed. The 6 prefixes refer to editing each fields as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Duration (Starting date, Ending date)</p>
+<p>Name :  <code>n/</code></p>
 </li>
 <li>
-<p>Destination</p>
-<div class="ulist">
-<ul>
-<li>
-<p>edit -startDate &lt;starting Date&gt; -endDate &lt;ending Date&gt;: sets the starting date and ending date of the trip being created/edited</p>
+<p>Start Date : <code>ds/</code></p>
 </li>
 <li>
-<p>edit -dest &lt;destination&gt;: sets the destination of the trip being created/edited</p>
+<p>End Date : <code>de/</code></p>
 </li>
 <li>
-<p>edit -addDay &lt;name of day&gt;: adds a day after the last day previously added. If no days were previously added, add the first day</p>
+<p>Total Budget : <code>b/</code></p>
 </li>
-</ul>
+<li>
+<p>Destination : <code>l/</code></p>
+</li>
+<li>
+<p>Photo File Path : <code>fp/</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>    Note:
+    You can execute fc/ with fp/ to open a file dialog to choose an image rather than type in absoulute path of the image.
+e.g. edit fp/ fc/</pre>
+</div>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Below is an example changing the name of an existing trip to "Small Trip":</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You begin at the edit trip screen, the original name of the trip is the same as before.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/editTrip.png" alt="editTrip">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter the command <code>edit n/Small Trip</code> into the command box and press enter to execute.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/editNameCommand.png" alt="editNameCommand">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The name of the trip is now "Small Trip"!</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/editNameCommandResult.png" alt="editNameCommandResult">
+</div>
+</div>
+<div class="paragraph">
+<p>Having completed editing the the form, you can submit it by executing the <code>done</code> command or the <code>cancel</code> command which will confirm your edit or discard it respectively.</p>
+</div>
+<div class="paragraph">
+<p>You have successfully created/edited a trip!</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="event-setup"><a class="link" href="#event-setup">3.4. Event Setup</a></h3>
 <div class="paragraph">
-<p>Event setup creates/edits properties of a specified event.</p>
+<p>Event setup creates/edits properties of a specified event. It is necessary for event to contains a starting and ending time. Events contains mostly optional fields that the user can edit in future. The syntax is as follows: <code>edit &lt;prefix&gt;/&lt;value&gt;</code></p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>edit -id &lt;id of trip&gt; -day &lt;index of day&gt; -event &lt;index of event&gt; -name &lt;name of event&gt;: sets the name of the event</p>
+<p>Name : <code>n/</code></p>
 </li>
 <li>
-<p>edit -id &lt;id of trip&gt; -day &lt;index of day&gt; -event &lt;index of event&gt; -description &lt;description of event&gt;: sets the description of the event</p>
+<p>Start Date : <code>ds/</code></p>
 </li>
 <li>
-<p>edit -id &lt;id of trip&gt; -day &lt;index of day&gt; -event &lt;index of event&gt; -startDate &lt;starting time&gt;: sets the starting time of the event</p>
+<p>End Date: <code>de/</code></p>
 </li>
 <li>
-<p>edit -id &lt;id of trip&gt; -day &lt;index of day&gt; -event &lt;index of event&gt; -endingTime &lt;ending time&gt;: sets the ending time of the event</p>
+<p>Total Budget: <code>b/</code></p>
 </li>
 <li>
-<p>edit -id &lt;id of trip&gt; -day &lt;index of day&gt; -event &lt;index of event&gt; -expenditure: sets the current known expenditure for a single event</p>
+<p>Destination: <code>l/</code></p>
 </li>
-</ul>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="itinerary"><a class="link" href="#itinerary">3.5. Itinerary</a></h3>
+<h3 id="navbar"><a class="link" href="#navbar">3.5. Navbar</a></h3>
 <div class="paragraph">
-<p>itinerary contains commands to view the list of relevant event/day/trips. The order can be changed by using different commands</p>
+<p>Every page that comprises a navbar can execute the following commands to navigate to another page.</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>list -id &lt;id of trip&gt;: Lists the days of a trip in chronological order</p>
+<p>Trip Manager: <code>home</code></p>
 </li>
 <li>
-<p>list -d &lt;id of trip&gt; -day &lt;index of day&gt;: Lists the events of a day chronological order</p>
+<p>Itinerary : <code>itinerary</code></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Additional tags:
-* byExpenses: list all elements by expenses, from highest to lowest
-* byAlphabetical: list all elements by the alphabetical order of their names</p>
+<li>
+<p>Days Page: <code>days</code></p>
+</li>
+<li>
+<p>Diary : <code>diary</code></p>
+</li>
+<li>
+<p>Inventory : <code>inventory</code></p>
+</li>
+<li>
+<p>Expense Manager :`expense`</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -1557,4 +1667,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 07:51:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 07:56:29 UTC</div></div></div></body></html>
