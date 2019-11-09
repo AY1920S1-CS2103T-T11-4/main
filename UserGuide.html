@@ -339,7 +339,7 @@ e.g. edit fp/ fc/</pre>
 <div class="sect3">
 <h4 id="introduction-2"><a class="link" href="#introduction-2">3.5.1. Introduction</a></h4>
 <div class="paragraph">
-<p>TravelPal&#8217;s <em>Expense Manager</em> is an integrated expense planning and management system. It keeps track all the expenditures generated in your trip, and
+<p>TravelPal&#8217;s <em>Expense Manager</em> is an integrated expense planning and management system. It keeps track all the expenses generated in your trip, and
 provides an intuitive overview of daily and total expenses and budgets. Gui alternatives are available for executing the same operations as command line input.</p>
 </div>
 <div class="paragraph">
@@ -368,16 +368,16 @@ you may click the toggle button on the page.</p>
 <div class="title">Figure 2. Expense Manager user interface showing the daily expenses and budget summary</div>
 </div>
 <div class="paragraph">
-<p>Expenses are connected to bookings/events to automatically update the current known expenditure for any date/trip/event.
-There are two types of expenditure:</p>
+<p>Expenses are connected to bookings/events to automatically update the current known expense for any date/trip/event.
+There are two types of expense:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Planned expenditure (auto-generated from event)</p>
+<p>Planned expense (auto-generated from event)</p>
 </li>
 <li>
-<p>Miscellaneous expenditure (can be created and deleted)</p>
+<p>Miscellaneous expense (can be created and deleted)</p>
 </li>
 </ol>
 </div>
@@ -390,16 +390,16 @@ There are two types of expenditure:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>create</code>: creates a expenditure, can also be accessed by clicking the <code>Add Expenditure</code> button.</p>
+<p><code>create</code>: creates a expense, can also be accessed by clicking the <code>Add Expense</code> button.</p>
 </li>
 <li>
-<p><code>edit &lt;index of expenditure&gt;</code>: edit an expenditure, this command bring up the expense setup page.</p>
+<p><code>edit &lt;index of expense&gt;</code>: edit an expense, this command bring up the expense setup page.</p>
 </li>
 <li>
-<p><code>delete &lt;index of expenditure&gt;</code>: delete an expenditure, note that only miscellaneous expenditures can be deleted.</p>
+<p><code>delete &lt;index of expense&gt;</code>: delete an expense, note that only miscellaneous expenses can be deleted.</p>
 </li>
 <li>
-<p><code>showdays</code>: enter the days view of expense manager, the expenditures will be grouped according to the days they belong to.</p>
+<p><code>showdays</code>: enter the days view of expense manager, the expenses will be grouped according to the days they belong to.</p>
 </li>
 <li>
 <p><code>currency</code>: enter the currency page of TravelPal, can also be accessed by clicking the <code>Edit Currency</code> button</p>
@@ -410,11 +410,11 @@ There are two types of expenditure:</p>
 <div class="sect3">
 <h4 id="expense-setup"><a class="link" href="#expense-setup">3.5.4. Expense Setup</a></h4>
 <div class="paragraph">
-<p>Expense setup creates/edits properties of a specified expenditure.
-To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit &lt;index of expenditure&gt;</code> command on`Expense Manager` page.</p>
+<p>Expense setup creates/edits properties of a specified expense.
+To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit &lt;index of expense&gt;</code> command on`Expense Manager` page.</p>
 </div>
 <div class="paragraph">
-<p>It is necessary for expenditure to contains a name and amount. It can also contain an optional day number, indicating which day the expenditure belong to.</p>
+<p>It is necessary for expense to contains a name and amount. It can also contain an optional day number, indicating which day the expense belong to.</p>
 </div>
 <div class="paragraph">
 <p>The following commands are available on <em>Expense Setup</em> page.</p>
@@ -422,7 +422,7 @@ To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code> : edit the field of the expenditure to be created/edited.</p>
+<p><code>edit &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code> : edit the field of the expense to be created/edited.</p>
 </li>
 <li>
 <p><code>done</code> : confirm and commit the changes, go back to the expense manager page.</p>
@@ -438,13 +438,13 @@ To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit
 <div class="ulist">
 <ul>
 <li>
-<p><code>n/</code> Name of the expenditure</p>
+<p><code>n/</code> Name of the expense</p>
 </li>
 <li>
-<p><code>b/</code> The amount of expenditure, in Singapore dollars.</p>
+<p><code>b/</code> The amount of expense, in Singapore dollars.</p>
 </li>
 <li>
-<p><code>dn/</code> The day number the expenditure belongs to.</p>
+<p><code>dn/</code> The day number the expense belongs to.</p>
 </li>
 </ul>
 </div>
@@ -455,8 +455,8 @@ To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For Planned expenditure linked to an event, the <code>name</code> and <code>day number</code> fields are not editable. However, you may
-edit the name of the corresponding event, this will also update the name of the planned expenditures.
+For Planned expense linked to an event, the <code>name</code> and <code>day number</code> fields are not editable. However, you may
+edit the name of the corresponding event, this will also update the name of the planned expenses.
 </td>
 </tr>
 </table>
@@ -466,7 +466,7 @@ edit the name of the corresponding event, this will also update the name of the 
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>To add an expenditure with the name <em>Miscellaneous Expenses</em> of $<em>10.5</em> SGD to day <em>2</em>, use the following command:</p>
+<p>To add an expense with the name <em>Miscellaneous Expenses</em> of $<em>10.5</em> SGD to day <em>2</em>, use the following command:</p>
 </div>
 <div class="paragraph">
 <p><code>edit n/Miscellaneous Expenses b/10.5 dn/2</code></p>
@@ -1766,4 +1766,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 02:56:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 20:02:06 UTC</div></div></div></body></html>
