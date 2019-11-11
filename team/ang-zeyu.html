@@ -10,10 +10,10 @@ project.</p>
 <div class="paragraph">
 <p>We chose the latter, which&#8217;s end product was <em>TravelPal</em>,  a desktop travelling companion application catered
 for leisure travellers. <em>TravelPal</em> allows travellers to manage their travelling itinerary, bookings, expenses and inventory
-conveniently in one place, and record their travels in a <strong>diary</strong>.</p>
+conveniently in one place, and record their travels in a diary.</p>
 </div>
 <div class="paragraph">
-<p>As per the constraint given to us in developing this project, the user interacts with <em>TravelPal</em> mainly using a command line interface (CLI),
+<p>As per the constraint given to us in developing this project, the user interacts with  <em>TravelPal</em> mainly using a command line interface (CLI),
 although it has user interface alternatives for most of its operations.</p>
 </div>
 <div class="paragraph">
@@ -25,8 +25,8 @@ trip with both multimedia and text.</p>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="main-contribution-1-implemented-the-diary-feature"><a class="link" href="#main-contribution-1-implemented-the-diary-feature">Main contribution 1: Implemented the diary feature.</a></h4>
+<div class="sect2">
+<h3 id="main-contribution-1-implemented-the-diary-feature"><a class="link" href="#main-contribution-1-implemented-the-diary-feature">Main contribution 1: Implemented the diary feature.</a></h3>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/diary/userguide/welcome_to_diary_image.png" alt="welcome to diary image" width="90%">
@@ -52,8 +52,8 @@ the user interface implementation also had to be highly extensible.</p>
 </div>
 <hr>
 </div>
-<div class="sect3">
-<h4 id="main-contribution-2-base-em-address-book-em-code-refactor"><a class="link" href="#main-contribution-2-base-em-address-book-em-code-refactor">Main Contribution 2: Base <em>address book</em> code refactor</a></h4>
+<div class="sect2">
+<h3 id="main-contribution-2-base-em-address-book-em-code-refactor"><a class="link" href="#main-contribution-2-base-em-address-book-em-code-refactor">Main Contribution 2: Base <em>address book</em> code refactor</a></h3>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/diary/project%20portfolio/forms.png" alt="forms" width="90%">
@@ -84,8 +84,8 @@ as it would introduce additional burden for the team in understanding the code.<
 </div>
 <hr>
 </div>
-<div class="sect3">
-<h4 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions</a></h4>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -157,7 +157,7 @@ inception, which the team agreed upon. (see <a href="https://docs.google.com/doc
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In developing <em>TravelPal</em>, a completely new user guide was needed to provide usage instructions for the various new features.</p>
 <p class="tableblock">Shown below is one of the various sections I contributed to the User Guide,
-on adding a photo inside the <strong>diary</strong> feature.</p></td>
+on adding a photo to display in the diary feature.</p></td>
 </tr>
 </tbody>
 </table>
@@ -168,11 +168,7 @@ on adding a photo inside the <strong>diary</strong> feature.</p></td>
 may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">[diary_gallery_display]</a>).</p>
 </div>
 <div class="paragraph">
-<p>Here, there are 3 options for you to choose, the last option being the least flexible but also the fastest, if
-you are more comfortable with using the user interface than the command line input.</p>
-</div>
-<div class="paragraph">
-<p>In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code>.</p>
+<p>There are <strong>3</strong> ways for you to add a photo, the last option being the least flexible but also the fastest!</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -181,41 +177,34 @@ you are more comfortable with using the user interface than the command line inp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>The image files are not copied to where your the <em>TravelPal</em> application file is. Instead, the absolute file path
-(see <a href="#glossary">[glossary]</a>) to the image file on your computer is stored!</p>
-</div>
-<div class="paragraph">
-<p>If you move or delete the original image on your system,
-then you will have to add the photo again, and a placeholder image will be shown in place of your image in <em>TravelPal</em>.</p>
-</div>
+In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-addphoto-code-command-with-the-code-fp-code-prefix"><a class="link" href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a></h6>
+<h6 id="option-1-using-the-code-addphoto-code-command-with-the-code-fp-code-prefix"><a class="link" href="#option-1-using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Option 1: Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a></h6>
 <div class="ulist">
 <ul>
 <li>
 <p>Usage: Typing in the command <code>addphoto fp/&lt;file path&gt; [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the
-arguments described below, will add the image file located at the specified file
-path on your computer to the gallery display.</p>
+arguments described below, will add the image located at the <code>file
+path</code> on your computer to the gallery.</p>
 </li>
 <li>
 <p>Arguments:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;file path&gt;</code> - Relative file path from the location of the <em>TravelPal&#8217;s</em> jar file, or an absolute file path.</p>
+<p><code>&lt;file path&gt;</code> - Relative file path from the location of the <em>TravelPal&#8217;s</em> jar file, or an absolute file path. (see <a href="#glossary">[glossary]</a> for details of relative and absolute file paths)</p>
 </li>
 <li>
 <p><code>&lt;description&gt;</code> (optional) - The description of the photo to be shown in the gallery, of maximum length 20.
-If left unspecified, the file name, truncated to the maximum length is used instead.</p>
+If unspecified, the file name is used instead, shortened to the maximum length.</p>
 </li>
 <li>
-<p><code>&lt;date taken&gt;</code> (optional) - The date taken of the photo, of the format d/M/yyyy HHmm.
-If left unspecified, the last modified date of the file is used instead.</p>
+<p><code>&lt;date taken&gt;</code> (optional) - The date taken of the photo, of the format <code>d/M/yyyy HHmm</code>.
+If unspecified, the last modified date of the file is used instead.</p>
 </li>
 </ul>
 </div>
@@ -232,16 +221,14 @@ If left unspecified, the last modified date of the file is used instead.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>You are currently viewing the diary entry for day 1, which is empty, and you want to add a new photo.</p>
-</li>
-<li>
-<p>You are also a command line savvy user that loves and understands how to manually specify relative or absolute
-file paths (see <a href="#glossary">[glossary]</a>), hence you opted for this option,
-rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
+<p>You are currently viewing an empty diary entry for day 1 and you want to add a new photo.</p>
 </li>
 <li>
 <p>Also, you want to give the photo a custom description, but want to use the last modified date of the image file in your
-computer as the date taken for the photo. Shown below is an example of the photo on your computer you want to add,
+computer as the date taken for the photo.</p>
+</li>
+<li>
+<p>Shown below is an example of the photo on your computer you want to add,
 <code>snowymountains.jpg</code>, that is located in the same place as the <em>TravelPal</em> application.</p>
 </li>
 </ul>
@@ -272,7 +259,7 @@ same directory as the <em>TravelPal</em> application.</p>
 </div>
 </li>
 <li>
-<p>The photo, with the specified description and last modified date will be added. You should see a brief confirmation message in
+<p>That&#8217;s it! The photo, with the specified description and last modified date will be added. You should see a brief confirmation message in
 the command result box.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -293,23 +280,24 @@ the command result box.</p>
 <hr>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-addphoto-code-command-with-the-code-fc-code-prefix"><a class="link" href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a></h6>
+<h6 id="option-2-using-the-code-addphoto-code-command-with-the-code-fc-code-prefix"><a class="link" href="#option-2-using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Option 2: Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Typing in the command <code>addphoto fc/ [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the
-arguments described below, will add the image file located at the specified file
-path on your computer to the gallery display.</p>
+<p>Usage: Typing in the command <code>addphoto fc/ [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the optional
+arguments described below, will open your system&#8217;s dialog to choose an image file.</p>
 </li>
 <li>
-<p>Arguments:</p>
+<p>Arguments (optional):</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>fc/</code> - opens your system&#8217;s user interface dialog to allow choosing an image (of file types <code>.jpg .jpeg .png</code>).</p>
+<p><code>&lt;description&gt;</code> - The description of the photo to be shown in the gallery, of maximum length 20.
+If unspecified, the file name is used instead, shortened to the maximum length.</p>
 </li>
 <li>
-<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a>.</p>
+<p><code>&lt;date taken&gt;</code> - The date taken of the photo, of the format <code>d/M/yyyy HHmm</code>.
+If unspecified, the last modified date of the file is used instead.</p>
 </li>
 </ul>
 </div>
@@ -323,30 +311,29 @@ path on your computer to the gallery display.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>fc/</code> prefix takes precedence over the <code>fp/</code> argument if both are specified.
+Using both the <code>fc/</code> and <code>fp/</code> prefix will cause <em>TravelPal</em> to ignore the <code>fp/</code> prefix!
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-add-code-button-under-the-gallery-display"><a class="link" href="#using-the-code-add-code-button-under-the-gallery-display">Using the <code>Add</code> button under the gallery display</a></h6>
+<h6 id="option-3-using-the-code-add-code-button-under-the-gallery-display"><a class="link" href="#option-3-using-the-code-add-code-button-under-the-gallery-display">Option 3: Using the <code>Add</code> button under the gallery display</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">[diary_gallery_button_bar]</a>) will open your
-system&#8217;s user interface dialog to choose an image file.</p>
+<p>Usage: Clicking the <code>Add</code> button located under the gallery display area ( <a href="#diary_gallery_button_bar">[diary_gallery_button_bar]</a>) will open your
+system&#8217;s dialog to choose an image file.</p>
 </li>
 <li>
-<p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described
-in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a>.</p>
+<p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described above.</p>
 </li>
 </ul>
 </div>
 <hr>
 </div>
 <div class="sect5">
-<h6 id="example-usage-for-code-addphoto-code-command-with-code-fc-code-option-or-code-add-code-button"><a class="link" href="#example-usage-for-code-addphoto-code-command-with-code-fc-code-option-or-code-add-code-button">Example Usage for <code>addphoto</code> command with <code>fc/</code> option or <code>add</code> button</a></h6>
+<h6 id="example-usage-for-code-addphoto-code-command-with-the-code-fc-code-option-or-code-add-code-button"><a class="link" href="#example-usage-for-code-addphoto-code-command-with-the-code-fc-code-option-or-code-add-code-button">Example Usage for <code>addphoto</code> command with the <code>fc/</code> option or <code>add</code> button</a></h6>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -359,6 +346,7 @@ See the <a href="https://ay1920s1-cs2103t-t11-4.github.io/main/UserGuide.html">u
 </tr>
 </table>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -374,7 +362,7 @@ See the <a href="https://ay1920s1-cs2103t-t11-4.github.io/main/UserGuide.html">u
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In the course of this project, my team and I realised we developed a substantial amount
 of code on top of the code base given to us.
-Hence, my team and I updated the <em>TravelPal</em> developer guide to better suit our needs.</p>
+Hence, we updated the <em>TravelPal</em> developer guide to reflect the changes we needed.</p>
 <p class="tableblock">Below is one of the various sections I contributed, documenting the aspect
 of the diary that stores and displays photos.</p></td>
 </tr>
@@ -406,7 +394,7 @@ The <code>imagePath</code> and <code>dateTaken</code> were implemented respectiv
 <div class="paragraph">
 <p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</a> for brevity),
 which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
-as the <code>Image</code> construction directly in the user interface involves costly I/O operations.</p>
+as on-demand <code>Image</code> construction in the user interface involves costly I/O operations.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -495,40 +483,38 @@ in turn returns instances of <code>AddPhotoCommand</code> and <code>DeletePhotoC
 <h5 id="logic-aspect-1-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#logic-aspect-1-adding-photos-through-command-line-file-path-or-os-file-chooser">Logic aspect 1: Adding photos (through command line file path or os file chooser)</a></h5>
 <div class="paragraph">
 <p>Following <code>DiaryParser</code> returning an instance of <code>AddPhotoParser</code> that calls <code>parse()</code> on the user specified arguments,
-a number of operations happen, as per the UML sequence diagram below (<a href="#AddPhotoParser parse sequence diagram">[AddPhotoParser parse sequence diagram]</a>). The specifics of <code>getFilePath</code>,
+a number of operations happen, as per the UML sequence diagram below (<a href="#addphotoparser_parse_sequence_diagram">[addphotoparser_parse_sequence_diagram]</a>). The specifics of <code>getFilePath</code>,
 <code>parseDescription</code>, <code>parseDateTime</code> are detailed further down below.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/diary/DiaryAddPhotoParser.png" alt="AddPhotoParser parse sequence diagram">
+<img src="../images/diary/DiaryAddPhotoParser.png" alt="addphotoparser_parse_sequence_diagram">
 </div>
 <div class="title">Figure 6. Sequence diagram of the parse method in AddPhotoParser</div>
 </div>
-<hr>
 <div class="sect5">
 <h6 id="adding_photo_diary_step_1"><a class="link" href="#adding_photo_diary_step_1">Parsing the image file path</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>Using <code>ArgumentMultimap</code>, the file chooser prefix, "fc/", is checked for.
+<p>Using <code>ArgumentMultimap</code>, the file chooser prefix, <code>fc/</code>, is checked for.
 If present, the OS file choosing gui is opened using <code>ImageChooser</code> (a simple extension of JavaFX&#8217;s <code>FileChooser</code> enforcing image file extensions), and the data file path prefix is ignored.</p>
 </li>
 <li>
-<p>Otherwise, the presence of the data file prefix is checked, and its subsequent argument is validated
-as a valid image file.</p>
+<p>The <code>getFilePath</code> subroutine is then called, detailed in <a href="#diary_getfilepath_activity_diagram">Activity diagram of getFilePath subroutine</a>, which checks for the
+existence and validity of the image as supplied by the <code>ImageChooser</code> or the file path in the <code>fp/</code> argument.</p>
 </li>
 <li>
-<p>If the file chooser prefix is unspecified and the data file path is invalid, <code>AddPhotoParser</code> throws a <code>ParseException</code></p>
+<p>If the <code>fc/</code> was unspecified and the parsing process fails any of the checks, <code>getFilePath</code> throws a <code>ParseException</code>.</p>
 </li>
 </ul>
 </div>
-<div class="imageblock" style="text-align: center">
+<div id="diary_getfilepath_activity_diagram" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram" width="95%">
 </div>
 <div class="title">Figure 7. Activity diagram of getFilePath subroutine</div>
 </div>
-<hr>
 </div>
 <div class="sect5">
 <h6 id="parsing-the-description-of-the-photo"><a class="link" href="#parsing-the-description-of-the-photo">Parsing the description of the photo</a></h6>
@@ -536,7 +522,7 @@ as a valid image file.</p>
 <ul>
 <li>
 <p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>DiaryPhoto</code> instance with the specified input.
-If validation of the description, as described in the <a href="#photo_model">Aspect: Models</a> fails, then a ParseException is thrown during the instance construction.</p>
+If validation of the description, as described in <a href="#photo_model">Aspect: Models</a> fails, then a <code>ParseException</code> is thrown during the instance construction.</p>
 </li>
 <li>
 <p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Parsing the image file path</a> (truncated to match <code>DiaryPhoto&#8217;s</code> description constraints) is used.</p>
@@ -549,22 +535,20 @@ If validation of the description, as described in the <a href="#photo_model">Asp
 </div>
 <div class="title">Figure 8. Activity diagram of parseDescription subroutine</div>
 </div>
-<hr>
 </div>
 <div class="sect5">
 <h6 id="parsing-the-date-of-the-photo"><a class="link" href="#parsing-the-date-of-the-photo">Parsing the date of the photo</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the date time as per the app level date formats.
-A <code>ParseException</code> is automatically thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
+<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the input as per the app level date formats.
+A <code>ParseException</code> is thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
 </li>
 <li>
 <p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Parsing the image file path</a> is used.</p>
 </li>
 </ul>
 </div>
-<hr>
 <div class="paragraph">
 <p>The <code>DiaryPhoto</code> instance is then constructed, and passed to <code>AddPhotoCommand</code> which simply adds the <code>DiaryPhoto</code> to the
 current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
@@ -582,11 +566,12 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 <p>The <code>DeletePhotoParser</code> simply parses the arguments for a valid integer, failing which a <code>ParseException</code> is thrown.</p>
 </li>
 <li>
-<p>An instance of <code>DeletePhotoCommand</code> is returned, which attempts a delete operation on the current <code>PhotoList</code> of the
+<p>An instance of <code>DeletePhotoCommand</code> is then returned, which attempts a delete operation on the current <code>PhotoList</code> of the
 <code>DiaryEntry</code> with the specified index. A <code>CommandException</code> is thrown to alert the user if the index was out of bounds.</p>
 </li>
 </ol>
 </div>
+<hr>
 </div>
 </div>
 <div class="sect3">
@@ -608,15 +593,17 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Validation of image file path</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The first option is to implement the file path validation directly inside the <code>DiaryPhoto</code> model.</p>
-<p class="tableblock">This would have enforced a stricter level of validation on the image file path throughout the code,
-if an instance of <code>DiaryPhoto</code> needed to be instantiated somewhere else other than the <code>AddPhotoParser</code> for future use.</p>
-<p class="tableblock">However, since the storage model for <code>DiaryPhoto</code> (which is <code>JsonAdaptedDiaryPhoto</code>), initializes the model
-through deserializing the saved file path, this would have led to needing to a separate constructor for <code>DiaryPhoto</code>
-in the case that the file path was invalidated on app startup in order to create a placeholder image.</p></td>
+<p class="tableblock">This would have enforced a stricter level of validation on the image file path throughout the code, such as
+if an instance of <code>DiaryPhoto</code> needed to be instantiated somewhere else other than the <code>AddPhotoParser</code> class for future use.</p>
+<p class="tableblock">However, since the storage model for <code>DiaryPhoto</code> (<code>JsonAdaptedDiaryPhoto</code>), initializes the model
+through reading the saved file path, this would have led to needing to a separate constructor for <code>DiaryPhoto</code>
+if the file path read on app startup was no longer valid, in order to create a placeholder image.</p>
+<p class="tableblock">This secondary constructor would thus defeat the defensive benefit of implementing validation directly in
+the model.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The second, chosen option, was to implement the file path validation inside the parser itself.</p>
 <p class="tableblock">Although this option limited the validation to only the 'addphoto' command, it allowed for leeway in
 image path validation in other areas such as <code>JsonAdaptedDiaryPhoto</code>, where it is possible for deletion of an
-image file by the user, outside of the application, to invalidate the stored file path and erroneous data to be loaded on application start.</p>
+image file by the user, outside of the application, to invalidate the stored file path.</p>
 <p class="tableblock">Moreover, Since the function for parsing the image file can and was abstracted into a single utility function,
 any other areas in future development needing this functionality can simply reuse this code.</p>
 <p class="tableblock">Overall, this leads to a more robust behaviour of the application, while providing the same level of

@@ -296,7 +296,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 7. High level structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -307,32 +307,21 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
+<p>stores <em>TravelPal&#8217;s</em> trip data.</p>
+</li>
+<li>
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores a <code>CurrencyList</code> object that represents the user&#8217;s added currencies.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes several unmodifiable <code>ObservableLists</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -341,7 +330,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 8. High level structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -355,7 +344,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the Travel Pal data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -1143,7 +1132,7 @@ The <code>imagePath</code> and <code>dateTaken</code> were implemented respectiv
 <div class="paragraph">
 <p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 19, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
 which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
-as the <code>Image</code> construction directly in the user interface involves costly I/O operations.</p>
+as on-demand <code>Image</code> construction in the user interface involves costly I/O operations.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1232,40 +1221,38 @@ in turn returns instances of <code>AddPhotoCommand</code> and <code>DeletePhotoC
 <h5 id="logic-aspect-1-adding-photos-through-command-line-file-path-or-os-file-chooser"><a class="link" href="#logic-aspect-1-adding-photos-through-command-line-file-path-or-os-file-chooser">Logic aspect 1: Adding photos (through command line file path or os file chooser)</a></h5>
 <div class="paragraph">
 <p>Following <code>DiaryParser</code> returning an instance of <code>AddPhotoParser</code> that calls <code>parse()</code> on the user specified arguments,
-a number of operations happen, as per the UML sequence diagram below (<a href="#AddPhotoParser parse sequence diagram">[AddPhotoParser parse sequence diagram]</a>). The specifics of <code>getFilePath</code>,
+a number of operations happen, as per the UML sequence diagram below (<a href="#addphotoparser_parse_sequence_diagram">[addphotoparser_parse_sequence_diagram]</a>). The specifics of <code>getFilePath</code>,
 <code>parseDescription</code>, <code>parseDateTime</code> are detailed further down below.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/diary/DiaryAddPhotoParser.png" alt="AddPhotoParser parse sequence diagram">
+<img src="images/diary/DiaryAddPhotoParser.png" alt="addphotoparser_parse_sequence_diagram">
 </div>
 <div class="title">Figure 21. Sequence diagram of the parse method in AddPhotoParser</div>
 </div>
-<hr>
 <div class="sect5">
 <h6 id="adding_photo_diary_step_1"><a class="link" href="#adding_photo_diary_step_1">Parsing the image file path</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>Using <code>ArgumentMultimap</code>, the file chooser prefix, "fc/", is checked for.
+<p>Using <code>ArgumentMultimap</code>, the file chooser prefix, <code>fc/</code>, is checked for.
 If present, the OS file choosing gui is opened using <code>ImageChooser</code> (a simple extension of JavaFX&#8217;s <code>FileChooser</code> enforcing image file extensions), and the data file path prefix is ignored.</p>
 </li>
 <li>
-<p>Otherwise, the presence of the data file prefix is checked, and its subsequent argument is validated
-as a valid image file.</p>
+<p>The <code>getFilePath</code> subroutine is then called, detailed in <a href="#diary_getfilepath_activity_diagram">Figure 22, &#8220;Activity diagram of getFilePath subroutine&#8221;</a>, which checks for the
+existence and validity of the image as supplied by the <code>ImageChooser</code> or the file path in the <code>fp/</code> argument.</p>
 </li>
 <li>
-<p>If the file chooser prefix is unspecified and the data file path is invalid, <code>AddPhotoParser</code> throws a <code>ParseException</code></p>
+<p>If the <code>fc/</code> was unspecified and the parsing process fails any of the checks, <code>getFilePath</code> throws a <code>ParseException</code>.</p>
 </li>
 </ul>
 </div>
-<div class="imageblock" style="text-align: center">
+<div id="diary_getfilepath_activity_diagram" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram" width="95%">
 </div>
 <div class="title">Figure 22. Activity diagram of getFilePath subroutine</div>
 </div>
-<hr>
 </div>
 <div class="sect5">
 <h6 id="parsing-the-description-of-the-photo"><a class="link" href="#parsing-the-description-of-the-photo">Parsing the description of the photo</a></h6>
@@ -1273,7 +1260,7 @@ as a valid image file.</p>
 <ul>
 <li>
 <p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>DiaryPhoto</code> instance with the specified input.
-If validation of the description, as described in the <a href="#photo_model">Section 3.7.1, &#8220;Aspect: Models&#8221;</a> fails, then a ParseException is thrown during the instance construction.</p>
+If validation of the description, as described in <a href="#photo_model">Section 3.7.1, &#8220;Aspect: Models&#8221;</a> fails, then a <code>ParseException</code> is thrown during the instance construction.</p>
 </li>
 <li>
 <p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Section 3.7.3.1.1, &#8220;Parsing the image file path&#8221;</a> (truncated to match <code>DiaryPhoto&#8217;s</code> description constraints) is used.</p>
@@ -1286,22 +1273,20 @@ If validation of the description, as described in the <a href="#photo_model">Sec
 </div>
 <div class="title">Figure 23. Activity diagram of parseDescription subroutine</div>
 </div>
-<hr>
 </div>
 <div class="sect5">
 <h6 id="parsing-the-date-of-the-photo"><a class="link" href="#parsing-the-date-of-the-photo">Parsing the date of the photo</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the date time as per the app level date formats.
-A <code>ParseException</code> is automatically thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
+<p>If the date time prefix is present, <code>ParserDateUtil</code> is used to parse the input as per the app level date formats.
+A <code>ParseException</code> is thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
 </li>
 <li>
 <p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Section 3.7.3.1.1, &#8220;Parsing the image file path&#8221;</a> is used.</p>
 </li>
 </ul>
 </div>
-<hr>
 <div class="paragraph">
 <p>The <code>DiaryPhoto</code> instance is then constructed, and passed to <code>AddPhotoCommand</code> which simply adds the <code>DiaryPhoto</code> to the
 current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
@@ -1319,11 +1304,12 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 <p>The <code>DeletePhotoParser</code> simply parses the arguments for a valid integer, failing which a <code>ParseException</code> is thrown.</p>
 </li>
 <li>
-<p>An instance of <code>DeletePhotoCommand</code> is returned, which attempts a delete operation on the current <code>PhotoList</code> of the
+<p>An instance of <code>DeletePhotoCommand</code> is then returned, which attempts a delete operation on the current <code>PhotoList</code> of the
 <code>DiaryEntry</code> with the specified index. A <code>CommandException</code> is thrown to alert the user if the index was out of bounds.</p>
 </li>
 </ol>
 </div>
+<hr>
 </div>
 </div>
 <div class="sect3">
@@ -1345,15 +1331,17 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Validation of image file path</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The first option is to implement the file path validation directly inside the <code>DiaryPhoto</code> model.</p>
-<p class="tableblock">This would have enforced a stricter level of validation on the image file path throughout the code,
-if an instance of <code>DiaryPhoto</code> needed to be instantiated somewhere else other than the <code>AddPhotoParser</code> for future use.</p>
-<p class="tableblock">However, since the storage model for <code>DiaryPhoto</code> (which is <code>JsonAdaptedDiaryPhoto</code>), initializes the model
-through deserializing the saved file path, this would have led to needing to a separate constructor for <code>DiaryPhoto</code>
-in the case that the file path was invalidated on app startup in order to create a placeholder image.</p></td>
+<p class="tableblock">This would have enforced a stricter level of validation on the image file path throughout the code, such as
+if an instance of <code>DiaryPhoto</code> needed to be instantiated somewhere else other than the <code>AddPhotoParser</code> class for future use.</p>
+<p class="tableblock">However, since the storage model for <code>DiaryPhoto</code> (<code>JsonAdaptedDiaryPhoto</code>), initializes the model
+through reading the saved file path, this would have led to needing to a separate constructor for <code>DiaryPhoto</code>
+if the file path read on app startup was no longer valid, in order to create a placeholder image.</p>
+<p class="tableblock">This secondary constructor would thus defeat the defensive benefit of implementing validation directly in
+the model.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The second, chosen option, was to implement the file path validation inside the parser itself.</p>
 <p class="tableblock">Although this option limited the validation to only the 'addphoto' command, it allowed for leeway in
 image path validation in other areas such as <code>JsonAdaptedDiaryPhoto</code>, where it is possible for deletion of an
-image file by the user, outside of the application, to invalidate the stored file path and erroneous data to be loaded on application start.</p>
+image file by the user, outside of the application, to invalidate the stored file path.</p>
 <p class="tableblock">Moreover, Since the function for parsing the image file can and was abstracted into a single utility function,
 any other areas in future development needing this functionality can simply reuse this code.</p>
 <p class="tableblock">Overall, this leads to a more robust behaviour of the application, while providing the same level of
@@ -1407,7 +1395,7 @@ but the diary text references a different String, that is, the buffered diary te
 <h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.8.2. Aspect: User interface</a></h4>
 <div class="paragraph">
 <p>Multiple <code>UiPart</code> components come into play in displaying the diary entry.
-However, <code>Page</code> implementation (see <a href="#page_api">Section 2.2.1, &#8220;Page API&#8221;</a>) is still followed, and all components are thus contained within,
+However, <code>Page</code> implementation (see <a href="#page_api">Page Api</a>) is still followed, and all components are thus contained within,
 in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 </div>
 <div id="diary-entry-ui-class-diagram" class="imageblock" style="text-align: center">
@@ -2546,4 +2534,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:36:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:44:55 UTC</div></div></div></body></html>

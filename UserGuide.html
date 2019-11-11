@@ -1315,6 +1315,25 @@ images. The content is generated from the diary text of the entry (<a href="#dia
 There is also a photo index
 (top left), which is for use in various commands (see <a href="#diary_text_displaying_images">Section 3.6.4.2, &#8220;Displaying images&#8221;</a>).</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The image files of <em>TravelPal</em> are not copied to where your the <em>TravelPal</em> application file is. Instead, the absolute file path
+(see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a>) to the image file on your computer is stored!</p>
+</div>
+<div class="paragraph">
+<p>If you move or delete the original image on your system,
+then you will have to add the photo again, and a placeholder image will be shown in place of your image in <em>TravelPal</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="diary_current_day_indicator"><a class="link" href="#diary_current_day_indicator">Current Day Indicator</a></h5>
@@ -1333,7 +1352,7 @@ diary entries for different days by clicking on the respective buttons.</p>
 <h5 id="diary_gallery_button_bar"><a class="link" href="#diary_gallery_button_bar">Gallery Button Bar</a></h5>
 <div class="paragraph">
 <p>This smaller button bar is used for executing two other commands. Firstly, the <code>editor</code> (<a href="#diary_editor_command">Section 3.6.5.9, &#8220;Showing the edit box&#8221;</a>)
-can be executede by clicking on the <em>Edit</em> button. Secondly, the <code>addphoto</code> command may be executed
+can be executed by clicking on the <em>Edit</em> button. Secondly, the <code>addphoto</code> command may be executed
 (<a href="#diary_addphoto_command">Section 3.6.5.3, &#8220;Adding a photo&#8221;</a>) through <em>Add</em> button.</p>
 </div>
 </div>
@@ -1501,7 +1520,7 @@ word inside the <code>&lt;images left numberN&gt;</code> clause to reverse the o
 the former being the <code>create</code> command which offers slightly more flexibility.</p>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-create-dayn-code-command"><a class="link" href="#using-the-code-create-dayn-code-command">Using the <code>create &lt;dayN&gt;</code> command</a></h6>
+<h6 id="option-1-using-the-code-create-dayn-code-command"><a class="link" href="#option-1-using-the-code-create-dayn-code-command">Option 1: Using the <code>create &lt;dayN&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1522,7 +1541,7 @@ the last day of your trip.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="diary_create_entry_command_button"><a class="link" href="#diary_create_entry_command_button">Using the add entry button <code>+</code></a></h6>
+<h6 id="diary_create_entry_command_button"><a class="link" href="#diary_create_entry_command_button">Option 2: Using the add entry button <code>+</code></a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1545,7 +1564,7 @@ below.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>For the add entry button <code>+</code> (<a href="#diary_create_entry_command_button">Section 3.6.5.1.2, &#8220;Using the add entry button <code>+</code>&#8221;</a>), since the current latest day&#8217;s entry is day 8,
+<p>For the add entry button <code>+</code> (<a href="#diary_create_entry_command_button">Section 3.6.5.1.2, &#8220;Option 2: Using the add entry button <code>+</code>&#8221;</a>), since the current latest day&#8217;s entry is day 8,
 it would create an entry for the day right after that, which is day 9.</p>
 <div id="diary_create_entry_command_before" class="imageblock">
 <div class="content">
@@ -1578,7 +1597,7 @@ having to navigate to it via <a href="#diary_flip_command">Section 3.6.5.2, &#82
 are also two options here to suit your needs, both offering the exact same functionality.</p>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-flip-dayn-code-command"><a class="link" href="#using-the-code-flip-dayn-code-command">Using the <code>flip &lt;dayN&gt;</code> command</a></h6>
+<h6 id="option-1-using-the-code-flip-dayn-code-command"><a class="link" href="#option-1-using-the-code-flip-dayn-code-command">Option 1: Using the <code>flip &lt;dayN&gt;</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1598,7 +1617,7 @@ are also two options here to suit your needs, both offering the exact same funct
 </div>
 </div>
 <div class="sect5">
-<h6 id="using-the-diary-entry-navigation-bar"><a class="link" href="#using-the-diary-entry-navigation-bar">Using the diary entry navigation bar</a></h6>
+<h6 id="option-2-using-the-diary-entry-navigation-bar"><a class="link" href="#option-2-using-the-diary-entry-navigation-bar">Option 2: Using the diary entry navigation bar</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1647,11 +1666,7 @@ the command result box, and that the current day indicator will update according
 may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">Section 3.6.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </div>
 <div class="paragraph">
-<p>Here, there are 3 options for you to choose, the last option being the least flexible but also the fastest, if
-you are more comfortable with using the user interface than the command line input.</p>
-</div>
-<div class="paragraph">
-<p>In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code>.</p>
+<p>There are <strong>3</strong> ways for you to add a photo, the last option being the least flexible but also the fastest!</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1660,41 +1675,34 @@ you are more comfortable with using the user interface than the command line inp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>The image files are not copied to where your the <em>TravelPal</em> application file is. Instead, the absolute file path
-(see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a>) to the image file on your computer is stored!</p>
-</div>
-<div class="paragraph">
-<p>If you move or delete the original image on your system,
-then you will have to add the photo again, and a placeholder image will be shown in place of your image in <em>TravelPal</em>.</p>
-</div>
+In all options, the image file chosen should be of the file types <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-addphoto-code-command-with-the-code-fp-code-prefix"><a class="link" href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a></h6>
+<h6 id="option-1-using-the-code-addphoto-code-command-with-the-code-fp-code-prefix"><a class="link" href="#option-1-using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Option 1: Using the <code>addphoto</code> command with the <code>fp/</code> prefix</a></h6>
 <div class="ulist">
 <ul>
 <li>
 <p>Usage: Typing in the command <code>addphoto fp/&lt;file path&gt; [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the
-arguments described below, will add the image file located at the specified file
-path on your computer to the gallery display.</p>
+arguments described below, will add the image located at the <code>file
+path</code> on your computer to the gallery.</p>
 </li>
 <li>
 <p>Arguments:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;file path&gt;</code> - Relative file path from the location of the <em>TravelPal&#8217;s</em> jar file, or an absolute file path.</p>
+<p><code>&lt;file path&gt;</code> - Relative file path from the location of the <em>TravelPal&#8217;s</em> jar file, or an absolute file path. (see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a> for details of relative and absolute file paths)</p>
 </li>
 <li>
 <p><code>&lt;description&gt;</code> (optional) - The description of the photo to be shown in the gallery, of maximum length 20.
-If left unspecified, the file name, truncated to the maximum length is used instead.</p>
+If unspecified, the file name is used instead, shortened to the maximum length.</p>
 </li>
 <li>
-<p><code>&lt;date taken&gt;</code> (optional) - The date taken of the photo, of the format d/M/yyyy HHmm.
-If left unspecified, the last modified date of the file is used instead.</p>
+<p><code>&lt;date taken&gt;</code> (optional) - The date taken of the photo, of the format <code>d/M/yyyy HHmm</code>.
+If unspecified, the last modified date of the file is used instead.</p>
 </li>
 </ul>
 </div>
@@ -1711,16 +1719,14 @@ If left unspecified, the last modified date of the file is used instead.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>You are currently viewing the diary entry for day 1, which is empty, and you want to add a new photo.</p>
-</li>
-<li>
-<p>You are also a command line savvy user that loves and understands how to manually specify relative or absolute
-file paths (see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a>), hence you opted for this option,
-rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.6.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
+<p>You are currently viewing an empty diary entry for day 1 and you want to add a new photo.</p>
 </li>
 <li>
 <p>Also, you want to give the photo a custom description, but want to use the last modified date of the image file in your
-computer as the date taken for the photo. Shown below is an example of the photo on your computer you want to add,
+computer as the date taken for the photo.</p>
+</li>
+<li>
+<p>Shown below is an example of the photo on your computer you want to add,
 <code>snowymountains.jpg</code>, that is located in the same place as the <em>TravelPal</em> application.</p>
 </li>
 </ul>
@@ -1751,7 +1757,7 @@ same directory as the <em>TravelPal</em> application.</p>
 </div>
 </li>
 <li>
-<p>The photo, with the specified description and last modified date will be added. You should see a brief confirmation message in
+<p>That&#8217;s it! The photo, with the specified description and last modified date will be added. You should see a brief confirmation message in
 the command result box.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -1772,23 +1778,24 @@ the command result box.</p>
 <hr>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-addphoto-code-command-with-the-code-fc-code-prefix"><a class="link" href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a></h6>
+<h6 id="option-2-using-the-code-addphoto-code-command-with-the-code-fc-code-prefix"><a class="link" href="#option-2-using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Option 2: Using the <code>addphoto</code> command with the <code>fc/</code> prefix</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Typing in the command <code>addphoto fc/ [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the
-arguments described below, will add the image file located at the specified file
-path on your computer to the gallery display.</p>
+<p>Usage: Typing in the command <code>addphoto fc/ [d/&lt;description&gt;] [dts/&lt;date taken&gt;]</code>, with the optional
+arguments described below, will open your system&#8217;s dialog to choose an image file.</p>
 </li>
 <li>
-<p>Arguments:</p>
+<p>Arguments (optional):</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>fc/</code> - opens your system&#8217;s user interface dialog to allow choosing an image (of file types <code>.jpg .jpeg .png</code>).</p>
+<p><code>&lt;description&gt;</code> - The description of the photo to be shown in the gallery, of maximum length 20.
+If unspecified, the file name is used instead, shortened to the maximum length.</p>
 </li>
 <li>
-<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.6.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
+<p><code>&lt;date taken&gt;</code> - The date taken of the photo, of the format <code>d/M/yyyy HHmm</code>.
+If unspecified, the last modified date of the file is used instead.</p>
 </li>
 </ul>
 </div>
@@ -1802,30 +1809,29 @@ path on your computer to the gallery display.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>fc/</code> prefix takes precedence over the <code>fp/</code> argument if both are specified.
+Using both the <code>fc/</code> and <code>fp/</code> prefix will cause <em>TravelPal</em> to ignore the <code>fp/</code> prefix!
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-add-code-button-under-the-gallery-display"><a class="link" href="#using-the-code-add-code-button-under-the-gallery-display">Using the <code>Add</code> button under the gallery display</a></h6>
+<h6 id="option-3-using-the-code-add-code-button-under-the-gallery-display"><a class="link" href="#option-3-using-the-code-add-code-button-under-the-gallery-display">Option 3: Using the <code>Add</code> button under the gallery display</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open your
-system&#8217;s user interface dialog to choose an image file.</p>
+<p>Usage: Clicking the <code>Add</code> button located under the gallery display area ( <a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open your
+system&#8217;s dialog to choose an image file.</p>
 </li>
 <li>
-<p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described
-in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.6.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
+<p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described above.</p>
 </li>
 </ul>
 </div>
 <hr>
 </div>
 <div class="sect5">
-<h6 id="example-usage-for-code-addphoto-code-command-with-code-fc-code-option-or-code-add-code-button"><a class="link" href="#example-usage-for-code-addphoto-code-command-with-code-fc-code-option-or-code-add-code-button">Example Usage for <code>addphoto</code> command with <code>fc/</code> option or <code>add</code> button</a></h6>
+<h6 id="example-usage-for-code-addphoto-code-command-with-the-code-fc-code-option-or-code-add-code-button"><a class="link" href="#example-usage-for-code-addphoto-code-command-with-the-code-fc-code-option-or-code-add-code-button">Example Usage for <code>addphoto</code> command with the <code>fc/</code> option or <code>add</code> button</a></h6>
 <div class="paragraph">
 <p>Scenario:</p>
 </div>
@@ -1863,7 +1869,7 @@ or you can click the <code>Add</code> button.</p>
 </td>
 <td class="content">
 In this example, the <code>&lt;description&gt;</code> and <code>&lt;date taken&gt;</code> fields are automatically generated. However, if you are using
-the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.6.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a>
+the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#Using the <code>addphoto</code> command with the <code>fc/</code> prefix">[Using the <code>addphoto</code> command with the <code>fc/</code> prefix]</a>
 </td>
 </tr>
 </table>
@@ -2231,7 +2237,7 @@ to delete a paragraph of text in the entry!</p>
 <div class="sect5">
 <h6 id="example-usage-8"><a class="link" href="#example-usage-8">Example Usage</a></h6>
 <div class="paragraph">
-<p>Scenario: You discovered that you made quite a few rather embarrassing, elementary spelling errors in a line 1 of your diary entry.
+<p>Scenario: You discovered that you made quite a few rather embarrassing, elementary spelling errors in line 1 of your diary entry.
 You want to rectify this quickly, because your friend requested you share details of your trip with her.</p>
 </div>
 <div class="olist arabic">
@@ -2266,7 +2272,7 @@ in <a href="#diary_editor_display_mode">Section 3.6.3, &#8220;Diary Editor User 
 need to be saved by using the <code>done</code> command or button (see <a href="#diary_done_command">Section 3.6.5.10, &#8220;Committing your edits&#8221;</a>).To show the editor, there are two equivalent options.</p>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-editor-code-command"><a class="link" href="#using-the-code-editor-code-command">Using the <code>editor</code> command</a></h6>
+<h6 id="option-1-using-the-code-editor-code-command"><a class="link" href="#option-1-using-the-code-editor-code-command">Option 1: Using the <code>editor</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -2276,7 +2282,7 @@ need to be saved by using the <code>done</code> command or button (see <a href="
 </div>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-edit-code-button"><a class="link" href="#using-the-code-edit-code-button">Using the <code>Edit</code> button</a></h6>
+<h6 id="option-2-using-the-code-edit-code-button"><a class="link" href="#option-2-using-the-code-edit-code-button">Option 2: Using the <code>Edit</code> button</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -2340,7 +2346,7 @@ by pressing the 'F1' key!
 <code>Done</code> button.</p>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-done-code-command"><a class="link" href="#using-the-code-done-code-command">Using the <code>done</code> command</a></h6>
+<h6 id="option-1-using-the-code-done-code-command"><a class="link" href="#option-1-using-the-code-done-code-command">Option 1: Using the <code>done</code> command</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -2353,7 +2359,7 @@ by pressing the 'F1' key!
 </div>
 </div>
 <div class="sect5">
-<h6 id="using-the-code-done-code-button"><a class="link" href="#using-the-code-done-code-button">Using the <code>Done</code> button</a></h6>
+<h6 id="option-2-using-the-code-done-code-button"><a class="link" href="#option-2-using-the-code-done-code-button">Option 2: Using the <code>Done</code> button</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -2520,4 +2526,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:36:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:44:55 UTC</div></div></div></body></html>
