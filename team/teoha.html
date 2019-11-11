@@ -1,0 +1,631 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Derrick Teo - Project Portfolio for TravelPal</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TravelPal</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Derrick Teo - Project Portfolio for <em>TravelPal</em></h1></div><div id="content"><div class="sect1">
+<h2 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My team of 4 software engineering students and I were tasked with enhancing a basic command line interface desktop addressbook application for our Software Engineering project.
+We chose to morph it into a travel management application called <strong>TravelPal</strong>. This application allows travellers to micromanage their travels, including features like expenditure and inventory managing.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+</div>
+<div class="paragraph">
+<p>My main role was to design the <em>itinerary</em> feature which allows user to view and manage all parts of their trip. The following sections illustrate these enhancement in more detail, as well as relevant documentation I have added to the user and developer guides in relation to these enhancements.</p>
+</div>
+<div class="paragraph">
+<p>symbol legend</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my coding, documentation, and other helpful contributions to the team project. Our application is a multipage application and features were split by assigning each individual page(s) to develop.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Main Major Contribution:</strong> Itinerary Feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The Itinerary Feature consists of 2 parts - 1. Itinerary Management and 2. Itinerary Administration</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Itinerary Management: Responsible for displaying user data and redirecting users to relevant portions of the app.</p>
+</li>
+<li>
+<p>Itinerary Administration: Responsible for letting users create their customized trips and synchronizing them with other&#8217;s they have created.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: TravelPal has several layers of specification and requires an intuitive way for users to manage their trips. This feature divides the management of trips into different parts so the user&#8217;s purview of the application is limited to only the most necessary.</p>
+</li>
+<li>
+<p>Highlights: Since itinerary feature is the main way users access the data they have input, it includes ways to create/edit/display information from other features. Tough design considerations had to be made so the code base was easily understandable and accessible for other teammates to use.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Second Major Contribution:</strong> Feature Integration</p>
+<div class="ulist">
+<ul>
+<li>
+<p>About: Following from the  <em>Itinerary</em> feature being the main mode of accessing and viewing a user&#8217;s trip information, I was also responsible in integrating the various other features (e.g. <em>Booking Manager</em>, <em>Inventory Manager</em> and <em>Expense Manager</em>)</p>
+</li>
+<li>
+<p>Justification: Integrated features ensures user friendliness. In this case changing information/statuses in other parts of <em>TravelPal</em> should change its display in all other facets the app so the user doesn&#8217;t have to do so manually.</p>
+</li>
+<li>
+<p>Highlights: The main challenge in integration is the changing specifications throughout the development of <em>TravelPal</em>. Discussions on changing existing specifications and addition of new ideas not in the original design requires extensive maintenance and changing newly broken tests.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Third Major Contribution:</strong> Refactoring Code Base</p>
+<div class="ulist">
+<ul>
+<li>
+<p>About: Refactored the <code>Model</code> and <code>Storage</code> components from the original <em>AddressBook 3</em> application.</p>
+</li>
+<li>
+<p>Justification: The <em>Address Book</em> base application was different from our intended design and required modifications before each feature could be properly implemented</p>
+</li>
+<li>
+<p>Highlights: The major positive challenge in refactoring the code base was the coordination between team members. Since each component rely on each other to function correctly, we had to communicated our needs and wants effectively to ensure we do not negatively affect another components refactoring negatively.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=teoha&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=teoha&amp;tabRepo=AY1920S1-CS2103T-T11-4%2Fmain%5Bmaster%5D">Functional code</a>] [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=teoha&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=teoha&amp;tabRepo=AY1920S1-CS2103T-T11-4%2Fmain%5Bmaster%5D">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed Pull Requests: [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Ateoha+">My reviews</a>]</p>
+</li>
+<li>
+<p>Assigned and closed issues:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Bug related: [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+assignee%3Ateoha+">Discussion, assignment and closure of issues</a>]</p>
+</li>
+<li>
+<p>Team task related: [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Ateoha+">Issues</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancement to existing features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote tests for existing features: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=teoha&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=teoha&amp;tabRepo=AY1920S1-CS2103T-T11-4%2Fmain%5Bmaster%5D">Tests</a>]</p>
+</li>
+<li>
+<p>Updated Graphical User Interface (GUI) to increases user friendliness and better aesthetics: <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/149">#149</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/86">#86</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/81">#81</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Travis to the project</p>
+</li>
+<li>
+<p>Integrated GitHub Pages into the project</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed all <em>Appendixes</em> in the <em>Developer&#8217;s Guide_</em> [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/blob/master/docs/DeveloperGuide.adoc#product-scope">Appendixes</a>]</p>
+</li>
+<li>
+<p>Contributed the <em>Trip Manager</em> user guide [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/blob/master/docs/UserGuide.adoc#trip-manager">Trip Manager Guide</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Below is an excerpt from our <em>TravelPal</em> user guide authored by me. This section is about creating <em>Trips</em> in <em>TravelPal</em> and showcases my ability to write user friendly and thorough documentation for end users.</p>
+</div>
+<div class="sect3">
+<h4 id="trip-setup"><a class="link" href="#trip-setup">Trip setup</a></h4>
+<div class="paragraph">
+<p>Trip setup is the first step in configuring a new/existing trip! This requires you to be at the <em>Trip Manager</em> page (the landing page).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TripManager.png" alt="TripManager" width="500">
+</div>
+<div class="title">Figure 1. User Interface of  <em>Trip Manager</em></div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: Now you can enter the command <code>create</code> or <code>edit &lt;index&gt;</code> to create a new trip or edit an existing trip.</p>
+</div>
+<div class="paragraph">
+<p>Upon commands to create or edit a specified trip from the Trip Manager, you will be directed to a page where they can edit the necessary details to create a new trip. This page will contain a form with 6 fields (optional fields are marked by italics):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: Name of the trip</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Names should only contain up to 40 alphanumeric characters and spaces, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Start Date</strong>: Starting date of the trip</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Start date should be in the DD-MM-YY format</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>End Date</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: End date should be in the DD-MM-YY format</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Total Budget</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Budget can take any positive numerical value with no more than 2 decimal places, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Destination</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Destination can take any values, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><em>Photo</em></strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: The image path specified should be valid, and must point to an existing file. Otherwise, a <em>default image</em> will be used.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The last field <em>Photo</em> is an optional field, a default image will be used if the user does not submit any image.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>create</code> command was executed, you will be displayed an empty form with no details filled in. You will see the following page:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/createTrip.png" alt="createTrip" width="500">
+</div>
+<div class="title">Figure 2. " <code>create</code> command generates empty fields</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>edit</code> command was executed, you will be displayed a from with details previously filled in instead:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editTrip.png" alt="editTrip" width="500">
+</div>
+<div class="title">Figure 3. " <code>edit</code> command generates fields from your previously saved data</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 6 different prefixes, each to edit one of the 6 fields displayed. The 6 prefixes refer to editing each fields as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Name :  <code>n/</code></p>
+</li>
+<li>
+<p>Start Date : <code>ds/</code></p>
+</li>
+<li>
+<p>End Date : <code>de/</code></p>
+</li>
+<li>
+<p>Total Budget : <code>b/</code></p>
+</li>
+<li>
+<p>Destination : <code>l/</code></p>
+</li>
+<li>
+<p>Photo File Path : <code>fp/</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can execute <code>fc/</code> with <code>fp/</code> to open a file dialog to choose an image rather than type in absoulute path of the image.
+e.g. <code>edit fp/ fc/</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Below is an example execution of changing the name of an existing trip to "Small Trip":</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Begin at the edit trip screen, the original name of the trip is the same as before.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editTrip.png" alt="editTrip" width="500">
+</div>
+<div class="title">Figure 4. Edit page with original fields</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter the command <code>edit n/Small Trip</code> into the command box and press enter to execute.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editNameCommand.png" alt="editNameCommand" width="500">
+</div>
+<div class="title">Figure 5. Entering command <code>edit n/Small Trip</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The name of the trip is now "Small Trip"!</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editNameCommandResult.png" alt="editNameCommandResult" width="500">
+</div>
+<div class="title">Figure 6. Successful editing of name field!</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: Having completed editing the the form, you can submit it by executing the <code>done</code> command or the <code>cancel</code> command which will confirm your edit or discard it respectively.
+You have successfully created/edited a trip!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contrbutions-to-the-developer-guide"><a class="link" href="#contrbutions-to-the-developer-guide">Contrbutions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Below is an excerpt from our <em>TravelPal</em> developer guide authored by me. This section explains the execution of editing a <em>Trip</em> in <em>TravelPal</em>. It showcases my ability to write comprehensive technical documentation.</p>
+</div>
+<div class="sect2">
+<h3 id="itinerary-edit-trip-day-event-feature"><a class="link" href="#itinerary-edit-trip-day-event-feature">[Itinerary] Edit trip/day/event feature</a></h3>
+<div class="sect3">
+<h4 id="edit_logic"><a class="link" href="#edit_logic">Aspect: Logic</a></h4>
+<div class="paragraph">
+<p>Editing of trip/day/event can be accessed from <code>TripsPage/DaysPage/EventsPage</code> respectively.
+The execution of commands in the each page is facilitated by <code>TripManagerParser/DayViewParser/EventViewParser</code> which extends from the <code>PageParser</code>. This class serves as the abstraction for all parsers related to each <em>Page</em>.</p>
+</div>
+<div class="paragraph">
+<p>The operations are exposed to the <code>Model</code> interface through the <code>Model#getPageStatus()</code>
+method that returns the <code>PageStatus</code> containing the all information regarding the current state of application. This includes the <em>descriptors</em> (explained in Step 1 below) which stores all information about the edit.</p>
+</div>
+<div class="paragraph">
+<p><strong>Given below is an example usage scenario and how the program behaves at each step.</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1.</strong> When the user launches the application. The <code>PageStatus</code> is initialized under along with other <code>Model</code> components. <code>PageStatus</code> at launch does not contain any <code>EditTripDescriptor/EditDayDescriptor/EditEventDescriptor</code> responsible for storing information for the edit.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEdit0.png" alt="ItineraryEdit0" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2.</strong> The user currently on the <code>TripsPage/DaysPage/EventsPage</code> is displayed a list of <code>Trip/Day/Event</code> respectively. The user executes the edit command <code>EDIT1</code> using the <code>OneBasedIndex</code> on the list to edit it.This executes the <code>EnterEditTripFieldCommand/EnterEditDayFieldCommand/EnterEditEventFieldCommand</code> that initializes a new descriptor within <code>PageStatus</code> before switching over to the <code>EditTripPage/EditDayPage/EditEventPage</code> containing to perform the editing.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEdit1.png" alt="ItineraryEdit1" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3.</strong> The user is now on the edit page displaying a list of fields that the user can edit in the <code>Trip/Day/Event</code>. Commands on each page differs based on the fields they contain.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The following is an example list of commands available in <code>DaysPage</code> and the execution of the program when a field is edited in <code>DaysPage</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit n/&lt;name&gt; ds/&lt;startDate&gt; de/&lt;endDate&gt; b/&lt;totalBudget&gt; l/&lt;destination&gt; d/&lt;description&gt;</code> - Edits the relevant fields</p>
+</li>
+<li>
+<p><code>done</code> - Completes the edit and returns to the <em>Overall View</em></p>
+</li>
+<li>
+<p><code>cancel</code> - Discards the edit and returns to the <em>Overall View</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When user executes the command <code>edit n/EditedName</code> on the <code>DaysPage</code>. The command creates a new descriptor from the contents of the original, replacing the fields only if they are edited. The new descriptor is then assigned to <code>PageStatus</code> replacing the original <code>EditDayDescriptor</code>. The result of the edit is then displayed to the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEdit2.png" alt="ItineraryEdit2" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 4.</strong> The user has completed editing the <code>Trip/Day/Event</code> and executes <code>done</code>/<code>cancel</code> to confirm/discard the edit. The execution of the two cases are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The user executes <code>done</code> to confirm the edit. This executes the <code>DoneEditTripCommand/DoneEditDayCommand/DoneEditEventCommand</code> and a <code>Trip/Day/Event</code> is built from the descriptor respective to the type it describes. <code>DayList#set(target, edited)</code> proceeds to be executed which accesses the <code>Day</code> to edit from the <code>day</code> field in <code>PageStatus</code> as the target. This method replaces the original day with the newly built day from the descriptor. The descriptor in <code>PageStatus</code> is then reset to contain empty fields (See figure below).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEdit3.png" alt="ItineraryEdit3" width="400">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The User executes <code>cancel</code> to discard the edit. This executes the <code>CancelEditTripCommand/CancelEditDayCommand/CancelEditEventCommand</code> which resets the descriptor in <code>PageStatus</code> to contain all empty fields.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEdit4.png" alt="ItineraryEdit4" width="400">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Upon completion of the edit, the user is returned to the <code>TripPage/DaysPage/EventsPage</code> depending on where the user entered the edit page from.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Below is a sequence diagram illustrating the execution of the command "edit ds/10/10/2019" on <em>Days Page</em>:</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEditSequenceDiagramSimple.png" alt="ItineraryEditSequenceDiagramSimple">
+</div>
+<div class="title">Figure 7. Sequence diagram for execution of <code>edit ds/10/10/2019</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When the command is executed, TravelPal uses a series of parsers to parse entire command</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TravelPalParser</code>: Parses the command. In execution above, it is identified that the first word is the command.</p>
+</li>
+<li>
+<p><code>EditDayParser</code>: Parses the type of command. The string "edit" is parsed and correctly identifies <code>EditDayParser</code> should be used to continue parsing further tokens</p>
+</li>
+<li>
+<p><code>EditDayFieldParser</code>: Parses the details of the edit. In this execution, the date is parsed by the <code>DateParserUtil</code> class and creates a descriptor as mentioned in the section above</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing the parsers above, the last parser instantiates and recursively returns the command (e.g. <code>commandEditDayFieldCommand</code>) up to the <code>LogicManager</code>. <code>LogicManager</code> then executes the command as the sequence diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ItineraryEditSequenceDiagramSimpleref.png" alt="ItineraryEditSequenceDiagramSimpleref">
+</div>
+<div class="title">Figure 8. Reference frame for execution of <em>command</em></div>
+</div>
+<div class="paragraph">
+<p>The execution of the command is explained above (refer to <a href="#edit_logic">Aspect: Logic</a>).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-user-interface"><a class="link" href="#aspect-user-interface">Aspect: User Interface</a></h4>
+<div class="paragraph">
+<p>The UI for to edit fields are associated with the <code>EditTripPage/EditDayPage/EditEventPage</code> respectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditTripPageClassDiagram.png" alt="EditTripPageClassDiagram">
+</div>
+<div class="title">Figure 9. Class diagram showing EditTripPage&#8217;s associations</div>
+</div>
+<div class="paragraph">
+<p>The execution of the edit command involves the <code>Model</code>, <code>Logic</code> and <code>Ui</code> components of the application. Listed here are the packages used in the execution of the <code>edit</code> commands that are found in the figure above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ui.itinerary</strong>: This package contains all the Ui classes for the <em>Itinerary feature</em>.</p>
+</li>
+<li>
+<p><strong>ui.components.form</strong>: Contains all the form items</p>
+</li>
+<li>
+<p><strong>ui.template</strong>: This package contains the <code>Page</code> class which all pages extend from</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class at large in the diagram above is the <code>EditTripPage</code> of the 3 pages explained. It extends from the <code>Page</code> class and is associated with the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Contains <code>formItems</code> from the <code>ui.components.form</code> generate a form</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>FormItems</code> (e.g. <code>DateFormItem</code>) are instantiated by the <code>EditTripPage#initFormWithModel</code> method called by the constructor of <code>EditTripPage</code> . Each <code>FormItem</code> contains an <code>executeChangeHandler</code> that executes whenever the <code>onChange</code> property is modified by the user. These are initialized as execution of the various edit commands (e.g. EditTripFieldCommand/EditDayFieldCommand/EditEventFieldCommand) using the value in the <code>FormItem</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Navigable to the <code>ModelManager</code> and <code>LogicManager</code> for execution of commands using Ui interactions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The contents of the fields are updated by the execution of the commands above. When the user edits any of the <code>FormItems</code>, the commands are executed which will cause the <code>EditTripPage/EditDayPage/EditEventPage#fillPage()</code> to execute again. <code>fillPage</code> retrieves the updated fields from <code>PageStatus</code> and displays them as the values in the <code>FormItems</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-workflow-of-execution"><a class="link" href="#aspect-workflow-of-execution">Aspect: Workflow of execution</a></h4>
+<div class="paragraph">
+<p>The logic of editing a field and committing it to memory is a simple process of validating each field. If any field fails to meet the specifications, the <code>Trip/Day/Event</code> will not be created/edited. Below is an example execution of validating the edit:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DoneEditActivityDiagram.png" alt="DoneEditActivityDiagram">
+</div>
+<div class="title">Figure 10. Execution of the done command on any edit page</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-design-considerations"><a class="link" href="#aspect-design-considerations">Aspect: Design considerations</a></h4>
+<div class="paragraph">
+<p>When designing this feature, there were several challenges involved while working with the existing code base especially to adhere to strict Object Orientated Programming Principles. Below are two such design challenges that and how they were resolved:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Challenge</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Alternative 1</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Alternative 2</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Chosen Option</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handling Dynamic UI Changes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first alternative was to consider the updating of ui as a state of the program. The <code>PageStatus</code> class includes an <code>ObservableValue&lt;Command&gt;</code>, <code>uiChangeCommand</code> and design each <code>Page</code> to implement <code>ChangeListener</code>. When a command is executed, if it involves changing the UI but without switching pages, the <code>Pages</code> implementing <code>ChangeListener</code> would perform checks on the command executed and execute the correct UI change.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second alternative was to let pages that can change by execution of commands (dynamic pages) to extend the class <code>DynamicUiPart</code> extending from the provided <code>UiPart</code> class that contains an abstract method <code>uiChange</code> that handle the ui changes. The identification of what ui change should execute is then placed in the <code>CommandResult</code> with new fields <code>CommandWord</code> and <code>doChangeUi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was chosen due better Object Orientated Programming (OOP) principles. The second method was good practice of the Interface Segregation Principle where classes do not need to depend on methods it did not need. Static pages in the program does not inherit <code>DynamicUiPart</code>.</p>
+<p class="tableblock">However limitations of Java arose as classes cannot inherit more than one class at once. Instead of using the class <code>DynamicUiPart</code>, the interface <code>UiChangeConsumer</code> was used instead.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing of the user&#8217;s edit information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first alternative was the straight forward implementation of using the <code>Logic</code> interface and its accessors to edit the information in memory directly. This method was however incoherent with out intended design of having forms for users to edit.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second alternative was using <code>PageStatus</code> to store the current state of editing by the user (<em>edit descriptors</em>). This method creates a separate place in memory to store the information of the edit. Only after the user confirms/cancels the edit, then the information in the <em>descriptors</em> are validated and committed to memory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second alternative was chose mainly due to the coherence to the design of using forms. The descriptors also serve as minor validations (e.g. Only alphanumeric characters, up to 40 characters etc.). Users can be informed earlier of mistakes in filling forms before submitting.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:54:48 UTC</div></div></div></body></html>

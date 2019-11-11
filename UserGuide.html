@@ -14,16 +14,12 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#trip-manager">3.1. Trip manager</a></li>
-<li><a href="#trip-setup">3.2. Trip setup</a></li>
-<li><a href="#event-setup">3.3. Event Setup</a></li>
-<li><a href="#deleting-an-trip-event">3.4. Deleting an Trip/Event</a></li>
-<li><a href="#showing-event-details">3.5. Showing Event Details</a></li>
-<li><a href="#how-to-navigate">3.6. How to navigate</a></li>
-<li><a href="#expense-manager">3.7. Expense Manager</a></li>
-<li><a href="#currency-manager">3.8. Currency Manager</a></li>
-<li><a href="#booking">3.9. Booking</a></li>
-<li><a href="#diary">3.10. Diary</a></li>
-<li><a href="#pre-trip-inventory-manager">3.11. Pre-trip Inventory Manager</a></li>
+<li><a href="#itinerary">3.2. Itinerary</a></li>
+<li><a href="#expense-manager">3.3. Expense Manager</a></li>
+<li><a href="#currency-manager">3.4. Currency Manager</a></li>
+<li><a href="#booking">3.5. Booking</a></li>
+<li><a href="#diary">3.6. Diary</a></li>
+<li><a href="#pre-trip-inventory-manager">3.7. Pre-trip Inventory Manager</a></li>
 </ul>
 </li>
 <li><a href="#general-info">4. General info</a></li>
@@ -85,7 +81,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Try the <code>create</code> command! This brings you to the trip creation / editing screen.</p>
 </li>
 <li>
-<p>Refer to <a href="#trip-setup">Section 3.2, &#8220;Trip setup&#8221;</a> next to learn how to create a new trip..</p>
+<p>Refer to <a href="#trip-setup">Section 3.2.4, &#8220;Trip setup&#8221;</a> next to learn how to create a new trip..</p>
 </li>
 </ol>
 </div>
@@ -130,7 +126,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>The <em>Trip Manager</em> page is the main starting ground of the application. Here, you can view and enter the trips you have created.</p>
 </div>
 <div class="paragraph">
-<p>If you are using TravelPal for the first time, you will see a blank page, to create a new trip, please follow the instruction in <a href="#trip-setup">Section 3.2, &#8220;Trip setup&#8221;</a>.</p>
+<p>If you are using TravelPal for the first time, you will see a blank page, to create a new trip, please follow the instruction in <a href="#trip-setup">Section 3.2.4, &#8220;Trip setup&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>After a trip is successfully added, information about the trip is shown in a trip card as shown below.</p>
@@ -158,56 +154,309 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="trip-setup"><a class="link" href="#trip-setup">3.2. Trip setup</a></h3>
+<h3 id="itinerary"><a class="link" href="#itinerary">3.2. Itinerary</a></h3>
+<div class="sect3">
+<h4 id="introduction-2"><a class="link" href="#introduction-2">3.2.1. Introduction</a></h4>
 <div class="paragraph">
-<p>Trip setup is the first step in configuring a new/existing trip! This requires you to be at the <em>Trip Manager</em> page (the landing page).</p>
-</div>
-<div class="paragraph">
-<p>Now you can enter the command <code>create</code> or <code>edit &lt;index&gt;</code> to create a new trip or edit an existing trip.</p>
-</div>
-<div class="paragraph">
-<p>Upon commands to create or edit a specified trip from the Trip Manager, the user will be directed to a page where they can edit the necessary details to create a new trip. This page will contain a form with 5 necessary fields:</p>
+<p><em>Itinerary</em> is a series of features that allows the user to manage and view their <em>Trips</em>. The 2 main aspects that <em>Itinerary</em> covers are :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Name</p>
+<p><strong>Itinerary Management</strong> : How to access information about each trip?</p>
 </li>
 <li>
-<p>Start Date</p>
-</li>
-<li>
-<p>End Date</p>
-</li>
-<li>
-<p>Total Budget</p>
-</li>
-<li>
-<p>Destination</p>
+<p><strong>Itinerary Administration</strong> : How to edit information about each trip?</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The last field Photo is an optional field, a default image will be used if the user does not submit any image.</p>
+<p><em>Itinerary</em> provides an intuitive and efficient way to achieve both goals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="basic-structure-overview"><a class="link" href="#basic-structure-overview">3.2.2. Basic Structure Overview</a></h4>
+<div class="paragraph">
+<p>The structure of <em>Itinerary</em> is modelled after that of a regular travel itinerary.
+The following gives the basic understanding of how <em>TravelPal</em> for better understanding of further sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Trip</strong>: Each <em>Trip</em> is divided into <em>Days</em> which are automatically generated upon creating a <em>Trip</em></p>
+</li>
+<li>
+<p><strong>Day</strong>: Each <em>Day</em> consists of several <em>Events</em>. Events are created and editable by the user.</p>
+</li>
+<li>
+<p><strong>Event</strong>: <em>Events</em> are the smallest unit of planning in <em>TravelPal</em></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<em>Trip/Day/Events</em> created by you should not clash with another <em>Trip/Day/Event</em> of the same type
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>If the <code>create</code> command was executed, you will be displayed an empty form with no details filled in.</p>
+<p>With a basic understanding of how the basic structure of <em>Itinerary</em> is like, you are now ready to use the user interface!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="itinerary-user-interface-overview"><a class="link" href="#itinerary-user-interface-overview">3.2.3. Itinerary User Interface Overview</a></h4>
+<div class="paragraph">
+<p><em>Itinerary</em> consists of 5 pages:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Itinerary Page</strong>: Displays basic information of your <em>Trip</em></p>
+</li>
+<li>
+<p><strong>Days Page</strong>: Displays the <em>Days</em> in your selected <em>Trip</em></p>
+</li>
+<li>
+<p><strong>Events Page</strong>: Displays the <em>Events</em> in your selected <em>Day</em></p>
+</li>
+<li>
+<p><strong>Edit Day Page</strong>: Displays a form where users can create/edit their <em>Day</em></p>
+</li>
+<li>
+<p><strong>Edit Event Page</strong>: Displays a form where users can create/edit their <em>Event</em></p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/createTrip.png" alt="createTrip">
+<img src="images/ItineraryTree.png" alt="ItineraryTree">
 </div>
+<div class="title">Figure 1. Pages in an Itinerary. (Black arrow denote common navigation between two different pages)</div>
 </div>
 <div class="paragraph">
-<p>If the <code>edit</code> command was executed, you will be displayed a from with details previously filled in.</p>
+<p>The accessibility between pages is intuitively based on the specific user&#8217;s focus. For example, in the figure above, each vertical column represents a user&#8217;s focus. From column 1 - 4, the user&#8217;s focus switches from each <em>Trip</em> &#8594; <em>Day</em> &#8594; <em>Event</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The commands related to each page in <em>Itinerary</em> are separated and the same command produces different results on different pages.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="itinerary_page"><a class="link" href="#itinerary_page">Itinerary Page</a></h5>
+<div class="paragraph">
+<p>The <em>Itinerary</em> page is the home page of your <em>Trip</em>. From this page, you can access your <em>Days</em> and details for each <em>Day</em>. Below is layout of the user interface:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editTrip.png" alt="editTrip">
+<img src="images/ItineraryOverview.png" alt="ItineraryOverview">
 </div>
+<div class="title">Figure 2. Layout of the <em>Itinerary</em> page</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can access other pages from the <em>Itinerary Page</em> using te navigation feature(<a href="#navbar_usage">Section 3.2.8, &#8220;How to navigate&#8221;</a>).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="days_page"><a class="link" href="#days_page">Days Page</a></h5>
+<div class="paragraph">
+<p>The <em>Days</em> page is a view of the <em>days</em> in your trip. It consists of a grid of <em>day</em> thumbnails arranged based on chronological order (earliest on the top left to the latest on the bottom right). Below is the layout of the the <em>days page</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DaysPageOverview.png" alt="DaysPageOverview">
+</div>
+<div class="title">Figure 3. Layout of <em>Days Page</em></div>
 </div>
 <div class="paragraph">
-<p>Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 6 different prefixes, each to edit one of the 6 fields displayed. The 6 prefixes refer to editing each fields as follows:</p>
+<p>Each <em>day thumbnail</em> (refer to Figure 4) contains basic information of your day and an edit button which allows you to edit that specific <em>day</em> (refer to <a href="#day_setup">[day_setup]</a>). Below is a layout of the contents in a <em>day</em> thumbnail:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DayThumbnail.png" alt="DayThumbnail">
+</div>
+<div class="title">Figure 4. Layout of the day thumbnail in <em>Days Page</em></div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="events_page"><a class="link" href="#events_page">Events Page</a></h5>
+<div class="paragraph">
+<p>The <em>Events</em> page is a view of the <em>events</em> in your trip. It consists of a list of event cards (see Figure 6.) arranged from earliest to latest in chronological order (earliest on top and latest below). Below is the layout of the <em>events page</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EventsPageOverview.png" alt="EventsPageOverview">
+</div>
+<div class="title">Figure 5. Layout of <em>events page</em></div>
+</div>
+<div class="paragraph">
+<p>Each card contains the basic details of each event. You can execute show command to display details of the event (refer to <a href="#show_event_details">Section 3.2.7, &#8220;Showing Event Details&#8221;</a>). The layout of the event card is as shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EventCardLayout.png" alt="EventCardLayout">
+</div>
+<div class="title">Figure 6. Layout of <em>event card</em></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index of the event card is used to access its contents for any command involving events (e.g. <a href="#event_setup">Section 3.2.5, &#8220;Event Setup&#8221;</a>, <a href="#delete_trip_event">Section 3.2.6, &#8220;Deleting an Trip/Event&#8221;</a>)
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trip-setup"><a class="link" href="#trip-setup">3.2.4. Trip setup</a></h4>
+<div class="paragraph">
+<p>Trip setup is the first step in configuring a new/existing trip! This requires you to be at the <em>Trip Manager</em> page (the landing page).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TripManager.png" alt="TripManager" width="500">
+</div>
+<div class="title">Figure 7. User Interface of  <em>Trip Manager</em></div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: Now you can enter the command <code>create</code> or <code>edit &lt;index&gt;</code> to create a new trip or edit an existing trip.</p>
+</div>
+<div class="paragraph">
+<p>Upon commands to create or edit a specified trip from the Trip Manager, you will be directed to a page where they can edit the necessary details to create a new trip. This page will contain a form with 6 fields (optional fields are marked by italics):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: Name of the trip</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Names should only contain up to 40 alphanumeric characters and spaces, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Start Date</strong>: Starting date of the trip</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Start date should be in the DD-MM-YY format</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>End Date</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: End date should be in the DD-MM-YY format</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Total Budget</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Budget can take any positive numerical value with no more than 2 decimal places, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Destination</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Destination can take any values, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><em>Photo</em></strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: The image path specified should be valid, and must point to an existing file. Otherwise, a <em>default image</em> will be used.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The last field <em>Photo</em> is an optional field, a default image will be used if the user does not submit any image.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>create</code> command was executed, you will be displayed an empty form with no details filled in. You will see the following page:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/createTrip.png" alt="createTrip" width="500">
+</div>
+<div class="title">Figure 8. " <code>create</code> command generates empty fields</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>edit</code> command was executed, you will be displayed a from with details previously filled in instead:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/editTrip.png" alt="editTrip" width="500">
+</div>
+<div class="title">Figure 9. " <code>edit</code> command generates fields from your previously saved data</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 6 different prefixes, each to edit one of the 6 fields displayed. The 6 prefixes refer to editing each fields as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -238,26 +487,29 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can execute fc/ with fp/ to open a file dialog to choose an image rather than type in absoulute path of the image.
-e.g. edit fp/ fc/
+You can execute <code>fc/</code> with <code>fp/</code> to open a file dialog to choose an image rather than type in absoulute path of the image.
+e.g. <code>edit fp/ fc/</code>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Below is an example changing the name of an existing trip to "Small Trip":</p>
+<p>Below is an example execution of changing the name of an existing trip to "Small Trip":</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You begin at the edit trip screen, the original name of the trip is the same as before.</p>
+<p>Begin at the edit trip screen, the original name of the trip is the same as before.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editTrip.png" alt="editTrip">
+<img src="images/editTrip.png" alt="editTrip" width="500">
 </div>
+<div class="title">Figure 10. Edit page with original fields</div>
 </div>
 <div class="ulist">
 <ul>
@@ -268,8 +520,9 @@ e.g. edit fp/ fc/
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editNameCommand.png" alt="editNameCommand">
+<img src="images/editNameCommand.png" alt="editNameCommand" width="500">
 </div>
+<div class="title">Figure 11. Entering command <code>edit n/Small Trip</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -280,51 +533,101 @@ e.g. edit fp/ fc/
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editNameCommandResult.png" alt="editNameCommandResult">
+<img src="images/editNameCommandResult.png" alt="editNameCommandResult" width="500">
+</div>
+<div class="title">Figure 12. Successful editing of name field!</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>Having completed editing the the form, you can submit it by executing the <code>done</code> command or the <code>cancel</code> command which will confirm your edit or discard it respectively.</p>
+<p><strong>Step 4</strong>: Having completed editing the the form, you can submit it by executing the <code>done</code> command or the <code>cancel</code> command which will confirm your edit or discard it respectively.
+You have successfully created/edited a trip!</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="event_setup"><a class="link" href="#event_setup">3.2.5. Event Setup</a></h4>
 <div class="paragraph">
-<p>You have successfully created/edited a trip!</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="event-setup"><a class="link" href="#event-setup">3.3. Event Setup</a></h3>
-<div class="paragraph">
-<p>Creating/editing an event is similar to creating/editing a trip (directly above). To do so you have to begin on the events page displaying the list of events of a certain day.</p>
+<p>Creating/editing an event is similar to creating/editing a trip (directly above). To do so you have to begin on the events page displaying the list of events of a certain day (Fig. 13).</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/eventsPage.png" alt="eventsPage">
+<img src="images/eventsPage.png" alt="eventsPage" width="500">
 </div>
-<div class="title">Figure 1. The Events Page</div>
+<div class="title">Figure 13. Events Page layout</div>
 </div>
 <div class="paragraph">
-<p>Now you can enter the <code>create</code> or <code>edit &lt;index&gt;</code> command to create a new trip for edit an existing one. The <code>&lt;index&gt;</code> to enter can be referenced from the list of events being displayed on each card.</p>
+<p><strong>Step 1:</strong> Now you can enter the <code>create</code> or <code>edit &lt;index&gt;</code> command to create a new trip for edit an existing one. The <code>&lt;index&gt;</code> to enter can be referenced from the list of events being displayed on each card. (Refer to <a href="#events_page">Section 3.2.3.3, &#8220;Events Page&#8221;</a> or Fig.14 below)</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/eventsIndex.png" alt="eventsIndex">
+<img src="images/eventsIndex.png" alt="eventsIndex" width="500">
 </div>
+<div class="title">Figure 14. Index used to execute commands</div>
 </div>
 <div class="paragraph">
-<p>Upon execution of either command on the events page, you will be directed to a page where editing the necessary details to create a new event is possible. This page contains a form with 4 necessary fields</p>
+<p>Upon execution of either command on the events page, you will be directed to a page where editing the necessary details to create a new event is possible. This page contains a form with 4 necessary fields and 2 optional fields (optional fields are marked with italics).</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Name</p>
+<p>Name: Name of the event</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Names should only contain up to 40 alphanumeric characters and spaces, and it should not be blank</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Start Time</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Time should be in HHmm format</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>End Time</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Time should be in HHmm format</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Destination</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Location can take any values, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Total Budget</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Budget can take any positive numerical value with no more than 2 decimal places, and it should not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Description</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: Description can take any values, and can be left blank</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -341,23 +644,36 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 </table>
 </div>
 <div class="paragraph">
-<p>If the <code>create</code> command was executed, you will be displayed an empty form with details to be filled in by you for the first time.</p>
+<p><strong>Step 2</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>create</code> command was executed, you will be displayed an empty form with details to be filled in by you for the first time. The empty form looks like this:</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/createEvent.png" alt="createEvent">
+<img src="images/createEvent.png" alt="createEvent" width="500">
 </div>
+<div class="title">Figure 15. Empty event form</div>
 </div>
-<div class="paragraph">
-<p>If the <code>edit &lt;index&gt;</code> command was executed, you will be displayed a form filled with details that you have previously entered.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>edit &lt;index&gt;</code> command was executed, you will be displayed a form filled with details that you have previously entered. An example is shown below (Fig. 16):</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editEvent.png" alt="editEvent">
+<img src="images/editEvent.png" alt="editEvent" width="500">
 </div>
+<div class="title">Figure 16. Form with previously saved information</div>
 </div>
 <div class="paragraph">
-<p>Now that you are on the edit events page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/value&gt; &#8230;&#8203;</code>. There are 5 different prefixes, each to edit one of the 5 fields displayed. The 5 prefixes are as follows:</p>
+<p><strong>Step 3</strong>: Now on the <em>edit events page</em>, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/value&gt; &#8230;&#8203;</code>. There are 5 different prefixes, each to edit one of the 6 fields displayed. The 5 prefixes are as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -376,11 +692,16 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 <li>
 <p>Destination : <code>l/</code></p>
 </li>
+<li>
+<p>Description : <code>d/</code></p>
+</li>
 </ol>
 </div>
 <div class="paragraph">
 <p>Below is an example of changing the destination of an existing event to "Hotel 89":</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -390,7 +711,7 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editEvent.png" alt="editEvent">
+<img src="images/editEvent.png" alt="editEvent" width="600">
 </div>
 </div>
 <div class="ulist">
@@ -402,7 +723,7 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editLocation.png" alt="editLocation">
+<img src="images/editLocation.png" alt="editLocation" width="600">
 </div>
 </div>
 <div class="ulist">
@@ -414,26 +735,28 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editResult.png" alt="editResult">
+<img src="images/editResult.png" alt="editResult" width="600">
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>Now you should have completed all the necessary fields and are ready to finish the edit. You can execute the <code>done</code> or <code>cancel</code> commands to either confirm the edit or discard it. Both commands will redirect you back to the events page.</p>
+<p><strong>Step 4</strong>: Now you should have completed all the necessary fields and are ready to finish the edit. You can execute the <code>done</code> or <code>cancel</code> commands to either confirm the edit or discard it. Both commands will redirect you back to the events page.</p>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have created/edited an event!</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-an-trip-event"><a class="link" href="#deleting-an-trip-event">3.4. Deleting an Trip/Event</a></h3>
+<div class="sect3">
+<h4 id="delete_trip_event"><a class="link" href="#delete_trip_event">3.2.6. Deleting an Trip/Event</a></h4>
 <div class="paragraph">
-<p>Deleting a Trip/Day/Event is executed in exactly the same way as each other. You first have to begin on the Trip Page/Days Page/Events Page respectively. Each of the pages will show a list of trips/days/events each labelled by an index. Below are 3 different list format elements and the indication where you can find the index.</p>
+<p>Deleting a Trip/Event is executed in exactly the same way as each other. You first have to begin on the Trip Page//Events Page respectively. Each of the pages will show a list of trips/events each labelled by an index. Below are 3 different list format elements and the indication where you can find the index.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/indexExamples.png" alt="indexExamples">
 </div>
-<div class="title">Figure 2. Examples of different indexes displayed</div>
+<div class="title">Figure 17. Examples of different indexes displayed</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -442,37 +765,37 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You should have at least 1 trip/day/event in your lists or all delete commands will be invalid
+You should have at least 1 trip/event in your lists or all delete commands will be invalid
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Enter the command <code>delete &lt;index&gt;</code> into the command box  where the index corresponds to the trip/day/event you wish to delete. Press enter to execute the command.</p>
+<p><strong>Step 1</strong>: Enter the command <code>delete &lt;index&gt;</code> into the command box  where the index corresponds to the trip/day/event you wish to delete. Press enter to execute the command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/deleteCommand.png" alt="deleteCommand">
 </div>
-<div class="title">Figure 3. Example deletion of trip 1</div>
+<div class="title">Figure 18. Example deletion of trip 1</div>
 </div>
 <div class="paragraph">
-<p>You should now see that trip/day/event that you deleted has disappeared from the list and the indexes have been reassigned in chronological order.</p>
+<p><strong>Step 2</strong>: You should now see that trip/day/event that you deleted has disappeared from the list and the indexes have been reassigned in chronological order:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/deleteResult.png" alt="deleteResult">
 </div>
-<div class="title">Figure 4. Result of executing <code>delete 1</code></div>
+<div class="title">Figure 19. Result of executing <code>delete 1</code></div>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have deleted a trip/day/event!</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="showing-event-details"><a class="link" href="#showing-event-details">3.5. Showing Event Details</a></h3>
+<div class="sect3">
+<h4 id="show_event_details"><a class="link" href="#show_event_details">3.2.7. Showing Event Details</a></h4>
 <div class="paragraph">
-<p>The details of each event are displayed on the right half the <strong>Events Page</strong>. You can access the events page by using the navigation feature (<a href="#how-to-navigate">Section 3.6, &#8220;How to navigate&#8221;</a>) found on most pages.</p>
+<p>The details of each event are displayed on the right half the <strong>Events Page</strong>. You can access the events page by using the navigation feature (<a href="#navbar_usage">Section 3.2.8, &#8220;How to navigate&#8221;</a>) found on most pages.</p>
 </div>
 <div class="paragraph">
 <p>Upon accessing the events page, the information panel on the right should be empty except the prompt "Click on an event to show details here!". The left panel holds the list of events in the particular day in chronological order.</p>
@@ -518,8 +841,8 @@ You should have at least 1 trip/day/event in your lists or all delete commands w
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="how-to-navigate"><a class="link" href="#how-to-navigate">3.6. How to navigate</a></h3>
+<div class="sect3">
+<h4 id="navbar_usage"><a class="link" href="#navbar_usage">3.2.8. How to navigate</a></h4>
 <div class="paragraph">
 <p>The main form of navigation is by using the navigation bars and the commands that are available on every page they are on. The bars appear like this:</p>
 </div>
@@ -602,10 +925,11 @@ Pages that do not contain a navigation bar cannot use the navigation commands ab
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="expense-manager"><a class="link" href="#expense-manager">3.7. Expense Manager</a></h3>
+<h3 id="expense-manager"><a class="link" href="#expense-manager">3.3. Expense Manager</a></h3>
 <div class="sect3">
-<h4 id="introduction-2"><a class="link" href="#introduction-2">3.7.1. Introduction</a></h4>
+<h4 id="introduction-3"><a class="link" href="#introduction-3">3.3.1. Introduction</a></h4>
 <div class="paragraph">
 <p>TravelPal&#8217;s <em>Expense Manager</em> is an integrated expense planning and management system. It keeps track all the expenses generated in your trip, and
 provides an intuitive overview of daily and total expenses and budgets. Gui alternatives are available for executing the same operations as command line input.</p>
@@ -615,7 +939,7 @@ provides an intuitive overview of daily and total expenses and budgets. Gui alte
 </div>
 </div>
 <div class="sect3">
-<h4 id="user-interface-overview"><a class="link" href="#user-interface-overview">3.7.2. User Interface Overview</a></h4>
+<h4 id="user-interface-overview"><a class="link" href="#user-interface-overview">3.3.2. User Interface Overview</a></h4>
 <div class="paragraph">
 <p>Shown below is the landing page of the <em>Expense Manager</em>.</p>
 </div>
@@ -623,7 +947,7 @@ provides an intuitive overview of daily and total expenses and budgets. Gui alte
 <div class="content">
 <img src="images/expense/userguide/ExpenseManager.png" alt="ExpenseManager">
 </div>
-<div class="title">Figure 5. Overview of Expense Manager user interface</div>
+<div class="title">Figure 20. Overview of Expense Manager user interface</div>
 </div>
 <div class="paragraph">
 <p>To toggle the display of expenses between list view and day view, use the command <code>showdays</code> or <code>showlist</code>. Alternatively,
@@ -633,7 +957,7 @@ you may click the toggle button on the page.</p>
 <div class="content">
 <img src="images/expense/userguide/ExpenseManagerDays.png" alt="ExpenseManagerDays">
 </div>
-<div class="title">Figure 6. Expense Manager user interface showing the daily expenses and budget summary</div>
+<div class="title">Figure 21. Expense Manager user interface showing the daily expenses and budget summary</div>
 </div>
 <div class="paragraph">
 <p>Expenses are connected to bookings/events to automatically update the current known expense for any date/trip/event.
@@ -651,7 +975,7 @@ There are two types of expense:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="commands"><a class="link" href="#commands">3.7.3. Commands</a></h4>
+<h4 id="commands"><a class="link" href="#commands">3.3.3. Commands</a></h4>
 <div class="paragraph">
 <p>On the <em>Expense Manager</em> page, the following command are available:</p>
 </div>
@@ -676,7 +1000,7 @@ There are two types of expense:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="expense-setup"><a class="link" href="#expense-setup">3.7.4. Expense Setup</a></h4>
+<h4 id="expense-setup"><a class="link" href="#expense-setup">3.3.4. Expense Setup</a></h4>
 <div class="paragraph">
 <p>Expense setup creates/edits properties of a specified expense.
 To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit &lt;index of expense&gt;</code> command on`Expense Manager` page.</p>
@@ -745,16 +1069,16 @@ edit the name of the corresponding event, this will also update the name of the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="currency-manager"><a class="link" href="#currency-manager">3.8. Currency Manager</a></h3>
+<h3 id="currency-manager"><a class="link" href="#currency-manager">3.4. Currency Manager</a></h3>
 <div class="sect3">
-<h4 id="introduction-3"><a class="link" href="#introduction-3">3.8.1. Introduction</a></h4>
+<h4 id="introduction-4"><a class="link" href="#introduction-4">3.4.1. Introduction</a></h4>
 <div class="paragraph">
 <p>With <em>Currency manager</em>, you can add and select currencies with customised currency name, symbol and exchange rate.
 When a currency is selected, all the monetary valued will be displayed in that currency</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="user-interface-overview-2"><a class="link" href="#user-interface-overview-2">3.8.2. User Interface Overview</a></h4>
+<h4 id="user-interface-overview-2"><a class="link" href="#user-interface-overview-2">3.4.2. User Interface Overview</a></h4>
 <div class="paragraph">
 <p>Shown below is a screenshot of the <em>Currency Manager</em> page.</p>
 </div>
@@ -762,7 +1086,7 @@ When a currency is selected, all the monetary valued will be displayed in that c
 <div class="content">
 <img src="images/currency/userguide/CurrencyPage.png" alt="CurrencyPage">
 </div>
-<div class="title">Figure 7. Overview of Currency Manager user interface</div>
+<div class="title">Figure 22. Overview of Currency Manager user interface</div>
 </div>
 <div class="paragraph">
 <p>The left half of the <em>Currency Manager</em> page consists of editable text fields for creating a new currency, under the
@@ -774,7 +1098,7 @@ You may select or delete a customised currency.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="commands-2"><a class="link" href="#commands-2">3.8.3. Commands</a></h4>
+<h4 id="commands-2"><a class="link" href="#commands-2">3.4.3. Commands</a></h4>
 <div class="paragraph">
 <p>The following commands are available on <em>Currency Manager</em> page:</p>
 </div>
@@ -854,9 +1178,9 @@ Singapore Dollar (SGD) is used as the default currency, it cannot be deleted.
 </div>
 </div>
 <div class="sect2">
-<h3 id="booking"><a class="link" href="#booking">3.9. Booking</a></h3>
+<h3 id="booking"><a class="link" href="#booking">3.5. Booking</a></h3>
 <div class="sect3">
-<h4 id="introduction-4"><a class="link" href="#introduction-4">3.9.1. Introduction</a></h4>
+<h4 id="introduction-5"><a class="link" href="#introduction-5">3.5.1. Introduction</a></h4>
 <div class="paragraph">
 <p>Welcome to the Booking feature of <em>TravelPal</em>!</p>
 </div>
@@ -873,14 +1197,14 @@ bookings during creation of any booking.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="booking-user-interface-overview"><a class="link" href="#booking-user-interface-overview">3.9.2. Booking User Interface Overview</a></h4>
+<h4 id="booking-user-interface-overview"><a class="link" href="#booking-user-interface-overview">3.5.2. Booking User Interface Overview</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary"><a class="link" href="#diary">3.10. Diary</a></h3>
+<h3 id="diary"><a class="link" href="#diary">3.6. Diary</a></h3>
 <div class="sect3">
-<h4 id="introduction-5"><a class="link" href="#introduction-5">3.10.1. Introduction</a></h4>
+<h4 id="introduction-6"><a class="link" href="#introduction-6">3.6.1. Introduction</a></h4>
 <div class="paragraph">
 <p>Welcome to the diary feature of <em>TravelPal</em>!</p>
 </div>
@@ -898,7 +1222,7 @@ every command, there are gui alternatives that allow you to execute the same ope
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-user-interface-overview"><a class="link" href="#diary-user-interface-overview">3.10.2. Diary User Interface Overview</a></h4>
+<h4 id="diary-user-interface-overview"><a class="link" href="#diary-user-interface-overview">3.6.2. Diary User Interface Overview</a></h4>
 <div class="paragraph">
 <p>Shown below are the key elements of the diary page, while the gallery is in view.</p>
 </div>
@@ -909,8 +1233,8 @@ every command, there are gui alternatives that allow you to execute the same ope
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is an alternative mode of display (which will be touched on shortly, or see <a href="#diary_editor_display_mode">Section 3.10.3, &#8220;Diary Editor User Interface&#8221;</a>),
-that shows when you execute the <code>editor</code> command <a href="#diary_editor_command">Section 3.10.5.9, &#8220;Showing the edit box&#8221;</a> or click the <code>Edit</code> button.
+There is an alternative mode of display (which will be touched on shortly, or see <a href="#diary_editor_display_mode">Section 3.6.3, &#8220;Diary Editor User Interface&#8221;</a>),
+that shows when you execute the <code>editor</code> command <a href="#diary_editor_command">Section 3.6.5.9, &#8220;Showing the edit box&#8221;</a> or click the <code>Edit</code> button.
 </td>
 </tr>
 </table>
@@ -919,13 +1243,13 @@ that shows when you execute the <code>editor</code> command <a href="#diary_edit
 <div class="content">
 <img src="images/diary/userguide/welcome_to_diary_image_annotated.png" alt="welcome to diary image annotated">
 </div>
-<div class="title">Figure 8. Overview of diary user interface</div>
+<div class="title">Figure 23. Overview of diary user interface</div>
 </div>
 <div class="sect4">
 <h5 id="diary-entry-display-area"><a class="link" href="#diary-entry-display-area">Diary Entry Display Area</a></h5>
 <div class="paragraph">
 <p>This is the main display area of your diary entry. It is able to display text, along with inline images, or just lines of
-images. The content is generated from the diary text of the entry (<a href="#diary_text_info">Section 3.10.4, &#8220;Diary Text&#8221;</a>).</p>
+images. The content is generated from the diary text of the entry (<a href="#diary_text_info">Section 3.6.4, &#8220;Diary Text&#8221;</a>).</p>
 </div>
 </div>
 <div class="sect4">
@@ -937,12 +1261,12 @@ images. The content is generated from the diary text of the entry (<a href="#dia
 <div class="content">
 <img src="images/diary/userguide/diary_photo_user_interface.png" alt="diary photo user interface" width="75%">
 </div>
-<div class="title">Figure 9. Display of a photo in the gallery display</div>
+<div class="title">Figure 24. Display of a photo in the gallery display</div>
 </div>
 <div class="paragraph">
 <p>Each image is displayed with a description (bottom left), a date taken (top right), both of which are user specifiable.
 There is also a photo index
-(top left), which is for use in various commands (see <a href="#diary_text_displaying_images">Section 3.10.4.2, &#8220;Displaying images&#8221;</a>).</p>
+(top left), which is for use in various commands (see <a href="#diary_text_displaying_images">Section 3.6.4.2, &#8220;Displaying images&#8221;</a>).</p>
 </div>
 </div>
 <div class="sect4">
@@ -954,47 +1278,47 @@ There is also a photo index
 <div class="sect4">
 <h5 id="diary_day_navigation_bar"><a class="link" href="#diary_day_navigation_bar">Diary Day Navigation Bar</a></h5>
 <div class="paragraph">
-<p>This is the button equivalent of the <code>flip</code> command (<a href="#diary_flip_command">Section 3.10.5.2, &#8220;Navigating to a diary entry&#8221;</a>), and allows you to navigate between your
+<p>This is the button equivalent of the <code>flip</code> command (<a href="#diary_flip_command">Section 3.6.5.2, &#8220;Navigating to a diary entry&#8221;</a>), and allows you to navigate between your
 diary entries for different days by clicking on the respective buttons.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="diary_gallery_button_bar"><a class="link" href="#diary_gallery_button_bar">Gallery Button Bar</a></h5>
 <div class="paragraph">
-<p>This smaller button bar is used for executing two other commands. Firstly, the <code>editor</code> (<a href="#diary_editor_command">Section 3.10.5.9, &#8220;Showing the edit box&#8221;</a>)
+<p>This smaller button bar is used for executing two other commands. Firstly, the <code>editor</code> (<a href="#diary_editor_command">Section 3.6.5.9, &#8220;Showing the edit box&#8221;</a>)
 can be executede by clicking on the <em>Edit</em> button. Secondly, the <code>addphoto</code> command may be executed
-(<a href="#diary_addphoto_command">Section 3.10.5.3, &#8220;Adding a photo&#8221;</a>) through <em>Add</em> button.</p>
+(<a href="#diary_addphoto_command">Section 3.6.5.3, &#8220;Adding a photo&#8221;</a>) through <em>Add</em> button.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="diary_add_new_entry_button"><a class="link" href="#diary_add_new_entry_button">Add New Entry Button</a></h5>
 <div class="paragraph">
-<p>Similarly, this button executes the <code>create</code> command through the user interface, as described in <a href="#diary_create_entry_command">Section 3.10.5.1, &#8220;Creating a diary entry&#8221;</a>.</p>
+<p>Similarly, this button executes the <code>create</code> command through the user interface, as described in <a href="#diary_create_entry_command">Section 3.6.5.1, &#8220;Creating a diary entry&#8221;</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary_editor_display_mode"><a class="link" href="#diary_editor_display_mode">3.10.3. Diary Editor User Interface</a></h4>
+<h4 id="diary_editor_display_mode"><a class="link" href="#diary_editor_display_mode">3.6.3. Diary Editor User Interface</a></h4>
 <div class="paragraph">
-<p>This is the screen that shows when the <code>editor</code> command (<a href="#diary_editor_command">Section 3.10.5.9, &#8220;Showing the edit box&#8221;</a>) is executed or the <em>Edit</em> button
-is clicked, as mentioned in <a href="#diary_gallery_button_bar">Section 3.10.2.5, &#8220;Gallery Button Bar&#8221;</a>.</p>
+<p>This is the screen that shows when the <code>editor</code> command (<a href="#diary_editor_command">Section 3.6.5.9, &#8220;Showing the edit box&#8221;</a>) is executed or the <em>Edit</em> button
+is clicked, as mentioned in <a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>.</p>
 </div>
 <div class="paragraph">
-<p>Components not highlighted in <a href="#diary_edit_view_annotated">Figure 10, &#8220;Overview of diary user interface when the edit box is shown&#8221;</a> below function the same way as mentioned in
-<a href="#diary-user-interface-overview">Section 3.10.2, &#8220;Diary User Interface Overview&#8221;</a>.</p>
+<p>Components not highlighted in <a href="#diary_edit_view_annotated">Figure 25, &#8220;Overview of diary user interface when the edit box is shown&#8221;</a> below function the same way as mentioned in
+<a href="#diary-user-interface-overview">Section 3.6.2, &#8220;Diary User Interface Overview&#8221;</a>.</p>
 </div>
 <div id="diary_edit_view_annotated" class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_edit_view_annotated.png" alt="diary edit view annotated">
 </div>
-<div class="title">Figure 10. Overview of diary user interface when the edit box is shown</div>
+<div class="title">Figure 25. Overview of diary user interface when the edit box is shown</div>
 </div>
 <div class="sect4">
 <h5 id="diary-edit-box"><a class="link" href="#diary-edit-box">Diary Edit Box</a></h5>
 <div class="paragraph">
 <p>This is the text edit area that allows a convenient form of alternative input to commands for editing the Diary Entry.
 While you may feel that the special clauses <em>"&lt;images 2&gt;"</em> and <em>"&lt;images 5 1 3 4&gt;"</em> being used in the diagram above are
-rather unfamiliar, they are actually quite simple! (see <a href="#diary_text_info">Section 3.10.4, &#8220;Diary Text&#8221;</a>).</p>
+rather unfamiliar, they are actually quite simple! (see <a href="#diary_text_info">Section 3.6.4, &#8220;Diary Text&#8221;</a>).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1013,15 +1337,15 @@ back to the command line input!
 <div class="sect4">
 <h5 id="commit-edit-button"><a class="link" href="#commit-edit-button">Commit Edit Button</a></h5>
 <div class="paragraph">
-<p>This is simply the button-equivalent of the <code>done</code> command (<a href="#diary_done_command">Section 3.10.5.10, &#8220;Committing your edits&#8221;</a>), and allows you to commit the
+<p>This is simply the button-equivalent of the <code>done</code> command (<a href="#diary_done_command">Section 3.6.5.10, &#8220;Committing your edits&#8221;</a>), and allows you to commit the
 changes you made (either through commands, or directly in the edit box) while the edit box was open.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary_text_info"><a class="link" href="#diary_text_info">3.10.4. Diary Text</a></h4>
+<h4 id="diary_text_info"><a class="link" href="#diary_text_info">3.6.4. Diary Text</a></h4>
 <div class="paragraph">
-<p>The <strong>diary text</strong>, as you edit in the edit box (<a href="#diary-edit-box">Section 3.10.3.1, &#8220;Diary Edit Box&#8221;</a>), or edit through the commands described in
+<p>The <strong>diary text</strong>, as you edit in the edit box (<a href="#diary-edit-box">Section 3.6.3.1, &#8220;Diary Edit Box&#8221;</a>), or edit through the commands described in
 <a href="#Diary Commands">[Diary Commands]</a>, are one and the same <strong>diary text!</strong> Hence, any commands you input to edit the text are reflected into
 the edit box automatically, and any edits you make to the edit box are considered by the commands.</p>
 </div>
@@ -1036,26 +1360,26 @@ the edit box automatically, and any edits you make to the edit box are considere
 </td>
 <td class="content">
 A paragraph of text need not span a minimum length, and can even be empty, as seen in the empty orange boxes
-in <a href="#diary_text_line_numbering_figure">Figure 11, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>
+in <a href="#diary_text_line_numbering_figure">Figure 26, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Additionally, the diary text can use special clauses to display and format images, as described in <a href="#diary_text_displaying_images">Section 3.10.4.2, &#8220;Displaying images&#8221;</a>.</p>
+<p>Additionally, the diary text can use special clauses to display and format images, as described in <a href="#diary_text_displaying_images">Section 3.6.4.2, &#8220;Displaying images&#8221;</a>.</p>
 </div>
 <div class="sect4">
 <h5 id="diary_text_line_numbering"><a class="link" href="#diary_text_line_numbering">Diary Text Line Numbering</a></h5>
 <div class="paragraph">
 <p>Each <strong>paragraph</strong> of text as seen in the edit box or diary entry display (with optional accompanying image(s)) is tied to a
 specific <strong>line number</strong>. This <strong>line number</strong> is simply determined by the order of the text paragraphs as shown
-in <a href="#diary_text_line_numbering_figure">Figure 11, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>, from top to bottom.</p>
+in <a href="#diary_text_line_numbering_figure">Figure 26, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>, from top to bottom.</p>
 </div>
 <div id="diary_text_line_numbering_figure" class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_what_is_a_paragraph.png" alt="diary what is a paragraph">
 </div>
-<div class="title">Figure 11. Annotated highlights of paragraphs and their line numbers with alternating colours</div>
+<div class="title">Figure 26. Annotated highlights of paragraphs and their line numbers with alternating colours</div>
 </div>
 <div class="paragraph">
 <p>This <strong>line number</strong> is used for several commands described in <a href="#Diary Commands">[Diary Commands]</a>.</p>
@@ -1085,7 +1409,7 @@ The line numbers are trivial if using the edit box to edit text, as text editing
 <div class="content">
 <img src="images/diary/userguide/diary_mini_gallery_edit_box.png" alt="diary mini gallery edit box">
 </div>
-<div class="title">Figure 12. Example usage of <code>&lt;images&gt;</code> clause to display images as a mini horizontal gallery or inline image</div>
+<div class="title">Figure 27. Example usage of <code>&lt;images&gt;</code> clause to display images as a mini horizontal gallery or inline image</div>
 </div>
 <div class="sect5">
 <h6 id="as-a-mini-horizontal-gallery-of-images"><a class="link" href="#as-a-mini-horizontal-gallery-of-images">As a mini horizontal gallery of images.</a></h6>
@@ -1093,7 +1417,7 @@ The line numbers are trivial if using the edit box to edit text, as text editing
 <ul>
 <li>
 <p>Format: Use a diary <strong>text paragraph</strong> consisting of only the clause <code>&lt;images number1 number2 numberN&gt;</code>, where <code>numberN</code>
-is the index of the photo as displayed in the gallery (<a href="#diary_gallery_display">Section 3.10.2.2, &#8220;Gallery Display&#8221;</a>).</p>
+is the index of the photo as displayed in the gallery (<a href="#diary_gallery_display">Section 3.6.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </li>
 <li>
 <p>Example: <code>&lt;images 5 1 3 4&gt;</code> - displays a mini gallery with the images 1, 3 and 5 as shown in the gallery.</p>
@@ -1107,7 +1431,7 @@ is the index of the photo as displayed in the gallery (<a href="#diary_gallery_d
 <ul>
 <li>
 <p>Format: Use a diary <strong>text paragraph</strong> consisting of your desired text, along with the clause
-<code>&lt;images numberN&gt;</code>, where <code>numberN</code> is the index of the photo as displayed in the gallery <a href="#diary_gallery_display">Section 3.10.2.2, &#8220;Gallery Display&#8221;</a>.</p>
+<code>&lt;images numberN&gt;</code>, where <code>numberN</code> is the index of the photo as displayed in the gallery <a href="#diary_gallery_display">Section 3.6.2.2, &#8220;Gallery Display&#8221;</a>.</p>
 </li>
 <li>
 <p>By default, the clause will place the image on the right, and the text on the left. You can include the <code>'left'</code>
@@ -1119,7 +1443,7 @@ word inside the <code>&lt;images left numberN&gt;</code> clause to reverse the o
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-operations"><a class="link" href="#diary-operations">3.10.5. Diary Operations</a></h4>
+<h4 id="diary-operations"><a class="link" href="#diary-operations">3.6.5. Diary Operations</a></h4>
 <div class="paragraph">
 <p>The diary commands follow the same general format used by the rest of <code>TravelPal</code> (see <a href="#command_tips">[command_tips]</a>).</p>
 </div>
@@ -1174,13 +1498,13 @@ below.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>For the add entry button <code>+</code> (<a href="#diary_create_entry_command_button">Section 3.10.5.1.2, &#8220;Using the add entry button <code>+</code>&#8221;</a>), since the current latest day&#8217;s entry is day 8,
+<p>For the add entry button <code>+</code> (<a href="#diary_create_entry_command_button">Section 3.6.5.1.2, &#8220;Using the add entry button <code>+</code>&#8221;</a>), since the current latest day&#8217;s entry is day 8,
 it would create an entry for the day right after that, which is day 9.</p>
 <div id="diary_create_entry_command_before" class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_create_command_with_button.png" alt="diary create command with button">
 </div>
-<div class="title">Figure 13. Example usage of creating a new diary entry for day 9</div>
+<div class="title">Figure 28. Example usage of creating a new diary entry for day 9</div>
 </div>
 </li>
 </ol>
@@ -1188,12 +1512,12 @@ it would create an entry for the day right after that, which is day 9.</p>
 </li>
 <li>
 <p>That&#8217;s it! the diary entry will be successfully created, and you will be brought to the new diary entry&#8217;s screen without
-having to navigate to it via <a href="#diary_flip_command">Section 3.10.5.2, &#8220;Navigating to a diary entry&#8221;</a> automatically.</p>
+having to navigate to it via <a href="#diary_flip_command">Section 3.6.5.2, &#8220;Navigating to a diary entry&#8221;</a> automatically.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_create_command_command_after.png" alt="diary create command command after">
 </div>
-<div class="title">Figure 14. Example result of post diary entry creation</div>
+<div class="title">Figure 29. Example result of post diary entry creation</div>
 </div>
 </li>
 </ol>
@@ -1231,7 +1555,7 @@ are also two options here to suit your needs, both offering the exact same funct
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the the button of with the day number of the diary entry in the navigation bar (<a href="#diary_day_navigation_bar">Section 3.10.2.4, &#8220;Diary Day Navigation Bar&#8221;</a>)
+<p>Usage: Clicking the the button of with the day number of the diary entry in the navigation bar (<a href="#diary_day_navigation_bar">Section 3.6.2.4, &#8220;Diary Day Navigation Bar&#8221;</a>)
 will flip to the diary entry for that day.</p>
 </li>
 </ul>
@@ -1252,12 +1576,12 @@ day 3, as highlighted below.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_flip_command_with_button.png" alt="diary flip command with button">
 </div>
-<div class="title">Figure 15. Example usage of flipping the diary to day 3&#8217;s diary entry</div>
+<div class="title">Figure 30. Example usage of flipping the diary to day 3&#8217;s diary entry</div>
 </div>
 </li>
 <li>
 <p>That&#8217;s all! You will be brought to the entry for day 3, as shown below. You should see a brief confirmation message in
-the command result box, and that the current day indicator will update accordingly (<a href="#diary_current_day_indicator">Section 3.10.2.3, &#8220;Current Day Indicator&#8221;</a>).</p>
+the command result box, and that the current day indicator will update accordingly (<a href="#diary_current_day_indicator">Section 3.6.2.3, &#8220;Current Day Indicator&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -1265,7 +1589,7 @@ the command result box, and that the current day indicator will update according
 <div class="content">
 <img src="images/diary/userguide/diary_flip_command_command_after.png" alt="diary flip command command after">
 </div>
-<div class="title">Figure 16. Example result of after flipping back to the diary entry for day 3</div>
+<div class="title">Figure 31. Example result of after flipping back to the diary entry for day 3</div>
 </div>
 </div>
 </div>
@@ -1273,7 +1597,7 @@ the command result box, and that the current day indicator will update according
 <h5 id="diary_addphoto_command"><a class="link" href="#diary_addphoto_command">Adding a photo</a></h5>
 <div class="paragraph">
 <p>If you have just created a fresh diary entry, and you&#8217;re wondering where to go next, then you
-may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">Section 3.10.2.2, &#8220;Gallery Display&#8221;</a>).</p>
+may want to start by adding your photos to display in the gallery (<a href="#diary_gallery_display">Section 3.6.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </div>
 <div class="paragraph">
 <p>Here, there are 3 options for you to choose, the last option being the least flexible but also the fastest, if
@@ -1345,7 +1669,7 @@ If left unspecified, the last modified date of the file is used instead.</p>
 <li>
 <p>You are also a command line savvy user that loves and understands how to manually specify relative or absolute
 file paths (see <a href="#glossary">Section 5, &#8220;Glossary&#8221;</a>), hence you opted for this option,
-rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.10.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
+rather than <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.6.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a> or <a href="#Using the <code>add</code> button under the gallery display">[Using the <code>add</code> button under the gallery display]</a>.</p>
 </li>
 <li>
 <p>Also, you want to give the photo a custom description, but want to use the last modified date of the image file in your
@@ -1358,7 +1682,7 @@ computer as the date taken for the photo. Shown below is an example of the photo
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_filepath_directory.png" alt="diary addphoto filepath directory" width="80%">
 </div>
-<div class="title">Figure 17. Example file directory structure of the TravelPal application and snowymountains.jpg</div>
+<div class="title">Figure 32. Example file directory structure of the TravelPal application and snowymountains.jpg</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1373,7 +1697,7 @@ same directory as the <em>TravelPal</em> application.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filepath.png" alt="diary addphoto command filepath">
 </div>
-<div class="title">Figure 18. Example usage of the <code>addphoto</code> command with the <code>fp/</code> option</div>
+<div class="title">Figure 33. Example usage of the <code>addphoto</code> command with the <code>fp/</code> option</div>
 </div>
 </li>
 </ol>
@@ -1385,7 +1709,7 @@ the command result box.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.10.4.2, &#8220;Displaying images&#8221;</a>.</p>
+<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.6.4.2, &#8220;Displaying images&#8221;</a>.</p>
 </li>
 </ol>
 </div>
@@ -1396,7 +1720,7 @@ the command result box.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filepath_result.png" alt="diary addphoto command filepath result">
 </div>
-<div class="title">Figure 19. Example result of after executing the <code>addphoto</code> command with the <code>fp/</code> option</div>
+<div class="title">Figure 34. Example result of after executing the <code>addphoto</code> command with the <code>fp/</code> option</div>
 </div>
 <hr>
 </div>
@@ -1417,7 +1741,7 @@ path on your computer to the gallery display.</p>
 <p><code>fc/</code> - opens your system&#8217;s user interface dialog to allow choosing an image (of file types <code>.jpg .jpeg .png</code>).</p>
 </li>
 <li>
-<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.10.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
+<p><code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> (optional) - as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.6.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1442,12 +1766,12 @@ The <code>fc/</code> prefix takes precedence over the <code>fp/</code> argument 
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.10.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open your
+<p>Usage: Clicking the <code>Add</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open your
 system&#8217;s user interface dialog to choose an image file.</p>
 </li>
 <li>
 <p>If this option is used, then the <code>&lt;description&gt;</code> &amp; <code>&lt;date taken&gt;</code> are not specifiable and will be auto generated as described
-in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.10.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
+in <a href="#using-the-code-addphoto-code-command-with-the-code-fp-code-prefix">Section 3.6.5.3.1, &#8220;Using the <code>addphoto</code> command with the <code>fp/</code> prefix&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1476,7 +1800,7 @@ or you can click the <code>Add</code> button.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser.png" alt="diary addphoto command filechooser">
 </div>
-<div class="title">Figure 20. Example usage of adding a photo through the <code>addphoto</code> command using the <code>fc/</code> option, or the <code>Add</code> button</div>
+<div class="title">Figure 35. Example usage of adding a photo through the <code>addphoto</code> command using the <code>fc/</code> option, or the <code>Add</code> button</div>
 </div>
 </li>
 </ol>
@@ -1492,7 +1816,7 @@ or you can click the <code>Add</code> button.</p>
 </td>
 <td class="content">
 In this example, the <code>&lt;description&gt;</code> and <code>&lt;date taken&gt;</code> fields are automatically generated. However, if you are using
-the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.10.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a>
+the <code>addphoto fc/</code> command, you may specify them manually as described in <a href="#using-the-code-addphoto-code-command-with-the-code-fc-code-prefix">Section 3.6.5.3.3, &#8220;Using the <code>addphoto</code> command with the <code>fc/</code> prefix&#8221;</a>
 </td>
 </tr>
 </table>
@@ -1506,7 +1830,7 @@ will be opened, as shown below.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_step2.png" alt="diary addphoto command filechooser step2" width="75%">
 </div>
-<div class="title">Figure 21. Example file chooser user interface for the windows operating system</div>
+<div class="title">Figure 36. Example file chooser user interface for the windows operating system</div>
 </div>
 </li>
 <li>
@@ -1515,7 +1839,7 @@ will be opened, as shown below.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_step3.png" alt="diary addphoto command filechooser step3" width="75%">
 </div>
-<div class="title">Figure 22. Example image file in the file chooser user interface to add</div>
+<div class="title">Figure 37. Example image file in the file chooser user interface to add</div>
 </div>
 </li>
 <li>
@@ -1524,12 +1848,12 @@ confirmation message in the result display.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.10.4.2, &#8220;Displaying images&#8221;</a>.</p>
+<p>Additionally, there will be a auto-generated photo numbering, for use as described in <a href="#diary_text_displaying_images">Section 3.6.4.2, &#8220;Displaying images&#8221;</a>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_result.png" alt="diary addphoto command filechooser result">
 </div>
-<div class="title">Figure 23. Result after choosing the image 'qidu_marketplace.jpg' in step 3</div>
+<div class="title">Figure 38. Result after choosing the image 'qidu_marketplace.jpg' in step 3</div>
 </div>
 </li>
 </ol>
@@ -1557,7 +1881,7 @@ use the <code>delphoto</code> command to do so.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;photo number&gt;</code> - Positive integer number of the photo to delete, as shown by the numbering in the gallery (see <a href="#diary_gallery_display">Section 3.10.2.2, &#8220;Gallery Display&#8221;</a>).</p>
+<p><code>&lt;photo number&gt;</code> - Positive integer number of the photo to delete, as shown by the numbering in the gallery (see <a href="#diary_gallery_display">Section 3.6.2.2, &#8220;Gallery Display&#8221;</a>).</p>
 </li>
 </ul>
 </div>
@@ -1581,7 +1905,7 @@ press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_delphoto_command_before.png" alt="diary delphoto command before">
 </div>
-<div class="title">Figure 24. Example usage of <code>delphoto</code> command to delete the photo with number 1</div>
+<div class="title">Figure 39. Example usage of <code>delphoto</code> command to delete the photo with number 1</div>
 </div>
 </li>
 <li>
@@ -1590,7 +1914,7 @@ press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_delphoto_command_result.png" alt="diary delphoto command result">
 </div>
-<div class="title">Figure 25. Result of <code>delphoto</code> command to delete the photo with number 1</div>
+<div class="title">Figure 40. Result of <code>delphoto</code> command to delete the photo with number 1</div>
 </div>
 </li>
 </ol>
@@ -1604,7 +1928,7 @@ press the 'enter' key.</p>
 </td>
 <td class="content">
 The commands below are quick command line equivalents of editing the text in the edit box, as described in
-<a href="#diary_editor_display_mode">Section 3.10.3, &#8220;Diary Editor User Interface&#8221;</a>.
+<a href="#diary_editor_display_mode">Section 3.6.3, &#8220;Diary Editor User Interface&#8221;</a>.
 </td>
 </tr>
 </table>
@@ -1617,8 +1941,8 @@ The commands below are quick command line equivalents of editing the text in the
 </td>
 <td class="content">
 If you execute any command that changes the diary entry&#8217;s text while the edit box is open, then the command still
-works and the save behaviour is exactly the same as described in <a href="#diary_editor_command">Section 3.10.5.9, &#8220;Showing the edit box&#8221;</a>!. That is, your edits will
-be not be committed until you execute the <code>done</code> command (see <a href="#diary_done_command">Section 3.10.5.10, &#8220;Committing your edits&#8221;</a>).
+works and the save behaviour is exactly the same as described in <a href="#diary_editor_command">Section 3.6.5.9, &#8220;Showing the edit box&#8221;</a>!. That is, your edits will
+be not be committed until you execute the <code>done</code> command (see <a href="#diary_done_command">Section 3.6.5.10, &#8220;Committing your edits&#8221;</a>).
 </td>
 </tr>
 </table>
@@ -1628,7 +1952,7 @@ be not be committed until you execute the <code>done</code> command (see <a href
 <div class="sect4">
 <h5 id="appending-to-a-diary-entry"><a class="link" href="#appending-to-a-diary-entry">Appending to a diary entry</a></h5>
 <div class="paragraph">
-<p>If you are currently viewing a diary entry, and know how to format the entry text (see <a href="#diary_text_info">Section 3.10.4, &#8220;Diary Text&#8221;</a>),
+<p>If you are currently viewing a diary entry, and know how to format the entry text (see <a href="#diary_text_info">Section 3.6.4, &#8220;Diary Text&#8221;</a>),
 then you could use with the <code>append</code> command to add a new paragraph of text.</p>
 </div>
 <div class="sect5">
@@ -1637,14 +1961,14 @@ then you could use with the <code>append</code> command to add a new paragraph o
 <ul>
 <li>
 <p>Usage: Adds a new paragraph of text as specified by the <code>&lt;paragraph&gt;</code> of text immediately after the the <code>append</code> command word,
-at the last line as displayed in the diary entry (see <a href="#diary-entry-display-area">Section 3.10.2.1, &#8220;Diary Entry Display Area&#8221;</a>).</p>
+at the last line as displayed in the diary entry (see <a href="#diary-entry-display-area">Section 3.6.2.1, &#8220;Diary Entry Display Area&#8221;</a>).</p>
 </li>
 <li>
 <p>Arguments:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;paragraph&gt;</code> - The paragraph of text to append, as described in <a href="#diary_text_info">Section 3.10.4, &#8220;Diary Text&#8221;</a>.</p>
+<p><code>&lt;paragraph&gt;</code> - The paragraph of text to append, as described in <a href="#diary_text_info">Section 3.6.4, &#8220;Diary Text&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1668,7 +1992,7 @@ paragraph of text using the handy command line interface.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_append_command_before.png" alt="diary append command before">
 </div>
-<div class="title">Figure 26. Example usage of <code>append</code> command to add a new paragraph of text to a diary entry</div>
+<div class="title">Figure 41. Example usage of <code>append</code> command to add a new paragraph of text to a diary entry</div>
 </div>
 </li>
 <li>
@@ -1677,7 +2001,7 @@ paragraph of text using the handy command line interface.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_append_command_after.png" alt="diary append command after">
 </div>
-<div class="title">Figure 27. Result of <code>append</code> command to add a new paragraph of text</div>
+<div class="title">Figure 42. Result of <code>append</code> command to add a new paragraph of text</div>
 </div>
 </li>
 </ol>
@@ -1688,7 +2012,7 @@ paragraph of text using the handy command line interface.</p>
 <h5 id="inserting-text-in-a-diary-entry"><a class="link" href="#inserting-text-in-a-diary-entry">Inserting text in a diary entry</a></h5>
 <div class="paragraph">
 <p>If you have a long diary entry, and want to insert a new paragraph of text between some existing paragraphs without
-using the edit box (<a href="#diary_editor_command">Section 3.10.5.9, &#8220;Showing the edit box&#8221;</a>), then you can use the <code>insert</code> command.</p>
+using the edit box (<a href="#diary_editor_command">Section 3.6.5.9, &#8220;Showing the edit box&#8221;</a>), then you can use the <code>insert</code> command.</p>
 </div>
 <div class="sect5">
 <h6 id="using-the-code-insert-i-linenumber-d-paragraph-code-command"><a class="link" href="#using-the-code-insert-i-linenumber-d-paragraph-code-command">Using the <code>insert i/&lt;lineNumber&gt; d/&lt;paragraph&gt;</code> command</a></h6>
@@ -1702,10 +2026,10 @@ using the edit box (<a href="#diary_editor_command">Section 3.10.5.9, &#8220;Sho
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;lineNumber&gt;</code> - Line number to insert the <code>&lt;paragraph&gt;</code> at, as described in <a href="#diary_text_line_numbering">Section 3.10.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
+<p><code>&lt;lineNumber&gt;</code> - Line number to insert the <code>&lt;paragraph&gt;</code> at, as described in <a href="#diary_text_line_numbering">Section 3.6.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
 </li>
 <li>
-<p><code>&lt;paragraph&gt;</code> - The paragraph of text to insert, as described in <a href="#diary_text_info">Section 3.10.4, &#8220;Diary Text&#8221;</a>.</p>
+<p><code>&lt;paragraph&gt;</code> - The paragraph of text to insert, as described in <a href="#diary_text_info">Section 3.6.4, &#8220;Diary Text&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1742,7 +2066,7 @@ text in between the existing lines 4 and 5, and press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_insert_command_before.png" alt="diary insert command before">
 </div>
-<div class="title">Figure 28. Example usage of <code>insert</code> command to insert a new paragraph of text in a diary entry</div>
+<div class="title">Figure 43. Example usage of <code>insert</code> command to insert a new paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
@@ -1751,7 +2075,7 @@ text in between the existing lines 4 and 5, and press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_insert_command_after.png" alt="diary insert command after">
 </div>
-<div class="title">Figure 29. Result of <code>insert</code> command to insert a new paragraph of text to a diary entry</div>
+<div class="title">Figure 44. Result of <code>insert</code> command to insert a new paragraph of text to a diary entry</div>
 </div>
 </li>
 </ol>
@@ -1776,10 +2100,10 @@ command to do so.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;lineNumber&gt;</code> (optional) - Line number of the text line to edit, as described in <a href="#diary_text_line_numbering">Section 3.10.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
+<p><code>&lt;lineNumber&gt;</code> (optional) - Line number of the text line to edit, as described in <a href="#diary_text_line_numbering">Section 3.6.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
 </li>
 <li>
-<p><code>&lt;paragraph&gt;</code> - The new paragraph of text (as described in <a href="#diary_text_info">Section 3.10.4, &#8220;Diary Text&#8221;</a>) to replace the existing paragraph or entire entry with.</p>
+<p><code>&lt;paragraph&gt;</code> - The new paragraph of text (as described in <a href="#diary_text_info">Section 3.6.4, &#8220;Diary Text&#8221;</a>) to replace the existing paragraph or entire entry with.</p>
 </li>
 </ul>
 </div>
@@ -1814,7 +2138,7 @@ want to rectify this.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_edit_command_before.png" alt="diary edit command before">
 </div>
-<div class="title">Figure 30. Example usage of <code>edit</code> command to edit an existing paragraph of text in a diary entry</div>
+<div class="title">Figure 45. Example usage of <code>edit</code> command to edit an existing paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
@@ -1823,7 +2147,7 @@ want to rectify this.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_edit_command_after.png" alt="diary edit command after">
 </div>
-<div class="title">Figure 31. Result of <code>edit</code> command to edit an existing paragraph of text</div>
+<div class="title">Figure 46. Result of <code>edit</code> command to edit an existing paragraph of text</div>
 </div>
 </li>
 </ol>
@@ -1848,7 +2172,7 @@ to delete a paragraph of text in the entry!</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;lineNumber&gt;</code> - Line number of the text line to delete, as described in <a href="#diary_text_line_numbering">Section 3.10.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
+<p><code>&lt;lineNumber&gt;</code> - Line number of the text line to delete, as described in <a href="#diary_text_line_numbering">Section 3.6.4.1, &#8220;Diary Text Line Numbering&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -1871,7 +2195,7 @@ You want to rectify this quickly, because your friend requested you share detail
 <div class="content">
 <img src="images/diary/userguide/diary_delete_command_before.png" alt="diary delete command before">
 </div>
-<div class="title">Figure 32. Example usage of <code>delete</code> command to delete an existing paragraph of text in a diary entry</div>
+<div class="title">Figure 47. Example usage of <code>delete</code> command to delete an existing paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
@@ -1880,7 +2204,7 @@ You want to rectify this quickly, because your friend requested you share detail
 <div class="content">
 <img src="images/diary/userguide/diary_delete_command_after.png" alt="diary delete command after">
 </div>
-<div class="title">Figure 33. Result of <code>delete</code> command to delete an existing paragraph of text</div>
+<div class="title">Figure 48. Result of <code>delete</code> command to delete an existing paragraph of text</div>
 </div>
 </li>
 </ol>
@@ -1891,8 +2215,8 @@ You want to rectify this quickly, because your friend requested you share detail
 <h5 id="diary_editor_command"><a class="link" href="#diary_editor_command">Showing the edit box</a></h5>
 <div class="paragraph">
 <p>As an alternative to commands that allow you to edit your diary entry, you can also use the edit box to do so, as described
-in <a href="#diary_editor_display_mode">Section 3.10.3, &#8220;Diary Editor User Interface&#8221;</a>. Note that any edits through the edit box or command made while the editor was opened
-need to be saved by using the <code>done</code> command or button (see <a href="#diary_done_command">Section 3.10.5.10, &#8220;Committing your edits&#8221;</a>).To show the editor, there are two equivalent options.</p>
+in <a href="#diary_editor_display_mode">Section 3.6.3, &#8220;Diary Editor User Interface&#8221;</a>. Note that any edits through the edit box or command made while the editor was opened
+need to be saved by using the <code>done</code> command or button (see <a href="#diary_done_command">Section 3.6.5.10, &#8220;Committing your edits&#8221;</a>).To show the editor, there are two equivalent options.</p>
 </div>
 <div class="sect5">
 <h6 id="using-the-code-editor-code-command"><a class="link" href="#using-the-code-editor-code-command">Using the <code>editor</code> command</a></h6>
@@ -1909,7 +2233,7 @@ need to be saved by using the <code>done</code> command or button (see <a href="
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the <code>Edit</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.10.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open the editor.</p>
+<p>Usage: Clicking the <code>Edit</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>) will open the editor.</p>
 </li>
 </ul>
 </div>
@@ -1932,7 +2256,7 @@ command line text editors, such as <em>vim</em>, which can greatly improve the t
 <div class="content">
 <img src="images/diary/userguide/diary_editor_command_before.png" alt="diary editor command before">
 </div>
-<div class="title">Figure 34. Example usage of <code>editor</code> command to open the edit window</div>
+<div class="title">Figure 49. Example usage of <code>editor</code> command to open the edit window</div>
 </div>
 </li>
 <li>
@@ -1941,7 +2265,7 @@ command line text editors, such as <em>vim</em>, which can greatly improve the t
 <div class="content">
 <img src="images/diary/userguide/diary_editor_command_after.png" alt="diary editor command after">
 </div>
-<div class="title">Figure 35. Result of <code>editor</code> command showing the opened edit window</div>
+<div class="title">Figure 50. Result of <code>editor</code> command showing the opened edit window</div>
 </div>
 </li>
 </ol>
@@ -1986,7 +2310,7 @@ by pressing the 'F1' key!
 <div class="ulist">
 <ul>
 <li>
-<p>Usage: Clicking the <code>Done</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.10.2.5, &#8220;Gallery Button Bar&#8221;</a>) will similarly
+<p>Usage: Clicking the <code>Done</code> button located under the gallery display area (<a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>) will similarly
 save the changes you made while the editor was open, and close the editor.</p>
 </li>
 </ul>
@@ -1997,7 +2321,7 @@ save the changes you made while the editor was open, and close the editor.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pre-trip-inventory-manager"><a class="link" href="#pre-trip-inventory-manager">3.11. Pre-trip Inventory Manager</a></h3>
+<h3 id="pre-trip-inventory-manager"><a class="link" href="#pre-trip-inventory-manager">3.7. Pre-trip Inventory Manager</a></h3>
 <div class="paragraph">
 <p>Allows the user to make a list of things (inventory of things) he/she needs for the trip.</p>
 </div>
@@ -2071,4 +2395,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:31:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:54:48 UTC</div></div></div></body></html>
