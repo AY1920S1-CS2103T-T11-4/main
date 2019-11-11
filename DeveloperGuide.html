@@ -22,14 +22,16 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#itinerary-edit-trip-day-event-feature">3.1. [Itinerary] Edit trip/day/event feature</a></li>
-<li><a href="#itinerary-delete-trip-day-event">3.2. [Itinerary] Delete Trip/Day/Event</a></li>
-<li><a href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#diary-photo-manager">3.5. [Diary] Photo Manager</a></li>
-<li><a href="#diary-diary-entry-text-editing">3.6. [Diary] Diary Entry Text Editing</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#Edit-Trip">3.1. [Itinerary] Edit trip/day/event feature</a></li>
+<li><a href="#Delete-Trip">3.2. [Itinerary] Delete Trip/Day/Event</a></li>
+<li><a href="#expense-expense-manager">3.3. [Expense] Expense Manager</a></li>
+<li><a href="#currency-currency">3.4. [Currency] Currency</a></li>
+<li><a href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
+<li><a href="#diary-photo-manager">3.7. [Diary] Photo Manager</a></li>
+<li><a href="#diary-diary-entry-text-editing">3.8. [Diary] Diary Entry Text Editing</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -372,7 +374,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="itinerary-edit-trip-day-event-feature"><a class="link" href="#itinerary-edit-trip-day-event-feature">3.1. [Itinerary] Edit trip/day/event feature</a></h3>
+<h3 id="Edit-Trip"><a class="link" href="#Edit-Trip">3.1. [Itinerary] Edit trip/day/event feature</a></h3>
 <div class="sect3">
 <h4 id="edit_logic"><a class="link" href="#edit_logic">3.1.1. Aspect: Logic</a></h4>
 <div class="paragraph">
@@ -612,7 +614,7 @@ method that returns the <code>PageStatus</code> containing the all information r
 </div>
 </div>
 <div class="sect2">
-<h3 id="itinerary-delete-trip-day-event"><a class="link" href="#itinerary-delete-trip-day-event">3.2. [Itinerary] Delete Trip/Day/Event</a></h3>
+<h3 id="Delete-Trip"><a class="link" href="#Delete-Trip">3.2. [Itinerary] Delete Trip/Day/Event</a></h3>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
 <div class="paragraph">
@@ -652,9 +654,252 @@ Upon initial startup of the program <code>Model</code> is initialized with <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="expense-expense-manager"><a class="link" href="#expense-expense-manager">3.3. [Expense] Expense Manager</a></h3>
+<div class="paragraph">
+<p>The <em>Expense Manager</em> is one of the main features of TravelPal, it maintains a list of <code>Expense</code> stored in an <code>ExpenseList</code>.
+<em>Expense Manager</em> is also capable of calculating and displaying budget, sorting expenses and toggling display options.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
+<h4 id="expense_model"><a class="link" href="#expense_model">3.3.1. Aspect : Model</a></h4>
+<div id="expense_class_diagram" class="imageblock">
+<div class="content">
+<img src="images/expense/developerguide/ExpenseModelClassDiagram.png" alt="ExpenseModelClassDiagram" width="60%">
+</div>
+<div class="title">Figure 13. Class diagram showing the expense model</div>
+</div>
+<div class="sect4">
+<h5 id="expense"><a class="link" href="#expense">Expense</a></h5>
+<div class="paragraph">
+<p><code>Expense</code> is an abstract class storing expense model.</p>
+</div>
+<div class="paragraph">
+<p>It has three compulsory fields, the <em>name of expense</em>, the <em>amount of expense</em>, and a <em>day number</em>. These fields are used to store information related to an expense.
+They are implemented as instance of class <code>Name</code> <code>Budget</code> and <code>DayNumber</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p><code>MiscExpense</code> and <code>PlannedExpense</code> are the child classes extending from <code>Expense</code> class, they are
+used to represent the two types of expenses: <em>miscellaneous expense</em> and <em>planned expense</em>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="expenselist"><a class="link" href="#expenselist">ExpenseList</a></h5>
+<div class="paragraph">
+<p><code>ExpenseList</code> is an class that stores the <code>Expense</code> models.
+It supports wrapper methods around the underlying <code>ObservableList</code> to facilitate the use in the logic components.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expense_ui"><a class="link" href="#expense_ui">3.3.2. Aspect : UI</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/expense/developerguide/ExpenseUIClassDiagram.png" alt="ExpenseUIClassDiagram" width="95%">
+</div>
+<div class="title">Figure 14. Class diagram showing the user interface of expense</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>ExpensesPage</code> implements an <code>UiChangeConsumer</code> interface to facilitate the toggling between the <em>Days View</em> and
+ <em>List View</em> of <em>Expense Manager</em>, which is not shown in the diagram above.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The UI of expense manager mainly consists of two <code>Page</code>: <code>ExpensesPage</code> and <code>EditExpensePage</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>ExpensePage</code> is the component in charge of displaying expense and budget information. It has a list of <code>ExpenseCard</code>, a component
+ that contains individual expense details. <code>ExpensePage</code> extends <code>PageWithSidebar</code> as it contains navigation bar that helps user to
+ navigate between different features.</p>
+</div>
+<div class="paragraph">
+<p>In <code>ExpensePage</code>, user can toggle between <em>Days View</em> and <em>List View</em>. In <em>Days View</em>, a list of <code>DailyExpensesPanel</code> is used to group
+<code>ExpenseCard</code> according to date.</p>
+</div>
+<div class="paragraph">
+<p><code>EditExpensePage</code> is the main page for creating and editing of expense. Both <code>ExpensesPage</code> and <code>EditExpensePage</code> have access to <code>Model</code> and <code>Logic</code>
+of the application, for handling of stored data and parsing commands.</p>
+</div>
+<div class="paragraph">
+<p>From <code>ExpensePage</code>, user can navigate to <em>Currency</em> feature of application through CLI or GUI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic"><a class="link" href="#aspect-logic">3.3.3. Aspect : Logic</a></h4>
+<div class="sect4">
+<h5 id="create-an-expense"><a class="link" href="#create-an-expense">Create an expense</a></h5>
+<div class="paragraph">
+<p>The creation of a new <code>Expense</code> is done in two ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The creation of a <code>PlannedExpense</code> is created when a new <code>Event</code> with a <code>Budget</code> is created. The execution happens in <code>DoneEditingEventCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When the <code>Name</code> or <code>Budget</code> field of <code>Event</code> is modified, a method call replaces the current <code>Expense</code> associated with the <code>Event</code> with an updated <code>Expense</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The creation of a <code>MiscExpense</code> is done by calling <code>EnterCreateExpenseCommand</code>, which brings user to an <em>Expense Setup Page</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-an-expense"><a class="link" href="#edit-an-expense">Edit an expense</a></h5>
+<div class="paragraph">
+<p>Editing of expense can be accessed from <code>ExpensePage</code>. The execution of command is handled by <code>ExpenseManagerParser</code> and
+the command accesses the model through <code>Model#getPageStatus()</code> method. The details of execution is similar to <em>Edit trip/day/event</em> feature (see <a href="#Edit-Trip">Section 3.1, &#8220;[Itinerary] Edit trip/day/event feature&#8221;</a>)</p>
+</div>
+<div class="paragraph">
+<p>Only the <em>amount of expense</em> field of a <code>PlannedExpense</code> can be edited with an <code>edit</code> command. When <code>done</code> command is executed
+after the <em>amount of expense</em> is edited, both the expense in <code>ExpenseList</code> and the <code>Event</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the sequence of method call when <code>DoneEditCommand#execute(model)</code> is called in <code>LogicManager</code>.</p>
+</div>
+<div id="expense_sequence_diagram" class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/expense/developerguide/DoneEditExpenseCommandSequenceDiagram.png" alt="DoneEditExpenseCommandSequenceDiagram" width="95%">
+</div>
+<div class="title">Figure 15. Sequence diagram showing the execution of DoneEditCommand</div>
+</div>
+<div class="paragraph">
+<p>When <code>DoneEditCommand#execute(model)</code> is called, <code>getPageStatus()</code> is used to fetch information / update information from <code>model</code>. The following
+steps shows the sequence of event happened within the method:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The current instance of <code>EditExpenseDescriptor</code> and <code>Expense</code> in <code>model</code> are returned and stored as <code>editExpenseDescriptor</code> and <code>expenseToEdit</code> in <code>logic</code>.</p>
+</li>
+<li>
+<p>A new instance of <code>Expense</code>, <code>expenseToAdd</code> is created by calling <code>buildExpense()</code> in <code>editExpenseDescriptor</code>.</p>
+</li>
+<li>
+<p>Through <code>getPageStatus()</code>, <code>set(expenseToEdit, expenseToAdd)</code> is called on <code>EventList</code>, which updates the unedited <code>expenseToEdit</code> by replacing it with the edited <code>expenseToAdd</code>.</p>
+</li>
+<li>
+<p>The <code>DayNumber</code> in <code>expenseToAdd</code> is returned so that logic can update the associated <code>Event</code> by going to the corresponding <code>Day</code> in <code>DayList</code>.</p>
+</li>
+<li>
+<p><code>updateExpense(expenseToAdd)</code> is called on <code>EventList</code> so that the target <code>Event</code> will have its <code>Expenditure</code> updated.</p>
+</li>
+<li>
+<p>By calling <code>setPageStatus()</code>, the current <code>EditExpenseDescriptor</code> and <code>Expense</code> will be reset, the current page will be set to <em>Expense Manager Page</em>.</p>
+</li>
+<li>
+<p><code>CommandResult</code> is returned to give user feedback and update UI.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-an-expense"><a class="link" href="#delete-an-expense">Delete an Expense</a></h5>
+<div class="paragraph">
+<p>Deletion of expense is similar to the <em>Delete Trip/Day/Event</em> feature (see <a href="#Delete-Trip">Section 3.2, &#8220;[Itinerary] Delete Trip/Day/Event&#8221;</a>).</p>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteExpenseCommand</code> in logic checks for index of deletion and type of expense. Only <code>MiscExpense</code> can be deleted through
+this command. Below is an example execution of deleting an expense:</p>
+</div>
+<div id="delete_expense_activity_diagram" class="imageblock">
+<div class="content">
+<img src="images/expense/developerguide/DeleteExpenseDiagram.png" alt="DeleteExpenseDiagram" width="80%">
+</div>
+<div class="title">Figure 16. Activity diagram showing the execution of deleting an expense</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="currency-currency"><a class="link" href="#currency-currency">3.4. [Currency] Currency</a></h3>
+<div class="paragraph">
+<p>The <em>Currency</em> maintains a list of <code>CustomisedCurrency</code> stored in an <code>CurrencyList</code>.
+<em>Currency</em> supports creation, deletion and selection of currency.</p>
+</div>
+<div class="sect3">
+<h4 id="aspect-model"><a class="link" href="#aspect-model">3.4.1. Aspect : Model</a></h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/expense/developerguide/CurrencyModelClassDiagram.png" alt="CurrencyModelClassDiagram" width="60%">
+</div>
+<div class="title">Figure 17. Class diagram showing the currency model</div>
+</div>
+<div class="sect4">
+<h5 id="customisedcurrency"><a class="link" href="#customisedcurrency">CustomisedCurrency</a></h5>
+<div class="paragraph">
+<p><code>CustomisedCurrency</code> is the generic abstraction of a user defined currency.</p>
+</div>
+<div class="paragraph">
+<p>A <code>CustomisedCurrency</code> contains exactly one instance <code>Name</code> <code>Symbol</code> and <code>Rate</code> for each of these three classes, which represents
+ the <em>name of currency</em>, <em>currency symbol</em>, and <em>exchange rate of the currency (to Singapore Dollars)</em> respectively.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="currencylist"><a class="link" href="#currencylist">CurrencyList</a></h5>
+<div class="paragraph">
+<p><code>CurrencyList</code> is an class that stores the <code>CustomisedCurrency</code> instances. It supports wrapper methods around the underlying <code>ObservableList</code> for the use of logic components.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="currency_ui"><a class="link" href="#currency_ui">3.4.2. Aspect : UI</a></h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/expense/developerguide/CurrencyUIClassDiagram.png" alt="CurrencyUIClassDiagram" width="90%">
+</div>
+<div class="title">Figure 18. Class diagram showing the user interface of currency</div>
+</div>
+<div class="paragraph">
+<p>The main <code>Page</code> for displaying and creating currency is <code>CurrencyPage</code>. The page contains a list of <code>CurrencyCard</code> for displaying
+individual currency details. Two types of <code>CurrencyCard</code>: <code>SelectedCurrencyCard</code> and <code>UnelectedCurrencyCard</code> are used to indicate
+the currency in use. Upon launching of the application, a default <code>CustomisedCurrency</code>&#8201;&#8212;&#8201;Singapore Dollars is automatically added to
+the <code>CurrencyList</code>, which is not deletable. Thus, there will always be at least one <code>CurrencyCard</code> in <code>CurrencyPage</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>CurrencyPage</code> also contains text fields for input of new currency information. It has a <code>PresetSymbols</code> instance which contains a group of <code>ToggleButton</code> which
+updates the symbol in <code>MainWindow</code>. <code>CurrencyPage</code> have access to <code>Model</code> and <code>Logic</code>
+of the application, for handling of stored data and parsing commands.</p>
+</div>
+<div class="paragraph">
+<p>From <code>ExpensePage</code>, user can navigate to <em>Expense Manager</em> feature of application through CLI or GUI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-2"><a class="link" href="#aspect-logic-2">3.4.3. Aspect : Logic</a></h4>
+<div class="paragraph">
+<p>The executions of add / delete of <code>CustomisedCurrency</code> is similar to those of <code>Trip</code> / <code>Day</code> / <code>Event</code> / <code>Expense</code>. More details can be found in the previous sections:
+<a href="#Edit-Trip">Section 3.1, &#8220;[Itinerary] Edit trip/day/event feature&#8221;</a></p>
+</div>
+<div class="sect5">
+<h6 id="select-a-currency"><a class="link" href="#select-a-currency">Select a Currency</a></h6>
+<div class="paragraph">
+<p>Selection of <code>CustomisedCurrency</code> is achieved by promoting it to the front of <code>CurrencyList</code>, while the first <code>CustomisedCurrency</code> in the list
+is to be used to display <code>Budget</code> with the selected currency symbol and rate conversion.</p>
+</div>
+<div class="paragraph">
+<p>All the monetary values in the application is displayed through calling the method from UI: <code>Budget#getValueStringInCurrency(CustomisedCurrency)</code></p>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.5.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -796,7 +1041,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -866,24 +1111,24 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">3.5. [Diary] Photo Manager</a></h3>
+<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">3.7. [Diary] Photo Manager</a></h3>
 <div class="paragraph">
 <p>The photo manager pertains to components for storing, and displaying user specified photos on the disk.</p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="photo_model"><a class="link" href="#photo_model">3.5.1. Aspect: Models</a></h4>
+<h4 id="photo_model"><a class="link" href="#photo_model">3.7.1. Aspect: Models</a></h4>
 <div id="diary_photo_model_class_diagram" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/diary/DiaryPhotoModelClassDiagram.png" alt="DiaryPhotoModelClassDiagram">
 </div>
-<div class="title">Figure 13. Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</div>
+<div class="title">Figure 19. Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</div>
 </div>
 <div class="sect4">
 <h5 id="photo"><a class="link" href="#photo">Photo</a></h5>
@@ -895,7 +1140,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 The <code>imagePath</code> and <code>dateTaken</code> were implemented respectively with the robust java apis of <code>Path</code> and <code>LocalDateTime</code>, while <code>description</code> is simply a <code>String</code>.</p>
 </div>
 <div class="paragraph">
-<p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 13, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
+<p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 19, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
 which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
 as the <code>Image</code> construction directly in the user interface involves costly I/O operations.</p>
 </div>
@@ -935,7 +1180,7 @@ as the <code>Image</code> construction directly in the user interface involves c
 <h5 id="photolist"><a class="link" href="#photolist">PhotoList</a></h5>
 <div class="paragraph">
 <p>On the other hand, the <code>DiaryPhoto</code> models are contained within a <code>PhotoList</code>. It stores the photos in a JavaFX <code>ObservableList</code>,
-so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.5.2, &#8220;Aspect: User interface of photo manager&#8221;</a>)</p>
+so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.7.2, &#8220;Aspect: User interface of photo manager&#8221;</a>)</p>
 </div>
 <div class="paragraph">
 <p>It also supports several convenience wrapper methods around the underlying <code>ObservableList</code>, tailored for use for the logic components.</p>
@@ -944,7 +1189,7 @@ so that changes are registered with the user interface. (see <a href="#photo_man
 </div>
 </div>
 <div class="sect3">
-<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.5.2. Aspect: User interface of photo manager</a></h4>
+<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.7.2. Aspect: User interface of photo manager</a></h4>
 <div class="paragraph">
 <p>The main <code>UiPart</code> component that displays photos is the <code>DiaryGallery</code>.
 It abides by the <code>Page</code> implementation (see <a href="#page_api">Section 2.2.1, &#8220;Page API&#8221;</a>), and is thus contained within,
@@ -954,7 +1199,7 @@ in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 <div class="content">
 <img src="images/diary/DiaryPhotoUiObjectDiagram.png" alt="DiaryPhotoUiObjectDiagram">
 </div>
-<div class="title">Figure 14. Object diagram of the diary gallery component, as contained by <code>DiaryPage</code> (not shown)</div>
+<div class="title">Figure 20. Object diagram of the diary gallery component, as contained by <code>DiaryPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The main JavaFX component responsible for displaying the photos is a <code>ListView&lt;DiaryPhoto&gt;</code> component.
@@ -976,7 +1221,7 @@ Additionally, the index of the card as ordered in the <code>DiaryGallery</code> 
 <hr>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-of-photo-manager-operations"><a class="link" href="#aspect-logic-of-photo-manager-operations">3.5.3. Aspect: Logic of photo manager operations</a></h4>
+<h4 id="aspect-logic-of-photo-manager-operations"><a class="link" href="#aspect-logic-of-photo-manager-operations">3.7.3. Aspect: Logic of photo manager operations</a></h4>
 <div class="paragraph">
 <p>The logic for photo manager plays to the same <code>PageParser</code> structure of parsing commands, that is,
 <code>DiaryParser</code> returns either <code>AddPhotoParser</code>, <code>DeletePhotoParser</code> when the appropriate command word is parsed, which
@@ -993,7 +1238,7 @@ a number of operations happen, as per the UML sequence diagram below (<a href="#
 <div class="content">
 <img src="images/diary/DiaryAddPhotoParser.png" alt="AddPhotoParser parse sequence diagram">
 </div>
-<div class="title">Figure 15. Sequence diagram of the parse method in AddPhotoParser</div>
+<div class="title">Figure 21. Sequence diagram of the parse method in AddPhotoParser</div>
 </div>
 <hr>
 <div class="sect5">
@@ -1017,7 +1262,7 @@ as a valid image file.</p>
 <div class="content">
 <img src="images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram" width="95%">
 </div>
-<div class="title">Figure 16. Activity diagram of getFilePath subroutine</div>
+<div class="title">Figure 22. Activity diagram of getFilePath subroutine</div>
 </div>
 <hr>
 </div>
@@ -1027,10 +1272,10 @@ as a valid image file.</p>
 <ul>
 <li>
 <p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>DiaryPhoto</code> instance with the specified input.
-If validation of the description, as described in the <a href="#photo_model">Section 3.5.1, &#8220;Aspect: Models&#8221;</a> fails, then a ParseException is thrown during the instance construction.</p>
+If validation of the description, as described in the <a href="#photo_model">Section 3.7.1, &#8220;Aspect: Models&#8221;</a> fails, then a ParseException is thrown during the instance construction.</p>
 </li>
 <li>
-<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Section 3.5.3.1.1, &#8220;Parsing the image file path&#8221;</a> (truncated to match <code>DiaryPhoto&#8217;s</code> description constraints) is used.</p>
+<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Section 3.7.3.1.1, &#8220;Parsing the image file path&#8221;</a> (truncated to match <code>DiaryPhoto&#8217;s</code> description constraints) is used.</p>
 </li>
 </ul>
 </div>
@@ -1038,7 +1283,7 @@ If validation of the description, as described in the <a href="#photo_model">Sec
 <div class="content">
 <img src="images/diary/AddPhotoParserParseDescriptionActivityDiagram.png" alt="AddPhotoParserParseDescriptionActivityDiagram" width="95%">
 </div>
-<div class="title">Figure 17. Activity diagram of parseDescription subroutine</div>
+<div class="title">Figure 23. Activity diagram of parseDescription subroutine</div>
 </div>
 <hr>
 </div>
@@ -1051,7 +1296,7 @@ If validation of the description, as described in the <a href="#photo_model">Sec
 A <code>ParseException</code> is automatically thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
 </li>
 <li>
-<p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Section 3.5.3.1.1, &#8220;Parsing the image file path&#8221;</a> is used.</p>
+<p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Section 3.7.3.1.1, &#8220;Parsing the image file path&#8221;</a> is used.</p>
 </li>
 </ul>
 </div>
@@ -1081,7 +1326,7 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.4. Design considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.7.4. Design considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1118,7 +1363,7 @@ extensibility as the first option.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-diary-entry-text-editing"><a class="link" href="#diary-diary-entry-text-editing">3.6. [Diary] Diary Entry Text Editing</a></h3>
+<h3 id="diary-diary-entry-text-editing"><a class="link" href="#diary-diary-entry-text-editing">3.8. [Diary] Diary Entry Text Editing</a></h3>
 <div class="paragraph">
 <p>The diary entry is capable of displaying text with inline images, or lines consisting of only images.</p>
 </div>
@@ -1127,15 +1372,15 @@ extensibility as the first option.</p></td>
 a part or the whole of the entry through the command line input, and the other being the JavaFX text editor.</p>
 </div>
 <div class="sect3">
-<h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.6.1. Aspect: Models</a></h4>
+<h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.8.1. Aspect: Models</a></h4>
 <div class="paragraph">
 <p>The main model abstraction holding the data of an entry is the <code>DiaryEntry</code> class.<br></p>
 </div>
 <div class="paragraph">
 <p>It stores three key fields, namely:<br>
 1. An <code>Index</code> denoting the day the entry is for<br>
-2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.6.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
-3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.5.1, &#8220;Aspect: Models&#8221;</a>.</p>
+2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.8.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
+3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.7.1, &#8220;Aspect: Models&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DiaryEntry</code> models are contained within a <code>DiaryEntryList</code>, which enforces the uniqueness of the <code>Index</code> (denoting the day index)
@@ -1145,7 +1390,7 @@ of each <code>DiaryEntry</code>, and supports common list operations.</p>
 <div class="content">
 <img src="images/diary/DiaryModelClassDiagram.png" alt="DiaryModelClassDiagram">
 </div>
-<div class="title">Figure 18. Class diagram of the models used in diary text editing</div>
+<div class="title">Figure 24. Class diagram of the models used in diary text editing</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1158,7 +1403,7 @@ but the diary text references a different String, that is, the buffered diary te
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.6.2. Aspect: User interface</a></h4>
+<h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.8.2. Aspect: User interface</a></h4>
 <div class="paragraph">
 <p>Multiple <code>UiPart</code> components come into play in displaying the diary entry.
 However, <code>Page</code> implementation (see <a href="#page_api">Section 2.2.1, &#8220;Page API&#8221;</a>) is still followed, and all components are thus contained within,
@@ -1168,7 +1413,7 @@ in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 <div class="content">
 <img src="images/diary/DiaryUiClassDiagram.png" alt="DiaryUiClassDiagram">
 </div>
-<div class="title">Figure 19. Class diagram showing the user interface of the main diary entry text display</div>
+<div class="title">Figure 25. Class diagram showing the user interface of the main diary entry text display</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1185,7 +1430,7 @@ In the diagram above, all parts and subparts of the composition of <code>DiaryPa
 <div class="paragraph">
 <p>The <code>DiaryEntryDisplay</code> is the component responsible for displaying the content of the <code>DiaryEntry</code> model.
 Internally, it uses a JavaFX <code>ListView&lt;CharSequence&gt;</code> with a custom cell factory that
-returns <code>DiaryTextLineCell</code> (as detailed in <a href="#DiaryTextLineCell_details">Section 3.6.2.1.3, &#8220;Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code>&#8221;</a>). <code>DiaryTextLineCells</code> in turn uses the
+returns <code>DiaryTextLineCell</code> (as detailed in <a href="#DiaryTextLineCell_details">Section 3.8.2.1.3, &#8220;Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code>&#8221;</a>). <code>DiaryTextLineCells</code> in turn uses the
 <code>DiaryLine UiPart</code> as its graphic.</p>
 </div>
 <div class="sect4">
@@ -1214,16 +1459,16 @@ constructor of <code>DiaryEntryDisplay</code> during the initialisation of <code
 <div class="content">
 <img src="images/diary/DiaryFillPageCallbackTrimmed.png" alt="DiaryFillPageCallbackTrimmed">
 </div>
-<div class="title">Figure 20. Sequence diagram of updating of DiaryPage UI post command execution</div>
+<div class="title">Figure 26. Sequence diagram of updating of DiaryPage UI post command execution</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>The <code>model</code> is updated, depending on whether the edit box is currently shown to the user.<br>
 1.1. The edited but uncommitted text stored in the current <code>EditDiaryEntryDescriptor</code> will be updated
-if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 20, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
+if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 26, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
 1.2. Otherwise, the current <code>DiaryEntry</code> in the <code>PageStatus</code> of the <code>model</code> is updated immediately.
-(first branch in the diagram <a href="#DiaryPageFillPage">Figure 20, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
+(first branch in the diagram <a href="#DiaryPageFillPage">Figure 26, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
 </li>
 <li>
 <p>The text in the <code>DiaryEntryEditBox</code> is then refreshed with the updated <code>model</code> in the <code>fillPage</code>
@@ -1255,7 +1500,7 @@ based on the parsed input, setting them as the <code>graphic</code> for the <cod
 </td>
 <td class="content">
 For <code>DiaryLines</code> with photos, the parsing process uses the photoList as set in the <code>DiaryPage&#8217;s</code>
-<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 20, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
+<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 26, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
 </td>
 </tr>
 </table>
@@ -1264,7 +1509,7 @@ For <code>DiaryLines</code> with photos, the parsing process uses the photoList 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.3. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.8.3. Design considerations</a></h4>
 <div class="paragraph">
 <p>Numerous design decisions and comprimised had to be made due to the desired specifications of text editing and displaying.<br>
 Specifically, the following had to be achieved :</p>
@@ -1309,7 +1554,7 @@ burden on the system, and defeats the intended way <code>ListView</code> is to b
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second option, was to implement the diary text in <code>DiaryEntry model</code> (see <a href="#diary_text_editing_model">Section 3.6.1, &#8220;Aspect: Models&#8221;</a>) using an <code>ObservableList</code> of
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second option, was to implement the diary text in <code>DiaryEntry model</code> (see <a href="#diary_text_editing_model">Section 3.8.1, &#8220;Aspect: Models&#8221;</a>) using an <code>ObservableList</code> of
 strings. The <code>ListView</code> would then be set to observe this list, and when the current entry changed, the <code>DiaryEntryDisplay&#8217;s</code>
 items would be set to observe the new entry&#8217;s <code>ObservableList</code>.</p>
 <p class="tableblock">For user commands, this solves the problem posed by <strong>alternative 1</strong>, since user commands can make edits only where needed in
@@ -1350,7 +1595,7 @@ posing a clear performance downside.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 19, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 25, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
 <p class="tableblock">On one hand, this increases extensibility, as the the graphic of a <code>ListViewCell</code> (<code>DiaryTextLineCell</code>) is not fixed.
 This allows <em>building other variants of diary lines easily</em>, such as a diary line containing a playable audio file.</p>
 <p class="tableblock">Secondly, <code>ListViews</code> render only the visible cells on the screen. Apart from the reducing the amount of nodes loaded
@@ -1362,14 +1607,14 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1400,7 +1645,7 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2149,4 +2394,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:54:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:56:15 UTC</div></div></div></body></html>

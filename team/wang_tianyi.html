@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Wang Tianyi - Project Portfolio for TravelPal</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TravelPal</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Wang Tianyi - Project Portfolio for <em>TravelPal</em></h1></div><div id="content"><div class="sect1">
+<h2 id="portfolio-overview"><a class="link" href="#portfolio-overview">Portfolio Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio page documents my contribution to the team project <em>TravelPal</em>. The page includes an overview of
+the project, summary of the features I have implemented and other contributions, such as User Guide and Developer Guides.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about-our-project"><a class="link" href="#about-our-project">About our Project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application developed by our team, <em>TravelPal</em>, is an all-in-one trip planner which provides frequent leisure travellers
+with a highly customisable, intuitive and integrated trip management system. We aim to ease pre-trip planning process
+with features such as trip itinerary and expense manager, and offer a platform for users to record their trip highlights
+with our diary feature.</p>
+</div>
+<div class="paragraph">
+<p>As <em>TravelPal</em> is for those who prefer using the keyboard over a mouse, it uses a Command Line Interface (CLI) for keyboard input, but it also provide alternative input with mouse. As for output, it is displayed in a Graphical User Interface (GUI) - which is a display that includes panes, menus and message boxes. We believe such implementation makes our application more user-friendly.</p>
+</div>
+<div class="paragraph">
+<p>In our project, my role was to implement the <em>Expense Manager</em> and <em>Currency</em> feature. The following sections will elaborate on these enhancements.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section encompasses an overview of my contribution to the TravelPal application, including the summary of my code
+implementation and how they add value to the application in terms of functionality and user experience.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="strong-major-enhancements-strong-implementation-of-the-em-expense-manager-em-feature"><a class="link" href="#strong-major-enhancements-strong-implementation-of-the-em-expense-manager-em-feature"><strong>Major enhancements</strong>: Implementation of the <em>Expense Manager</em> feature</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: the <em>Expense Manager</em> allows users to micromanage a list of expenses. User can choose to manually add a new
+expense to a day or include an expense when adding an event in trip itinerary. All expenses will be displayed according
+to the days, and a summary of the daily expenses and the total expenses for the trip will be displayed.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: This is one of the most useful features for pre-trip planning. A potential user may use the manager
+to keep track of their estimated expenses, compare it with the budget and adjust their schedules accordingly.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This enhancement requires understanding of other features as the expenses needs to be updated whenever
+there is a change in trip events. The expenses also need to be grouped under each days. Therefore, I had to make sure
+that the interactions between event class, day list and expenses are bug-free and efficient.</p>
+</li>
+<li>
+<p><strong>Credits</strong>: I used the concepts and logic from the existing code of address book to implement my features.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="second-enhancements-implementation-of-the-em-currency-manager-em-feature"><a class="link" href="#second-enhancements-implementation-of-the-em-currency-manager-em-feature">Second enhancements: Implementation of the <em>Currency Manager</em> feature.</a></h3>
+<div class="paragraph">
+<p>I added a <em>Currency</em> feature which allows users to create and select customised currency with exchange rate.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: the <em>Currency</em> feature allows users to add and select currencies with customised currency name, symbol and
+exchange rate. When a currency is selected, all the monetary valued will be displayed in that currency.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: Given the limited domestic tourism size, currency conversion is very relevant to travellers in Singapore.
+International travellers may want to view the expenses in local currency so that our trip manager can be more intuitive and easy to use.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: To help users type currency symbols more efficiently, I added a list of preset currency symbols with index. This feature allows
+users to simply enter an index, which is automatically converted into currency symbols. The implementation demands effective handling of javafx.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Code contributed: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=arjun&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=arjunwangty&amp;tabRepo=AY1920S1-CS2103T-T11-4%2Fmain%5Bmaster%5D">RepoSense code</a>][<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Aclosed+is%3Apr+author%3Aarjunwangty+">Github pull requests</a>]</p>
+</li>
+<li>
+<p>Idea generation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed main idea of <em>TravelPal</em> and its various sub-features (itinerary, diary, expenses, etc.) during project
+inception. (see <a href="https://docs.google.com/document/d/1mKmIZghbtYwgSWdDTiRQDLdXjKNhjuys8uSO8Y6McyI/edit">travelpal idea generation google docs</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test cases for <em>Expense Manager</em> and <em>Currency</em> related classes.</p>
+</li>
+<li>
+<p>Updates UI to make it more user friendly <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/160">#160</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed and approved several PRs</p>
+</li>
+<li>
+<p>Updated AboutUs page <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/18">#18</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section displays the section of User Guide relating to the usage of <em>Expense Manager</em> feature and <em>Currency</em> customisation, created and edited by me.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="expense-manager"><a class="link" href="#expense-manager">Expense Manager</a></h3>
+<div class="sect3">
+<h4 id="introduction"><a class="link" href="#introduction">Introduction</a></h4>
+<div class="paragraph">
+<p>TravelPal&#8217;s <em>Expense Manager</em> is an integrated expense planning and management system. It keeps track all the expenses generated in your trip, and
+provides an intuitive overview of daily and total expenses and budgets. Gui alternatives are available for executing the same operations as command line input.</p>
+</div>
+<div class="paragraph">
+<p>This section of the user guide explains how to view and manage your expenses using <em>Expense Manager</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="user-interface-overview"><a class="link" href="#user-interface-overview">User Interface Overview</a></h4>
+<div class="paragraph">
+<p>Shown below is the landing page of the <em>Expense Manager</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/expense/userguide/ExpenseManager.png" alt="ExpenseManager">
+</div>
+<div class="title">Figure 1. Overview of Expense Manager user interface</div>
+</div>
+<div class="paragraph">
+<p>To toggle the display of expenses between list view and days view, use the command <code>showdays</code> or <code>showlist</code>. Alternatively,
+you may click on the <em>toggle button</em> on the page.</p>
+</div>
+<div class="paragraph">
+<p>The following screenshot is the days view of the <em>Expense Manager</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/expense/userguide/ExpenseManagerDays.png" alt="ExpenseManagerDays">
+</div>
+<div class="title">Figure 2. Expense Manager user interface showing the daily expenses and budget summary</div>
+</div>
+<div class="paragraph">
+<p>Expenses are connected to bookings/events to automatically update the current known expense for any date/trip/event.
+There are two types of expense:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Planned expense (auto-generated from event)</p>
+</li>
+<li>
+<p>Miscellaneous expense (can be created and deleted)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="commands"><a class="link" href="#commands">Commands</a></h4>
+<div class="paragraph">
+<p>On the <em>Expense Manager</em> page, the following command are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create</code>: creates a expense, can also be accessed by clicking the <code>Add Expense</code> button.</p>
+</li>
+<li>
+<p><code>edit &lt;index of expense&gt;</code>: edit an expense, this command bring up the expense setup page.</p>
+</li>
+<li>
+<p><code>delete &lt;index of expense&gt;</code>: delete an expense, note that only miscellaneous expenses can be deleted.</p>
+</li>
+<li>
+<p><code>showdays</code>: enter the days view of expense manager, the expenses will be grouped according to the days they belong to.</p>
+</li>
+<li>
+<p><code>showlist</code>: enter the list view of expense manager, the expenses will be shown in one list.</p>
+</li>
+<li>
+<p><code>goto &lt;index of expense&gt;</code>: go to the event page containing the event associated with this expense.</p>
+</li>
+<li>
+<p><code>sort name</code>: sort the expenses according to the name lexicographically. Enter the command again to sort in reverse order.</p>
+</li>
+<li>
+<p><code>sort amount</code>: sort the expenses according to the amount of expense in ascending order. Enter the command again to sort in descending order.</p>
+</li>
+<li>
+<p><code>currency</code>: enter the <em>Currency</em> page of TravelPal, can also be accessed by clicking on the <em>Edit Currency</em> button</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>delete</code> command can only be used on miscellaneous expense, however, you may delete the event associated with a planned expense, which will
+delete the expense as well. <code>goto</code> command is only for planned expense associated with an event.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expense-setup"><a class="link" href="#expense-setup">Expense Setup</a></h4>
+<div class="paragraph">
+<p><em>Expense Setup</em> creates/edits properties of a specified expense.
+To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit &lt;index of expense&gt;</code> command on <em>Expense Manager</em> page. Shown below is an screenshot of the page:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/expense/userguide/ExpenseSetup.png" alt="ExpenseSetup">
+</div>
+<div class="title">Figure 3. Expense Setup page user interface</div>
+</div>
+<div class="paragraph">
+<p>It is necessary for expense to contain a name, an amount and a day number.</p>
+</div>
+<div class="paragraph">
+<p>The following commands are available on <em>Expense Setup</em> page.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code> : edit the field of the expense to be created/edited.</p>
+</li>
+<li>
+<p><code>done</code> : confirm and commit the changes, go back to the expense manager page.</p>
+</li>
+<li>
+<p><code>cancel</code> : go back to the expense manager page without committing the changes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The prefixes refer to editing each fields as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/</code> Name of the expense</p>
+</li>
+<li>
+<p><code>b/</code> The amount of expense, in Singapore dollars.</p>
+</li>
+<li>
+<p><code>dn/</code> The day number the expense belongs to.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For planned expense linked to an event, the <code>name</code> and <code>day number</code> fields are not editable. However, you may
+edit the name of the corresponding event, this will also update the name of the planned expenses.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect5">
+<h6 id="example-usage-for-code-edit-code-command"><a class="link" href="#example-usage-for-code-edit-code-command">Example Usage for <code>edit</code> command:</a></h6>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>To add an expense with the name <em>Miscellaneous Expenses</em> of $<em>10.5</em> SGD to day <em>2</em>, use the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>edit n/Miscellaneous Expenses b/10.5 dn/2</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="currency"><a class="link" href="#currency">Currency</a></h3>
+<div class="sect3">
+<h4 id="introduction-2"><a class="link" href="#introduction-2">Introduction</a></h4>
+<div class="paragraph">
+<p>On <em>Currency</em> page, you can add and select currencies with customised currency name, symbol and exchange rate.
+When a currency is selected, all the monetary valued will be displayed in that currency</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="user-interface-overview-2"><a class="link" href="#user-interface-overview-2">User Interface Overview</a></h4>
+<div class="paragraph">
+<p>Shown below is a screenshot of the <em>Currency</em> page:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/currency/userguide/CurrencyPage.png" alt="CurrencyPage">
+</div>
+<div class="title">Figure 4. Overview of Currency Manager user interface</div>
+</div>
+<div class="paragraph">
+<p>The left half of the <em>Currency Manager</em> page consists of editable text fields for creating a new currency.</p>
+</div>
+<div class="paragraph">
+<p>Under the
+<code>Symbol of Currency</code> section, you can find <em>preset currency symbols</em>, in which the most commonly used currency symbols are indexed. You can select a currency
+by entering the index in place of the actual symbol, or just by clicking on the button.
+You can also manually input other currency symbols.</p>
+</div>
+<div class="paragraph">
+<p>On the right hand side of the page, the customised currencies are listed. <em>Singapore Dollar(SGD)</em> is pre-defined as the base currency.
+You may select or delete a customised currency.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="commands-2"><a class="link" href="#commands-2">Commands</a></h4>
+<div class="paragraph">
+<p>The following commands are available on <em>Currency Manager</em> page:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select &lt;index of currency&gt;</code>: select the currency with the specified index as the currency in use.</p>
+</li>
+<li>
+<p><code>delete &lt;index of currency&gt;</code>: select the currency with the specified index, note that the default Singapore dollar cannot be deleted.</p>
+</li>
+<li>
+<p><code>edit &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>: edit the fields of a new currency to be created.</p>
+</li>
+<li>
+<p><code>add</code>: confirm and commit the changes, the newly added currency will be chosen as the currency in use, displayed in the currency list</p>
+</li>
+<li>
+<p><code>return</code>: return to the expense manager.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the <code>&lt;value&gt;</code> for editing the currency symbol can either be an integer representing the index of the preset currencies, or
+or a non-numerical string with no more than 3 characters.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The prefixes refer to editing each fields as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/</code> name of the currency</p>
+</li>
+<li>
+<p><code>s/</code> symbol of currency,</p>
+</li>
+<li>
+<p><code>r/</code> exchange rate of the currency, using Singapore dollar as base for comparison.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Singapore Dollar (SGD) is used as the default currency, it cannot be deleted.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect5">
+<h6 id="example-usage-for-code-edit-code-command-2"><a class="link" href="#example-usage-for-code-edit-code-command-2">Example Usage for <code>edit</code> command:</a></h6>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>To add an currency with name <em>USD</em>, symbol <em>$ (pre-set symbol with index 1)</em>, and an exchange rate of 1 SGD : 0.74 USD, use the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>edit n/USD s/1 r/0.74</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+See the <a href="https://ay1920s1-cs2103t-t11-4.github.io/main/UserGuide.html">user guide</a> for this usage scenario, not included in this project portfolio page.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section displays the section of Developer Guide showing the logic, model and user interface implementation of the <em>Expense manager</em>, created and edited by me.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="expense-expense-manager"><a class="link" href="#expense-expense-manager">[Expense] Expense Manager</a></h3>
+<div class="paragraph">
+<p>The <em>Expense Manager</em> is one of the main features of TravelPal, it maintains a list of <code>Expense</code> stored in an <code>ExpenseList</code>.
+<em>Expense Manager</em> is also capable of calculating and displaying budget, sorting expenses and toggling display options.</p>
+</div>
+<div class="sect3">
+<h4 id="expense_model"><a class="link" href="#expense_model">Aspect : Model</a></h4>
+<div id="expense_class_diagram" class="imageblock">
+<div class="content">
+<img src="../images/expense/developerguide/ExpenseModelClassDiagram.png" alt="ExpenseModelClassDiagram" width="60%">
+</div>
+<div class="title">Figure 5. Class diagram showing the expense model</div>
+</div>
+<div class="sect4">
+<h5 id="expense"><a class="link" href="#expense">Expense</a></h5>
+<div class="paragraph">
+<p><code>Expense</code> is an abstract class storing expense model.</p>
+</div>
+<div class="paragraph">
+<p>It has three compulsory fields, the <em>name of expense</em>, the <em>amount of expense</em>, and a <em>day number</em>. These fields are used to store information related to an expense.
+They are implemented as instance of class <code>Name</code> <code>Budget</code> and <code>DayNumber</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p><code>MiscExpense</code> and <code>PlannedExpense</code> are the child classes extending from <code>Expense</code> class, they are
+used to represent the two types of expenses: <em>miscellaneous expense</em> and <em>planned expense</em>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="expenselist"><a class="link" href="#expenselist">ExpenseList</a></h5>
+<div class="paragraph">
+<p><code>ExpenseList</code> is an class that stores the <code>Expense</code> models.
+It supports wrapper methods around the underlying <code>ObservableList</code> to facilitate the use in the logic components.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expense_ui"><a class="link" href="#expense_ui">Aspect : UI</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/expense/developerguide/ExpenseUIClassDiagram.png" alt="ExpenseUIClassDiagram" width="95%">
+</div>
+<div class="title">Figure 6. Class diagram showing the user interface of expense</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>ExpensesPage</code> implements an <code>UiChangeConsumer</code> interface to facilitate the toggling between the <em>Days View</em> and
+ <em>List View</em> of <em>Expense Manager</em>, which is not shown in the diagram above.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The UI of expense manager mainly consists of two <code>Page</code>: <code>ExpensesPage</code> and <code>EditExpensePage</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>ExpensePage</code> is the component in charge of displaying expense and budget information. It has a list of <code>ExpenseCard</code>, a component
+ that contains individual expense details. <code>ExpensePage</code> extends <code>PageWithSidebar</code> as it contains navigation bar that helps user to
+ navigate between different features.</p>
+</div>
+<div class="paragraph">
+<p>In <code>ExpensePage</code>, user can toggle between <em>Days View</em> and <em>List View</em>. In <em>Days View</em>, a list of <code>DailyExpensesPanel</code> is used to group
+<code>ExpenseCard</code> according to date.</p>
+</div>
+<div class="paragraph">
+<p><code>EditExpensePage</code> is the main page for creating and editing of expense. Both <code>ExpensesPage</code> and <code>EditExpensePage</code> have access to <code>Model</code> and <code>Logic</code>
+of the application, for handling of stored data and parsing commands.</p>
+</div>
+<div class="paragraph">
+<p>From <code>ExpensePage</code>, user can navigate to <em>Currency</em> feature of application through CLI or GUI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic"><a class="link" href="#aspect-logic">Aspect : Logic</a></h4>
+<div class="sect4">
+<h5 id="create-an-expense"><a class="link" href="#create-an-expense">Create an expense</a></h5>
+<div class="paragraph">
+<p>The creation of a new <code>Expense</code> is done in two ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The creation of a <code>PlannedExpense</code> is created when a new <code>Event</code> with a <code>Budget</code> is created. The execution happens in <code>DoneEditingEventCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When the <code>Name</code> or <code>Budget</code> field of <code>Event</code> is modified, a method call replaces the current <code>Expense</code> associated with the <code>Event</code> with an updated <code>Expense</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The creation of a <code>MiscExpense</code> is done by calling <code>EnterCreateExpenseCommand</code>, which brings user to an <em>Expense Setup Page</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-an-expense"><a class="link" href="#edit-an-expense">Edit an expense</a></h5>
+<div class="paragraph">
+<p>Editing of expense can be accessed from <code>ExpensePage</code>. The execution of command is handled by <code>ExpenseManagerParser</code> and
+the command accesses the model through <code>Model#getPageStatus()</code> method. The details of execution is similar to <em>Edit trip/day/event</em> feature (see <a href="#Edit-Trip">[Edit-Trip]</a>)</p>
+</div>
+<div class="paragraph">
+<p>Only the <em>amount of expense</em> field of a <code>PlannedExpense</code> can be edited with an <code>edit</code> command. When <code>done</code> command is executed
+after the <em>amount of expense</em> is edited, both the expense in <code>ExpenseList</code> and the <code>Event</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the sequence of method call when <code>DoneEditCommand#execute(model)</code> is called in <code>LogicManager</code>.</p>
+</div>
+<div id="expense_sequence_diagram" class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/expense/developerguide/DoneEditExpenseCommandSequenceDiagram.png" alt="DoneEditExpenseCommandSequenceDiagram" width="95%">
+</div>
+<div class="title">Figure 7. Sequence diagram showing the execution of DoneEditCommand</div>
+</div>
+<div class="paragraph">
+<p>When <code>DoneEditCommand#execute(model)</code> is called, <code>getPageStatus()</code> is used to fetch information / update information from <code>model</code>. The following
+steps shows the sequence of event happened within the method:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The current instance of <code>EditExpenseDescriptor</code> and <code>Expense</code> in <code>model</code> are returned and stored as <code>editExpenseDescriptor</code> and <code>expenseToEdit</code> in <code>logic</code>.</p>
+</li>
+<li>
+<p>A new instance of <code>Expense</code>, <code>expenseToAdd</code> is created by calling <code>buildExpense()</code> in <code>editExpenseDescriptor</code>.</p>
+</li>
+<li>
+<p>Through <code>getPageStatus()</code>, <code>set(expenseToEdit, expenseToAdd)</code> is called on <code>EventList</code>, which updates the unedited <code>expenseToEdit</code> by replacing it with the edited <code>expenseToAdd</code>.</p>
+</li>
+<li>
+<p>The <code>DayNumber</code> in <code>expenseToAdd</code> is returned so that logic can update the associated <code>Event</code> by going to the corresponding <code>Day</code> in <code>DayList</code>.</p>
+</li>
+<li>
+<p><code>updateExpense(expenseToAdd)</code> is called on <code>EventList</code> so that the target <code>Event</code> will have its <code>Expenditure</code> updated.</p>
+</li>
+<li>
+<p>By calling <code>setPageStatus()</code>, the current <code>EditExpenseDescriptor</code> and <code>Expense</code> will be reset, the current page will be set to <em>Expense Manager Page</em>.</p>
+</li>
+<li>
+<p><code>CommandResult</code> is returned to give user feedback and update UI.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-an-expense"><a class="link" href="#delete-an-expense">Delete an Expense</a></h5>
+<div class="paragraph">
+<p>Deletion of expense is similar to the <em>Delete Trip/Day/Event</em> feature (see <a href="#Delete-Trip">[Delete-Trip]</a>).</p>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteExpenseCommand</code> in logic checks for index of deletion and type of expense. Only <code>MiscExpense</code> can be deleted through
+this command. Below is an example execution of deleting an expense:</p>
+</div>
+<div id="delete_expense_activity_diagram" class="imageblock">
+<div class="content">
+<img src="../images/expense/developerguide/DeleteExpenseDiagram.png" alt="DeleteExpenseDiagram" width="80%">
+</div>
+<div class="title">Figure 8. Activity diagram showing the execution of deleting an expense</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="conclusion"><a class="link" href="#conclusion">Conclusion</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Development of <em>TravelPal</em> is one of my first brown-field software engineering projects. During the process, I have gained many
+useful programming knowledge and consolidated my understanding of application design. It has been an educational and rewarding team working
+experience.</p>
+</div>
+</div>
+</div></div></body></html>

@@ -16,7 +16,7 @@
 <li><a href="#trip-manager">3.1. Trip manager</a></li>
 <li><a href="#itinerary">3.2. Itinerary</a></li>
 <li><a href="#expense-manager">3.3. Expense Manager</a></li>
-<li><a href="#currency-manager">3.4. Currency Manager</a></li>
+<li><a href="#currency">3.4. Currency</a></li>
 <li><a href="#booking">3.5. Booking</a></li>
 <li><a href="#diary">3.6. Diary</a></li>
 <li><a href="#pre-trip-inventory-manager">3.7. Pre-trip Inventory Manager</a></li>
@@ -941,7 +941,7 @@ provides an intuitive overview of daily and total expenses and budgets. Gui alte
 <div class="sect3">
 <h4 id="user-interface-overview"><a class="link" href="#user-interface-overview">3.3.2. User Interface Overview</a></h4>
 <div class="paragraph">
-<p>Shown below is the landing page of the <em>Expense Manager</em>.</p>
+<p>Shown below is the landing page of the <em>Expense Manager</em>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -950,8 +950,11 @@ provides an intuitive overview of daily and total expenses and budgets. Gui alte
 <div class="title">Figure 20. Overview of Expense Manager user interface</div>
 </div>
 <div class="paragraph">
-<p>To toggle the display of expenses between list view and day view, use the command <code>showdays</code> or <code>showlist</code>. Alternatively,
-you may click the toggle button on the page.</p>
+<p>To toggle the display of expenses between list view and days view, use the command <code>showdays</code> or <code>showlist</code>. Alternatively,
+you may click on the <em>toggle button</em> on the page.</p>
+</div>
+<div class="paragraph">
+<p>The following screenshot is the days view of the <em>Expense Manager</em>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -994,19 +997,50 @@ There are two types of expense:</p>
 <p><code>showdays</code>: enter the days view of expense manager, the expenses will be grouped according to the days they belong to.</p>
 </li>
 <li>
-<p><code>currency</code>: enter the currency page of TravelPal, can also be accessed by clicking the <code>Edit Currency</code> button</p>
+<p><code>showlist</code>: enter the list view of expense manager, the expenses will be shown in one list.</p>
+</li>
+<li>
+<p><code>goto &lt;index of expense&gt;</code>: go to the event page containing the event associated with this expense.</p>
+</li>
+<li>
+<p><code>sort name</code>: sort the expenses according to the name lexicographically. Enter the command again to sort in reverse order.</p>
+</li>
+<li>
+<p><code>sort amount</code>: sort the expenses according to the amount of expense in ascending order. Enter the command again to sort in descending order.</p>
+</li>
+<li>
+<p><code>currency</code>: enter the <em>Currency</em> page of TravelPal, can also be accessed by clicking on the <em>Edit Currency</em> button</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>delete</code> command can only be used on miscellaneous expense, however, you may delete the event associated with a planned expense, which will
+delete the expense as well. <code>goto</code> command is only for planned expense associated with an event.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="expense-setup"><a class="link" href="#expense-setup">3.3.4. Expense Setup</a></h4>
 <div class="paragraph">
-<p>Expense setup creates/edits properties of a specified expense.
-To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit &lt;index of expense&gt;</code> command on`Expense Manager` page.</p>
+<p><em>Expense Setup</em> creates/edits properties of a specified expense.
+To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit &lt;index of expense&gt;</code> command on <em>Expense Manager</em> page. Shown below is an screenshot of the page:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/expense/userguide/ExpenseSetup.png" alt="ExpenseSetup">
+</div>
+<div class="title">Figure 22. Expense Setup page user interface</div>
 </div>
 <div class="paragraph">
-<p>It is necessary for expense to contains a name and amount. It can also contain an optional day number, indicating which day the expense belong to.</p>
+<p>It is necessary for expense to contain a name, an amount and a day number.</p>
 </div>
 <div class="paragraph">
 <p>The following commands are available on <em>Expense Setup</em> page.</p>
@@ -1047,7 +1081,7 @@ To access the <em>Expense Setup</em> page, use <code>create</code> or <code>edit
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For Planned expense linked to an event, the <code>name</code> and <code>day number</code> fields are not editable. However, you may
+For planned expense linked to an event, the <code>name</code> and <code>day number</code> fields are not editable. However, you may
 edit the name of the corresponding event, this will also update the name of the planned expenses.
 </td>
 </tr>
@@ -1069,28 +1103,33 @@ edit the name of the corresponding event, this will also update the name of the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="currency-manager"><a class="link" href="#currency-manager">3.4. Currency Manager</a></h3>
+<h3 id="currency"><a class="link" href="#currency">3.4. Currency</a></h3>
 <div class="sect3">
 <h4 id="introduction-4"><a class="link" href="#introduction-4">3.4.1. Introduction</a></h4>
 <div class="paragraph">
-<p>With <em>Currency manager</em>, you can add and select currencies with customised currency name, symbol and exchange rate.
+<p>On <em>Currency</em> page, you can add and select currencies with customised currency name, symbol and exchange rate.
 When a currency is selected, all the monetary valued will be displayed in that currency</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="user-interface-overview-2"><a class="link" href="#user-interface-overview-2">3.4.2. User Interface Overview</a></h4>
 <div class="paragraph">
-<p>Shown below is a screenshot of the <em>Currency Manager</em> page.</p>
+<p>Shown below is a screenshot of the <em>Currency</em> page:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/currency/userguide/CurrencyPage.png" alt="CurrencyPage">
 </div>
-<div class="title">Figure 22. Overview of Currency Manager user interface</div>
+<div class="title">Figure 23. Overview of Currency Manager user interface</div>
 </div>
 <div class="paragraph">
-<p>The left half of the <em>Currency Manager</em> page consists of editable text fields for creating a new currency, under the
-<code>Symbol of Currency</code> section, the most commonly used currency symbols are indexed. You can also input other currency symbols.</p>
+<p>The left half of the <em>Currency Manager</em> page consists of editable text fields for creating a new currency.</p>
+</div>
+<div class="paragraph">
+<p>Under the
+<code>Symbol of Currency</code> section, you can find <em>preset currency symbols</em>, in which the most commonly used currency symbols are indexed. You can select a currency
+by entering the index in place of the actual symbol, or just by clicking on the button.
+You can also manually input other currency symbols.</p>
 </div>
 <div class="paragraph">
 <p>On the right hand side of the page, the customised currencies are listed. <em>Singapore Dollar(SGD)</em> is pre-defined as the base currency.
@@ -1198,7 +1237,9 @@ bookings during creation of any booking.</p>
 </div>
 <div class="sect3">
 <h4 id="booking-user-interface-overview"><a class="link" href="#booking-user-interface-overview">3.5.2. Booking User Interface Overview</a></h4>
-
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1243,7 +1284,7 @@ that shows when you execute the <code>editor</code> command <a href="#diary_edit
 <div class="content">
 <img src="images/diary/userguide/welcome_to_diary_image_annotated.png" alt="welcome to diary image annotated">
 </div>
-<div class="title">Figure 23. Overview of diary user interface</div>
+<div class="title">Figure 24. Overview of diary user interface</div>
 </div>
 <div class="sect4">
 <h5 id="diary-entry-display-area"><a class="link" href="#diary-entry-display-area">Diary Entry Display Area</a></h5>
@@ -1261,7 +1302,7 @@ images. The content is generated from the diary text of the entry (<a href="#dia
 <div class="content">
 <img src="images/diary/userguide/diary_photo_user_interface.png" alt="diary photo user interface" width="75%">
 </div>
-<div class="title">Figure 24. Display of a photo in the gallery display</div>
+<div class="title">Figure 25. Display of a photo in the gallery display</div>
 </div>
 <div class="paragraph">
 <p>Each image is displayed with a description (bottom left), a date taken (top right), both of which are user specifiable.
@@ -1304,14 +1345,14 @@ can be executede by clicking on the <em>Edit</em> button. Secondly, the <code>ad
 is clicked, as mentioned in <a href="#diary_gallery_button_bar">Section 3.6.2.5, &#8220;Gallery Button Bar&#8221;</a>.</p>
 </div>
 <div class="paragraph">
-<p>Components not highlighted in <a href="#diary_edit_view_annotated">Figure 25, &#8220;Overview of diary user interface when the edit box is shown&#8221;</a> below function the same way as mentioned in
+<p>Components not highlighted in <a href="#diary_edit_view_annotated">Figure 26, &#8220;Overview of diary user interface when the edit box is shown&#8221;</a> below function the same way as mentioned in
 <a href="#diary-user-interface-overview">Section 3.6.2, &#8220;Diary User Interface Overview&#8221;</a>.</p>
 </div>
 <div id="diary_edit_view_annotated" class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_edit_view_annotated.png" alt="diary edit view annotated">
 </div>
-<div class="title">Figure 25. Overview of diary user interface when the edit box is shown</div>
+<div class="title">Figure 26. Overview of diary user interface when the edit box is shown</div>
 </div>
 <div class="sect4">
 <h5 id="diary-edit-box"><a class="link" href="#diary-edit-box">Diary Edit Box</a></h5>
@@ -1360,7 +1401,7 @@ the edit box automatically, and any edits you make to the edit box are considere
 </td>
 <td class="content">
 A paragraph of text need not span a minimum length, and can even be empty, as seen in the empty orange boxes
-in <a href="#diary_text_line_numbering_figure">Figure 26, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>
+in <a href="#diary_text_line_numbering_figure">Figure 27, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>
 </td>
 </tr>
 </table>
@@ -1373,13 +1414,13 @@ in <a href="#diary_text_line_numbering_figure">Figure 26, &#8220;Annotated highl
 <div class="paragraph">
 <p>Each <strong>paragraph</strong> of text as seen in the edit box or diary entry display (with optional accompanying image(s)) is tied to a
 specific <strong>line number</strong>. This <strong>line number</strong> is simply determined by the order of the text paragraphs as shown
-in <a href="#diary_text_line_numbering_figure">Figure 26, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>, from top to bottom.</p>
+in <a href="#diary_text_line_numbering_figure">Figure 27, &#8220;Annotated highlights of paragraphs and their line numbers with alternating colours&#8221;</a>, from top to bottom.</p>
 </div>
 <div id="diary_text_line_numbering_figure" class="imageblock">
 <div class="content">
 <img src="images/diary/userguide/diary_what_is_a_paragraph.png" alt="diary what is a paragraph">
 </div>
-<div class="title">Figure 26. Annotated highlights of paragraphs and their line numbers with alternating colours</div>
+<div class="title">Figure 27. Annotated highlights of paragraphs and their line numbers with alternating colours</div>
 </div>
 <div class="paragraph">
 <p>This <strong>line number</strong> is used for several commands described in <a href="#Diary Commands">[Diary Commands]</a>.</p>
@@ -1409,7 +1450,7 @@ The line numbers are trivial if using the edit box to edit text, as text editing
 <div class="content">
 <img src="images/diary/userguide/diary_mini_gallery_edit_box.png" alt="diary mini gallery edit box">
 </div>
-<div class="title">Figure 27. Example usage of <code>&lt;images&gt;</code> clause to display images as a mini horizontal gallery or inline image</div>
+<div class="title">Figure 28. Example usage of <code>&lt;images&gt;</code> clause to display images as a mini horizontal gallery or inline image</div>
 </div>
 <div class="sect5">
 <h6 id="as-a-mini-horizontal-gallery-of-images"><a class="link" href="#as-a-mini-horizontal-gallery-of-images">As a mini horizontal gallery of images.</a></h6>
@@ -1504,7 +1545,7 @@ it would create an entry for the day right after that, which is day 9.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_create_command_with_button.png" alt="diary create command with button">
 </div>
-<div class="title">Figure 28. Example usage of creating a new diary entry for day 9</div>
+<div class="title">Figure 29. Example usage of creating a new diary entry for day 9</div>
 </div>
 </li>
 </ol>
@@ -1517,7 +1558,7 @@ having to navigate to it via <a href="#diary_flip_command">Section 3.6.5.2, &#82
 <div class="content">
 <img src="images/diary/userguide/diary_create_command_command_after.png" alt="diary create command command after">
 </div>
-<div class="title">Figure 29. Example result of post diary entry creation</div>
+<div class="title">Figure 30. Example result of post diary entry creation</div>
 </div>
 </li>
 </ol>
@@ -1576,7 +1617,7 @@ day 3, as highlighted below.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_flip_command_with_button.png" alt="diary flip command with button">
 </div>
-<div class="title">Figure 30. Example usage of flipping the diary to day 3&#8217;s diary entry</div>
+<div class="title">Figure 31. Example usage of flipping the diary to day 3&#8217;s diary entry</div>
 </div>
 </li>
 <li>
@@ -1589,7 +1630,7 @@ the command result box, and that the current day indicator will update according
 <div class="content">
 <img src="images/diary/userguide/diary_flip_command_command_after.png" alt="diary flip command command after">
 </div>
-<div class="title">Figure 31. Example result of after flipping back to the diary entry for day 3</div>
+<div class="title">Figure 32. Example result of after flipping back to the diary entry for day 3</div>
 </div>
 </div>
 </div>
@@ -1682,7 +1723,7 @@ computer as the date taken for the photo. Shown below is an example of the photo
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_filepath_directory.png" alt="diary addphoto filepath directory" width="80%">
 </div>
-<div class="title">Figure 32. Example file directory structure of the TravelPal application and snowymountains.jpg</div>
+<div class="title">Figure 33. Example file directory structure of the TravelPal application and snowymountains.jpg</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1697,7 +1738,7 @@ same directory as the <em>TravelPal</em> application.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filepath.png" alt="diary addphoto command filepath">
 </div>
-<div class="title">Figure 33. Example usage of the <code>addphoto</code> command with the <code>fp/</code> option</div>
+<div class="title">Figure 34. Example usage of the <code>addphoto</code> command with the <code>fp/</code> option</div>
 </div>
 </li>
 </ol>
@@ -1720,7 +1761,7 @@ the command result box.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filepath_result.png" alt="diary addphoto command filepath result">
 </div>
-<div class="title">Figure 34. Example result of after executing the <code>addphoto</code> command with the <code>fp/</code> option</div>
+<div class="title">Figure 35. Example result of after executing the <code>addphoto</code> command with the <code>fp/</code> option</div>
 </div>
 <hr>
 </div>
@@ -1800,7 +1841,7 @@ or you can click the <code>Add</code> button.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser.png" alt="diary addphoto command filechooser">
 </div>
-<div class="title">Figure 35. Example usage of adding a photo through the <code>addphoto</code> command using the <code>fc/</code> option, or the <code>Add</code> button</div>
+<div class="title">Figure 36. Example usage of adding a photo through the <code>addphoto</code> command using the <code>fc/</code> option, or the <code>Add</code> button</div>
 </div>
 </li>
 </ol>
@@ -1830,7 +1871,7 @@ will be opened, as shown below.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_step2.png" alt="diary addphoto command filechooser step2" width="75%">
 </div>
-<div class="title">Figure 36. Example file chooser user interface for the windows operating system</div>
+<div class="title">Figure 37. Example file chooser user interface for the windows operating system</div>
 </div>
 </li>
 <li>
@@ -1839,7 +1880,7 @@ will be opened, as shown below.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_step3.png" alt="diary addphoto command filechooser step3" width="75%">
 </div>
-<div class="title">Figure 37. Example image file in the file chooser user interface to add</div>
+<div class="title">Figure 38. Example image file in the file chooser user interface to add</div>
 </div>
 </li>
 <li>
@@ -1853,7 +1894,7 @@ confirmation message in the result display.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_addphoto_command_filechooser_result.png" alt="diary addphoto command filechooser result">
 </div>
-<div class="title">Figure 38. Result after choosing the image 'qidu_marketplace.jpg' in step 3</div>
+<div class="title">Figure 39. Result after choosing the image 'qidu_marketplace.jpg' in step 3</div>
 </div>
 </li>
 </ol>
@@ -1905,7 +1946,7 @@ press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_delphoto_command_before.png" alt="diary delphoto command before">
 </div>
-<div class="title">Figure 39. Example usage of <code>delphoto</code> command to delete the photo with number 1</div>
+<div class="title">Figure 40. Example usage of <code>delphoto</code> command to delete the photo with number 1</div>
 </div>
 </li>
 <li>
@@ -1914,7 +1955,7 @@ press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_delphoto_command_result.png" alt="diary delphoto command result">
 </div>
-<div class="title">Figure 40. Result of <code>delphoto</code> command to delete the photo with number 1</div>
+<div class="title">Figure 41. Result of <code>delphoto</code> command to delete the photo with number 1</div>
 </div>
 </li>
 </ol>
@@ -1992,7 +2033,7 @@ paragraph of text using the handy command line interface.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_append_command_before.png" alt="diary append command before">
 </div>
-<div class="title">Figure 41. Example usage of <code>append</code> command to add a new paragraph of text to a diary entry</div>
+<div class="title">Figure 42. Example usage of <code>append</code> command to add a new paragraph of text to a diary entry</div>
 </div>
 </li>
 <li>
@@ -2001,7 +2042,7 @@ paragraph of text using the handy command line interface.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_append_command_after.png" alt="diary append command after">
 </div>
-<div class="title">Figure 42. Result of <code>append</code> command to add a new paragraph of text</div>
+<div class="title">Figure 43. Result of <code>append</code> command to add a new paragraph of text</div>
 </div>
 </li>
 </ol>
@@ -2066,7 +2107,7 @@ text in between the existing lines 4 and 5, and press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_insert_command_before.png" alt="diary insert command before">
 </div>
-<div class="title">Figure 43. Example usage of <code>insert</code> command to insert a new paragraph of text in a diary entry</div>
+<div class="title">Figure 44. Example usage of <code>insert</code> command to insert a new paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
@@ -2075,7 +2116,7 @@ text in between the existing lines 4 and 5, and press the 'enter' key.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_insert_command_after.png" alt="diary insert command after">
 </div>
-<div class="title">Figure 44. Result of <code>insert</code> command to insert a new paragraph of text to a diary entry</div>
+<div class="title">Figure 45. Result of <code>insert</code> command to insert a new paragraph of text to a diary entry</div>
 </div>
 </li>
 </ol>
@@ -2138,7 +2179,7 @@ want to rectify this.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_edit_command_before.png" alt="diary edit command before">
 </div>
-<div class="title">Figure 45. Example usage of <code>edit</code> command to edit an existing paragraph of text in a diary entry</div>
+<div class="title">Figure 46. Example usage of <code>edit</code> command to edit an existing paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
@@ -2147,7 +2188,7 @@ want to rectify this.</p>
 <div class="content">
 <img src="images/diary/userguide/diary_edit_command_after.png" alt="diary edit command after">
 </div>
-<div class="title">Figure 46. Result of <code>edit</code> command to edit an existing paragraph of text</div>
+<div class="title">Figure 47. Result of <code>edit</code> command to edit an existing paragraph of text</div>
 </div>
 </li>
 </ol>
@@ -2195,7 +2236,7 @@ You want to rectify this quickly, because your friend requested you share detail
 <div class="content">
 <img src="images/diary/userguide/diary_delete_command_before.png" alt="diary delete command before">
 </div>
-<div class="title">Figure 47. Example usage of <code>delete</code> command to delete an existing paragraph of text in a diary entry</div>
+<div class="title">Figure 48. Example usage of <code>delete</code> command to delete an existing paragraph of text in a diary entry</div>
 </div>
 </li>
 <li>
@@ -2204,7 +2245,7 @@ You want to rectify this quickly, because your friend requested you share detail
 <div class="content">
 <img src="images/diary/userguide/diary_delete_command_after.png" alt="diary delete command after">
 </div>
-<div class="title">Figure 48. Result of <code>delete</code> command to delete an existing paragraph of text</div>
+<div class="title">Figure 49. Result of <code>delete</code> command to delete an existing paragraph of text</div>
 </div>
 </li>
 </ol>
@@ -2256,7 +2297,7 @@ command line text editors, such as <em>vim</em>, which can greatly improve the t
 <div class="content">
 <img src="images/diary/userguide/diary_editor_command_before.png" alt="diary editor command before">
 </div>
-<div class="title">Figure 49. Example usage of <code>editor</code> command to open the edit window</div>
+<div class="title">Figure 50. Example usage of <code>editor</code> command to open the edit window</div>
 </div>
 </li>
 <li>
@@ -2265,7 +2306,7 @@ command line text editors, such as <em>vim</em>, which can greatly improve the t
 <div class="content">
 <img src="images/diary/userguide/diary_editor_command_after.png" alt="diary editor command after">
 </div>
-<div class="title">Figure 50. Result of <code>editor</code> command showing the opened edit window</div>
+<div class="title">Figure 51. Result of <code>editor</code> command showing the opened edit window</div>
 </div>
 </li>
 </ol>
@@ -2395,4 +2436,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:54:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:56:15 UTC</div></div></div></body></html>
