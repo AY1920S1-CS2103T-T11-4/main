@@ -30,8 +30,9 @@
 <li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
 <li><a href="#diary-photo-manager">3.7. [Diary] Photo Manager</a></li>
 <li><a href="#diary-diary-entry-text-editing">3.8. [Diary] Diary Entry Text Editing</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#inventory-the-inventory-list">3.9. [Inventory] The Inventory List</a></li>
+<li><a href="#logging">3.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -1607,14 +1608,165 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="inventory-the-inventory-list"><a class="link" href="#inventory-the-inventory-list">3.9. [Inventory] The Inventory List</a></h3>
+<div class="paragraph">
+<p>In the application, there can be two types of Inventory Lists:</p>
+</div>
+<div class="sect4">
+<h5 id="1-overall-trip-inventory-list"><a class="link" href="#1-overall-trip-inventory-list">1. Overall Trip Inventory List</a></h5>
+<div class="paragraph">
+<p>An overall trip inventory list is the inventory list of all the items the user needs for the trip.</p>
+</div>
+<div class="paragraph">
+<p>Each trip only has <strong>one</strong> overall trip inventory list.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="2-an-event-inventory-list"><a class="link" href="#2-an-event-inventory-list">2. An Event inventory list</a></h5>
+<div class="paragraph">
+<p>An event inventory list is the inventory list of all the items the user needs for the event.</p>
+</div>
+<div class="paragraph">
+<p>Each trip can have <strong>mutiple</strong> event inventory lists.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, in a trip, all the events inventory lists are subsets of one overall trip inventory list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-model-2"><a class="link" href="#aspect-model-2">3.9.3. Aspect : Model</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventory/InventoryModelClassDiagram.png" alt="InventoryModelClassDiagram">
+</div>
+<div class="title">Figure 27. Class diagram of a 'InventoryList' and an <code>Event</code>, and its contained models</div>
+</div>
+<div class="sect4">
+<h5 id="inventory"><a class="link" href="#inventory">Inventory</a></h5>
+<div class="paragraph">
+<p>The model for an inventory item stored in memory is stored in the <code>Inventory</code> class.</p>
+</div>
+<div class="paragraph">
+<p>It contains three attributes: the <code>name</code>, <code>isDone</code> and <code>eventOccurances</code>. The <code>name</code> attribute is implemented using a
+custom built <code>Name</code> class which ensures that the <code>name</code> is valid. <code>isDone</code> was implemented using a BooleanProperty and indicates
+whether the inventory item has been packed. While, <code>eventInstances</code> is an integer which represents the total number of
+<code>Event</code> models that have the same inventory item.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="event"><a class="link" href="#event">Event</a></h5>
+<div class="paragraph">
+<p><code>Inventory</code> models are contained within an <code>Event</code>, if the corresponding inventory items are part of an event. <code>Event</code> stores
+the <code>Inventory</code> models in an <code>ArrayList</code>. Therefore, each <code>Event</code> model contains an Event Inventory List (as defined above).</p>
+</div>
+<div class="paragraph">
+<p>Since, currently, the application does allow the user to alter the 'isDone' toggle of an <code>Inventory</code> model contained in an event,
+the <code>isDone</code> attribute is never set once it is is initialised (as <code>false</code>).</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, as the <code>eventInstances</code> attribute is only relevant to the Overall Trip Inventory List, the <code>eventInstances</code>
+attribute is set as <code>-1</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="inventorylist"><a class="link" href="#inventorylist">InventoryList</a></h5>
+<div class="paragraph">
+<p>All unique (by name) <code>Inventory</code> models in any <code>Event</code> model is contained within an <code>InventoryList</code>. It stores the inventory items in a
+JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> contains the Overall Trip Inventory List (as defined above).</p>
+</div>
+<div class="paragraph">
+<p>An <code>ObservableList</code> was chosen as the user interface requires the changes in the inventory list to be displayed instantly. Furthermore,
+<code>isDone</code> was implemented using a <code>BooleanProperty</code> instead of a simple <code>boolean</code> to instantly detect and display changes in any inventory item&#8217;s <code>isDone</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, an <code>InventoryList</code> can also contain miscellaneous inventory items (not contained in any event).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code">3.9.4. Aspect : User Interface of Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
+<div class="paragraph">
+<p>The Overall Trip Inventory List (with Model <code>InventoryList</code>) is displayed in the <code>TableView&lt;Inventory&gt;</code> of the <code>InventoryPage</code>, as seen in the object diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventory/InventoryUiObjectDiagram.png" alt="InventoryUiObjectDiagram">
+</div>
+<div class="title">Figure 28. Object diagram of table view component, as contained by <code>InventoryPage</code> (not shown)</div>
+</div>
+<div class="paragraph">
+<p>The TableView has 3 columns. The first column numbers the items. The second column displays the item&#8217;s name. And the thrid column displays whether the item&#8217;s <code>isDone</code> property is true or false (through a checkbox).</p>
+</div>
+<div class="paragraph">
+<p>Both the first and the second column&#8217;s <code>cellValueFactory</code> were set to <code>new PropertyValueFactory(STRING)</code> with String <code>STRING</code>. However, the third column was set to <code>CheckBoxTableCell.forTableColumn(BOOLEAN)</code> with Boolean <code>BOOLEAN</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-user-interface-of-event-inventory-list-with-model-code-event-code"><a class="link" href="#aspect-user-interface-of-event-inventory-list-with-model-code-event-code">3.9.5. Aspect : User Interface of Event Inventory List (with Model <code>Event</code>)</a></h4>
+<div class="paragraph">
+<p>The Event Inventory List (with Model <code>Event</code>) is displayed in the <code>ListView&lt;Inventory&gt;</code> of the <code>EventPage</code>, as seen in the object diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventory/EventInventoryListUiObjectDiagram.png" alt="EventInventoryListUiObjectDiagram">
+</div>
+<div class="title">Figure 29. Object diagram of list view component, as contained by <code>EventPage</code> (not shown)</div>
+</div>
+<div class="paragraph">
+<p>The <code>ListView</code> uses the CSS styling of <code>resources/view/Inventory/InventoryListViewTheme.css' by calling `listView.getStylesheets().add(CSS_FILE_PATH)</code> with the File Path <code>CSS_FILE_PATH</code>)</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the reason why <code>ListView</code> and <code>ListCell</code> are in package <code>Ui.itinerary</code> is because <code>EventPage</code> is in itinerary <code>Ui.itinerary</code>. Similarly, <code>Event</code> is in package <code>Model.itinerary</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code">3.9.6. Aspect : Logic of adding item to Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventory/AddInventorySequenceDiagram.png" alt="AddInventorySequenceDiagram">
+</div>
+<div class="title">Figure 30. Sequence diagram for adding an item to the Overall Trip Inventory List</div>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram, it can be observed that only if <code>InventoryViewParser</code> and <code>AddInventoryParser</code> returns a Command, will
+the Command be executed. This ensures the AddCommand is only executed when intended.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, as seen from the sequence diagram, whenever the <code>AddInventoryCommand</code> is executed, it will always return the <code>InventoryView</code> that
+corresponds to the Trip that the user is correctly on - ensuring that there is only one Overall Trip Inventory List.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the <code>InventoryList</code> calls its own internal function of <code>add</code> to add an item to its list - which loops through the entire
+list to make sure that the item to be added does not already exist - otherwise it does not add it
+. Therefore, this also allows all the items in InventoryList to be unique.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="possible-improvement-in-future-release"><a class="link" href="#possible-improvement-in-future-release">3.9.7. Possible Improvement in Future Release</a></h4>
+<div class="paragraph">
+<p>Currently, both the Event Inventory List and the Overall Trip Inventory List utilise a common <code>Inventory</code> class to store
+inventory items.</p>
+</div>
+<div class="paragraph">
+<p>However, an inventory item in the Event Inventory List does not need to keep count of the <code>eventInstances</code> attribute. Although, the
+current solution of setting <code>eventInstances</code> to -1 allows both classes to share the <code>Inventory</code> class, it might not be scalable and
+there may lead to bugs in the future.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, in a future update, it would be rational to remove make the <code>Inventory</code> class an abstract class with just a <code>Name</code> attribute.
+And have 2 different classes extend it for the 2 different use cases.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1645,7 +1797,7 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2394,4 +2546,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:23:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:29:09 UTC</div></div></div></body></html>

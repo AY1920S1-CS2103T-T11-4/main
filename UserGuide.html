@@ -19,7 +19,7 @@
 <li><a href="#currency">3.4. Currency</a></li>
 <li><a href="#booking">3.5. Booking</a></li>
 <li><a href="#diary">3.6. Diary</a></li>
-<li><a href="#pre-trip-inventory-manager">3.7. Pre-trip Inventory Manager</a></li>
+<li><a href="#trip-inventory-manager">3.7. Trip Inventory Manager</a></li>
 </ul>
 </li>
 <li><a href="#general-info">4. General info</a></li>
@@ -456,7 +456,7 @@ The last field <em>Photo</em> is an optional field, a default image will be used
 <div class="title">Figure 9. " <code>edit</code> command generates fields from your previously saved data</div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>: Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 6 different prefixes, each to edit one of the 6 fields displayed. The 6 prefixes refer to editing each fields as follows:</p>
+<p><strong>Step 3</strong>: Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 8 different prefixes. The 8 prefixes refer to editing each fields as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -477,6 +477,12 @@ The last field <em>Photo</em> is an optional field, a default image will be used
 </li>
 <li>
 <p>Photo File Path : <code>fp/</code></p>
+</li>
+<li>
+<p>Add an inventory item to the Event Inventory List: 'inv/' (This prefix can be called more than once in the edit command)</p>
+</li>
+<li>
+<p>Deletes an inventory item from the Event Inventory List: 'dinv/' (This prefix can be called more than once in the edit command)</p>
 </li>
 </ol>
 </div>
@@ -2362,19 +2368,97 @@ save the changes you made while the editor was open, and close the editor.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pre-trip-inventory-manager"><a class="link" href="#pre-trip-inventory-manager">3.7. Pre-trip Inventory Manager</a></h3>
+<h3 id="trip-inventory-manager"><a class="link" href="#trip-inventory-manager">3.7. Trip Inventory Manager</a></h3>
+<div class="sect3">
+<h4 id="introduction-7"><a class="link" href="#introduction-7">3.7.1. Introduction</a></h4>
 <div class="paragraph">
-<p>Allows the user to make a list of things (inventory of things) he/she needs for the trip.</p>
+<p>TravelPal&#8217;s <em>Trip Inventory Manager</em> is an integrated inventory planning and management system. It displays all the inventory items required for your trip in an intuitive and simple manner. Thus, making packing for your next trip a super easy task!</p>
+</div>
+<div class="paragraph">
+<p>There are two types of inventory items:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Event-specific inventory items (auto-generated from event)</p>
+</li>
+<li>
+<p>Non-event-specific inventory items</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This section of the user guide explains how to view and manage your inventory items using <em>Trip Inventory Manager</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="user-interface-overview-3"><a class="link" href="#user-interface-overview-3">3.7.2. User Interface Overview</a></h4>
+<div class="paragraph">
+<p>Shown below is the <em>Trip Inventory Manager</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/expense/userguide/InventoryManager.png" alt="InventoryManager">
+</div>
+<div class="title">Figure 52. Overview of Trip Inventory Manager user interface</div>
+</div>
+<div class="paragraph">
+<p>The <em>Trip Inventory Manger</em> displays all your event-specific inventory items and non-even-specific inventory items in one table. To provide the best reading experience, <em>Trip Inventory Manger</em> does not display duplicate names.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="commands-3"><a class="link" href="#commands-3">3.7.3. Commands</a></h4>
+<div class="paragraph">
+<p>On the <em>Trip Inventory Manager</em> page, the following command are available:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>add &lt;item&gt; : adds an item to the inventory list</p>
-</li>
-<li>
-<p>delete &lt;index of item&gt; : deletes the item at the specified index from the inventory list</p>
+<p><code>add &lt;name&gt;</code>: Adds a non-event-specfic inventory item with the name, &lt;name&gt;.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+&lt;name&gt; must not already exist in the <em>Trip Inventory Manger</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete &lt;index of inventory item&gt;</code>: deletes the inventory item</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The inventory item to delete must exclusively be a non-event-specific inventory item. Otherwise, to delete it, you will have to delete the inventory item from all events it is inside.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check &lt;index of inventory item&gt;</code>: marks the inventory item as packed</p>
+</li>
+<li>
+<p><code>uncheck &lt;index of inventory item&gt;</code>: marks the inventory item as not yet packed</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2436,4 +2520,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:23:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:29:09 UTC</div></div></div></body></html>
