@@ -26,13 +26,14 @@
 <li><a href="#Delete-Trip">3.2. [Itinerary] Delete Trip/Day/Event</a></li>
 <li><a href="#expense-expense-manager">3.3. [Expense] Expense Manager</a></li>
 <li><a href="#currency-currency">3.4. [Currency] Currency</a></li>
-<li><a href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
-<li><a href="#diary-photo-manager">3.7. [Diary] Photo Manager</a></li>
-<li><a href="#diary-diary-entry-text-editing">3.8. [Diary] Diary Entry Text Editing</a></li>
-<li><a href="#inventory-the-inventory-list">3.9. [Inventory] The Inventory List</a></li>
-<li><a href="#logging">3.10. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.11. Configuration</a></li>
+<li><a href="#booking-booking-manager">3.5. [Booking] Booking Manager</a></li>
+<li><a href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#diary-photo-manager">3.8. [Diary] Photo Manager</a></li>
+<li><a href="#diary-diary-entry-text-editing">3.9. [Diary] Diary Entry Text Editing</a></li>
+<li><a href="#inventory-the-inventory-list">3.10. [Inventory] The Inventory List</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -886,9 +887,159 @@ is to be used to display <code>Budget</code> with the selected currency symbol a
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="booking-booking-manager"><a class="link" href="#booking-booking-manager">3.5. [Booking] Booking Manager</a></h3>
+<div class="paragraph">
+<p>The <em>Booking Manager</em> is one of the main features of TravelPal. It maintains a list of <code>Booking</code> stored in a
+<code>BookingList</code>.</p>
+</div>
+<div class="paragraph">
+<p><em>Booking Manager</em> displays all the Bookings in one place with Name, Contact details and expenditure in the form of
+Budget.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.5.1. Proposed Implementation</a></h4>
+<h4 id="booking_model"><a class="link" href="#booking_model">3.5.1. Aspect : Model</a></h4>
+<div id="booking_class_diagram" class="imageblock">
+<div class="content">
+<img src="images/bookings/developerguide/BookingModelClassDiagram.png" alt="BookingModelClassDiagram">
+</div>
+<div class="title">Figure 19. Class diagram showing the booking model</div>
+</div>
+<div class="sect4">
+<h5 id="booking"><a class="link" href="#booking">Booking</a></h5>
+<div class="paragraph">
+<p><code>Booking</code> is a class storing Booking model.</p>
+</div>
+<div class="paragraph">
+<p>It has three compulsory fields, the <em>name of booking</em>, the <em>contact details of booking</em> and the
+<em>expenditure of booking</em> (in budget). These fields are used to store information related to a booking.</p>
+</div>
+<div class="paragraph">
+<p>They are implemented as instance of class <code>Name</code>, <code>Contact</code> and <code>Budget</code> respectively.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="bookinglist"><a class="link" href="#bookinglist">BookingList</a></h5>
+<div class="paragraph">
+<p><code>BookingList</code> is a class that stores the <code>Booking</code> models.
+It supports wrapper methods around the underlying <code>ObservableList</code> to facilitate the use in the logic components.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="booking_ui"><a class="link" href="#booking_ui">3.5.2. Aspect : UI</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/bookings/developerguide/BookingUiClassDiagram.png" alt="BookingUiClassDiagram">
+</div>
+<div class="title">Figure 20. Class diagram showing the user interface of booking</div>
+</div>
+<div class="paragraph">
+<p>The UI of Booking Manager mainly consists of two <code>Page</code>: <code>BookingsPage</code> and <code>EditBookingsPage</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>BookingsPage</code> is the component in charge of displaying all the information of the booking: name, contact details and
+associated expenditure.</p>
+</div>
+<div class="paragraph">
+<p>It has a list of <code>BookingCard</code>, a component that contains individual booking details. <code>BookingsPage</code> extends
+<code>PageWithSidebar</code> as it contains navigation bar that helps user to
+navigate between different main features.</p>
+</div>
+<div class="paragraph">
+<p><code>EditBookingsPage</code> is the main page for creating and editing of booking. Both <code>BookingsPage</code> and <code>EditBookingsPage</code>
+have access to <code>Model</code> and <code>Logic</code> of the application, for handling of stored data and parsing commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-3"><a class="link" href="#aspect-logic-3">3.5.3. Aspect : Logic</a></h4>
+<div class="sect4">
+<h5 id="create-a-booking"><a class="link" href="#create-a-booking">Create a booking</a></h5>
+<div class="paragraph">
+<p>The creation of a new <code>Booking</code> is done by calling <code>EnterCreateBookingCommand</code>, which brings user to a
+<em>Booking Setup Page</em>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-a-booking"><a class="link" href="#edit-a-booking">Edit a booking</a></h5>
+<div class="paragraph">
+<p>Editing of booking can be accessed from <code>BookingsPage</code>. The execution of command is handled by <code>BookingsManagerParser</code> and
+the command accesses the model through <code>Model#getPageStatus()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The details of execution is similar to
+<em>Edit trip/day/event</em> feature (see <a href="#Edit-Trip">Section 3.1, &#8220;[Itinerary] Edit trip/day/event feature&#8221;</a>)</p>
+</div>
+<div class="paragraph">
+<p>All the fields, namely <em>name</em>, <em>contact</em> and <em>budget</em>, of a <code>Booking</code> can be edited with an <code>edit</code> command. When <code>done</code>
+command is executed the <code>Booking</code> in <code>BookingList</code> will be updated.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the sequence of method call when <code>DoneEditCommand#execute(model)</code> is called in
+<code>LogicManager</code>.</p>
+</div>
+<div id="booking_model_ui_class_diagram" class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/bookings/developerguide/BookingModelClassDiagram.png" alt="BookingModelClassDiagram">
+</div>
+<div class="title">Figure 21. Class diagram showing the model of Booking</div>
+</div>
+<div class="paragraph">
+<p>Model shows the fields available in a Booking, namely, <em>name</em>, <em>contact</em> and <em>budget</em>.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/bookings/developerguide/BookingUiClassDiagram.png" alt="BookingUiClassDiagram">
+</div>
+<div class="title">Figure 22. Class diagram showing the UI of Booking</div>
+</div>
+<div class="paragraph">
+<p>UI Diagram shows the calling of various other classes (via <code>FXML</code> pages) which are linked to creation of Booking.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-a-booking-2"><a class="link" href="#edit-a-booking-2">Edit a Booking</a></h5>
+<div id="edit_booking_activity_diagram" class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/bookings/developerguide/EditBookingDiagram.png" alt="EditBookingDiagram">
+</div>
+<div class="title">Figure 23. Activity diagram showing the <code>edit</code> functionality of Booking</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When error is thrown, the user is expected to use a valid index.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-a-booking"><a class="link" href="#delete-a-booking">Delete a Booking</a></h5>
+<div class="paragraph">
+<p>Deletion of booking is similar to the <em>Delete Trip/Day/Event</em> feature (see <a href="#Delete-Trip">Section 3.2, &#8220;[Itinerary] Delete Trip/Day/Event&#8221;</a>).</p>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteBookingCommand</code> in logic checks for index of deletion.
+Below is the sequence diagram of deleting an expense:</p>
+</div>
+<div id="delete_booking_sequence_diagram" class="imageblock">
+<div class="content">
+<img src="images/bookings/developerguide/BookingDeleteSequenceDiagram.png" alt="BookingDeleteSequenceDiagram">
+</div>
+<div class="title">Figure 24. Activity diagram showing the execution of deleting an expense</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.6.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -1030,7 +1181,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1100,24 +1251,24 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">3.7. [Diary] Photo Manager</a></h3>
+<h3 id="diary-photo-manager"><a class="link" href="#diary-photo-manager">3.8. [Diary] Photo Manager</a></h3>
 <div class="paragraph">
 <p>The photo manager pertains to components for storing, and displaying user specified photos on the disk.</p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="photo_model"><a class="link" href="#photo_model">3.7.1. Aspect: Models</a></h4>
+<h4 id="photo_model"><a class="link" href="#photo_model">3.8.1. Aspect: Models</a></h4>
 <div id="diary_photo_model_class_diagram" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/diary/DiaryPhotoModelClassDiagram.png" alt="DiaryPhotoModelClassDiagram">
 </div>
-<div class="title">Figure 19. Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</div>
+<div class="title">Figure 25. Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</div>
 </div>
 <div class="sect4">
 <h5 id="photo"><a class="link" href="#photo">Photo</a></h5>
@@ -1129,7 +1280,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 The <code>imagePath</code> and <code>dateTaken</code> were implemented respectively with the robust java apis of <code>Path</code> and <code>LocalDateTime</code>, while <code>description</code> is simply a <code>String</code>.</p>
 </div>
 <div class="paragraph">
-<p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 19, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
+<p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 25, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
 which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
 as on-demand <code>Image</code> construction in the user interface involves costly I/O operations.</p>
 </div>
@@ -1169,7 +1320,7 @@ as on-demand <code>Image</code> construction in the user interface involves cost
 <h5 id="photolist"><a class="link" href="#photolist">PhotoList</a></h5>
 <div class="paragraph">
 <p>On the other hand, the <code>DiaryPhoto</code> models are contained within a <code>PhotoList</code>. It stores the photos in a JavaFX <code>ObservableList</code>,
-so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.7.2, &#8220;Aspect: User interface of photo manager&#8221;</a>)</p>
+so that changes are registered with the user interface. (see <a href="#photo_manager_ui">Section 3.8.2, &#8220;Aspect: User interface of photo manager&#8221;</a>)</p>
 </div>
 <div class="paragraph">
 <p>It also supports several convenience wrapper methods around the underlying <code>ObservableList</code>, tailored for use for the logic components.</p>
@@ -1178,7 +1329,7 @@ so that changes are registered with the user interface. (see <a href="#photo_man
 </div>
 </div>
 <div class="sect3">
-<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.7.2. Aspect: User interface of photo manager</a></h4>
+<h4 id="photo_manager_ui"><a class="link" href="#photo_manager_ui">3.8.2. Aspect: User interface of photo manager</a></h4>
 <div class="paragraph">
 <p>The main <code>UiPart</code> component that displays photos is the <code>DiaryGallery</code>.
 It abides by the <code>Page</code> implementation (see <a href="#page_api">Section 2.2.1, &#8220;Page API&#8221;</a>), and is thus contained within,
@@ -1188,7 +1339,7 @@ in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 <div class="content">
 <img src="images/diary/DiaryPhotoUiObjectDiagram.png" alt="DiaryPhotoUiObjectDiagram">
 </div>
-<div class="title">Figure 20. Object diagram of the diary gallery component, as contained by <code>DiaryPage</code> (not shown)</div>
+<div class="title">Figure 26. Object diagram of the diary gallery component, as contained by <code>DiaryPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The main JavaFX component responsible for displaying the photos is a <code>ListView&lt;DiaryPhoto&gt;</code> component.
@@ -1210,7 +1361,7 @@ Additionally, the index of the card as ordered in the <code>DiaryGallery</code> 
 <hr>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-of-photo-manager-operations"><a class="link" href="#aspect-logic-of-photo-manager-operations">3.7.3. Aspect: Logic of photo manager operations</a></h4>
+<h4 id="aspect-logic-of-photo-manager-operations"><a class="link" href="#aspect-logic-of-photo-manager-operations">3.8.3. Aspect: Logic of photo manager operations</a></h4>
 <div class="paragraph">
 <p>The logic for photo manager plays to the same <code>PageParser</code> structure of parsing commands, that is,
 <code>DiaryParser</code> returns either <code>AddPhotoParser</code>, <code>DeletePhotoParser</code> when the appropriate command word is parsed, which
@@ -1227,7 +1378,7 @@ a number of operations happen, as per the UML sequence diagram below (<a href="#
 <div class="content">
 <img src="images/diary/DiaryAddPhotoParser.png" alt="addphotoparser_parse_sequence_diagram">
 </div>
-<div class="title">Figure 21. Sequence diagram of the parse method in AddPhotoParser</div>
+<div class="title">Figure 27. Sequence diagram of the parse method in AddPhotoParser</div>
 </div>
 <div class="sect5">
 <h6 id="adding_photo_diary_step_1"><a class="link" href="#adding_photo_diary_step_1">Parsing the image file path</a></h6>
@@ -1238,7 +1389,7 @@ a number of operations happen, as per the UML sequence diagram below (<a href="#
 If present, the OS file choosing gui is opened using <code>ImageChooser</code> (a simple extension of JavaFX&#8217;s <code>FileChooser</code> enforcing image file extensions), and the data file path prefix is ignored.</p>
 </li>
 <li>
-<p>The <code>getFilePath</code> subroutine is then called, detailed in <a href="#diary_getfilepath_activity_diagram">Figure 22, &#8220;Activity diagram of getFilePath subroutine&#8221;</a>, which checks for the
+<p>The <code>getFilePath</code> subroutine is then called, detailed in <a href="#diary_getfilepath_activity_diagram">Figure 28, &#8220;Activity diagram of getFilePath subroutine&#8221;</a>, which checks for the
 existence and validity of the image as supplied by the <code>ImageChooser</code> or the file path in the <code>fp/</code> argument.</p>
 </li>
 <li>
@@ -1250,7 +1401,7 @@ existence and validity of the image as supplied by the <code>ImageChooser</code>
 <div class="content">
 <img src="images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram" width="95%">
 </div>
-<div class="title">Figure 22. Activity diagram of getFilePath subroutine</div>
+<div class="title">Figure 28. Activity diagram of getFilePath subroutine</div>
 </div>
 </div>
 <div class="sect5">
@@ -1259,10 +1410,10 @@ existence and validity of the image as supplied by the <code>ImageChooser</code>
 <ul>
 <li>
 <p>If the description prefix is present, <code>AddPhotoParser</code> tries to construct the <code>DiaryPhoto</code> instance with the specified input.
-If validation of the description, as described in <a href="#photo_model">Section 3.7.1, &#8220;Aspect: Models&#8221;</a> fails, then a <code>ParseException</code> is thrown during the instance construction.</p>
+If validation of the description, as described in <a href="#photo_model">Section 3.8.1, &#8220;Aspect: Models&#8221;</a> fails, then a <code>ParseException</code> is thrown during the instance construction.</p>
 </li>
 <li>
-<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Section 3.7.3.1.1, &#8220;Parsing the image file path&#8221;</a> (truncated to match <code>DiaryPhoto&#8217;s</code> description constraints) is used.</p>
+<p>Otherwise, the file name of the validated file from <a href="#adding_photo_diary_step_1">Section 3.8.3.1.1, &#8220;Parsing the image file path&#8221;</a> (truncated to match <code>DiaryPhoto&#8217;s</code> description constraints) is used.</p>
 </li>
 </ul>
 </div>
@@ -1270,7 +1421,7 @@ If validation of the description, as described in <a href="#photo_model">Section
 <div class="content">
 <img src="images/diary/AddPhotoParserParseDescriptionActivityDiagram.png" alt="AddPhotoParserParseDescriptionActivityDiagram" width="95%">
 </div>
-<div class="title">Figure 23. Activity diagram of parseDescription subroutine</div>
+<div class="title">Figure 29. Activity diagram of parseDescription subroutine</div>
 </div>
 </div>
 <div class="sect5">
@@ -1282,7 +1433,7 @@ If validation of the description, as described in <a href="#photo_model">Section
 A <code>ParseException</code> is thrown in the case of date parsing failure, by <code>ParserDateUtil</code>.</p>
 </li>
 <li>
-<p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Section 3.7.3.1.1, &#8220;Parsing the image file path&#8221;</a> is used.</p>
+<p>Otherwise, the last modified date of the validated file from <a href="#adding_photo_diary_step_1">Section 3.8.3.1.1, &#8220;Parsing the image file path&#8221;</a> is used.</p>
 </li>
 </ul>
 </div>
@@ -1312,7 +1463,7 @@ current <code>PhotoList</code> of the <code>DiaryEntry</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.7.4. Design considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.8.4. Design considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1351,7 +1502,7 @@ extensibility as the first option.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-diary-entry-text-editing"><a class="link" href="#diary-diary-entry-text-editing">3.8. [Diary] Diary Entry Text Editing</a></h3>
+<h3 id="diary-diary-entry-text-editing"><a class="link" href="#diary-diary-entry-text-editing">3.9. [Diary] Diary Entry Text Editing</a></h3>
 <div class="paragraph">
 <p>The diary entry is capable of displaying text with inline images, or lines consisting of only images.</p>
 </div>
@@ -1360,15 +1511,15 @@ extensibility as the first option.</p></td>
 a part or the whole of the entry through the command line input, and the other being the JavaFX text editor.</p>
 </div>
 <div class="sect3">
-<h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.8.1. Aspect: Models</a></h4>
+<h4 id="diary_text_editing_model"><a class="link" href="#diary_text_editing_model">3.9.1. Aspect: Models</a></h4>
 <div class="paragraph">
 <p>The main model abstraction holding the data of an entry is the <code>DiaryEntry</code> class.<br></p>
 </div>
 <div class="paragraph">
 <p>It stores three key fields, namely:<br>
 1. An <code>Index</code> denoting the day the entry is for<br>
-2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.8.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
-3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.7.1, &#8220;Aspect: Models&#8221;</a>.</p>
+2. A <code>String</code> written by the user in the domain specific language (see <a href="#diary-entry-parsing">Section 3.9.2.1, &#8220;Entry text parsing&#8221;</a>) required by the user interface.<br>
+3. A <code>PhotoList</code> storing the photos of the entry, as described in <a href="#photo_model">Section 3.8.1, &#8220;Aspect: Models&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DiaryEntry</code> models are contained within a <code>DiaryEntryList</code>, which enforces the uniqueness of the <code>Index</code> (denoting the day index)
@@ -1378,7 +1529,7 @@ of each <code>DiaryEntry</code>, and supports common list operations.</p>
 <div class="content">
 <img src="images/diary/DiaryModelClassDiagram.png" alt="DiaryModelClassDiagram">
 </div>
-<div class="title">Figure 24. Class diagram of the models used in diary text editing</div>
+<div class="title">Figure 30. Class diagram of the models used in diary text editing</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1391,7 +1542,7 @@ but the diary text references a different String, that is, the buffered diary te
 </div>
 </div>
 <div class="sect3">
-<h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.8.2. Aspect: User interface</a></h4>
+<h4 id="diary-entry-ui"><a class="link" href="#diary-entry-ui">3.9.2. Aspect: User interface</a></h4>
 <div class="paragraph">
 <p>Multiple <code>UiPart</code> components come into play in displaying the diary entry.
 However, <code>Page</code> implementation (see <a href="#page_api">Page Api</a>) is still followed, and all components are thus contained within,
@@ -1401,7 +1552,7 @@ in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 <div class="content">
 <img src="images/diary/DiaryUiClassDiagram.png" alt="DiaryUiClassDiagram">
 </div>
-<div class="title">Figure 25. Class diagram showing the user interface of the main diary entry text display</div>
+<div class="title">Figure 31. Class diagram showing the user interface of the main diary entry text display</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1418,7 +1569,7 @@ In the diagram above, all parts and subparts of the composition of <code>DiaryPa
 <div class="paragraph">
 <p>The <code>DiaryEntryDisplay</code> is the component responsible for displaying the content of the <code>DiaryEntry</code> model.
 Internally, it uses a JavaFX <code>ListView&lt;CharSequence&gt;</code> with a custom cell factory that
-returns <code>DiaryTextLineCell</code> (as detailed in <a href="#DiaryTextLineCell_details">Section 3.8.2.1.3, &#8220;Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code>&#8221;</a>). <code>DiaryTextLineCells</code> in turn uses the
+returns <code>DiaryTextLineCell</code> (as detailed in <a href="#DiaryTextLineCell_details">Section 3.9.2.1.3, &#8220;Graphic of <code>ListView</code> cells in <code>DiaryEntryDisplay</code>&#8221;</a>). <code>DiaryTextLineCells</code> in turn uses the
 <code>DiaryLine UiPart</code> as its graphic.</p>
 </div>
 <div class="sect4">
@@ -1447,16 +1598,16 @@ constructor of <code>DiaryEntryDisplay</code> during the initialisation of <code
 <div class="content">
 <img src="images/diary/DiaryFillPageCallbackTrimmed.png" alt="DiaryFillPageCallbackTrimmed">
 </div>
-<div class="title">Figure 26. Sequence diagram of updating of DiaryPage UI post command execution</div>
+<div class="title">Figure 32. Sequence diagram of updating of DiaryPage UI post command execution</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>The <code>model</code> is updated, depending on whether the edit box is currently shown to the user.<br>
 1.1. The edited but uncommitted text stored in the current <code>EditDiaryEntryDescriptor</code> will be updated
-if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 26, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
+if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 32, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
 1.2. Otherwise, the current <code>DiaryEntry</code> in the <code>PageStatus</code> of the <code>model</code> is updated immediately.
-(first branch in the diagram <a href="#DiaryPageFillPage">Figure 26, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
+(first branch in the diagram <a href="#DiaryPageFillPage">Figure 32, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
 </li>
 <li>
 <p>The text in the <code>DiaryEntryEditBox</code> is then refreshed with the updated <code>model</code> in the <code>fillPage</code>
@@ -1488,7 +1639,7 @@ based on the parsed input, setting them as the <code>graphic</code> for the <cod
 </td>
 <td class="content">
 For <code>DiaryLines</code> with photos, the parsing process uses the photoList as set in the <code>DiaryPage&#8217;s</code>
-<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 26, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
+<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 32, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
 </td>
 </tr>
 </table>
@@ -1497,7 +1648,7 @@ For <code>DiaryLines</code> with photos, the parsing process uses the photoList 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.8.3. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.9.3. Design considerations</a></h4>
 <div class="paragraph">
 <p>Numerous design decisions and comprimised had to be made due to the desired specifications of text editing and displaying.<br>
 Specifically, the following had to be achieved :</p>
@@ -1542,7 +1693,7 @@ burden on the system, and defeats the intended way <code>ListView</code> is to b
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second option, was to implement the diary text in <code>DiaryEntry model</code> (see <a href="#diary_text_editing_model">Section 3.8.1, &#8220;Aspect: Models&#8221;</a>) using an <code>ObservableList</code> of
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second option, was to implement the diary text in <code>DiaryEntry model</code> (see <a href="#diary_text_editing_model">Section 3.9.1, &#8220;Aspect: Models&#8221;</a>) using an <code>ObservableList</code> of
 strings. The <code>ListView</code> would then be set to observe this list, and when the current entry changed, the <code>DiaryEntryDisplay&#8217;s</code>
 items would be set to observe the new entry&#8217;s <code>ObservableList</code>.</p>
 <p class="tableblock">For user commands, this solves the problem posed by <strong>alternative 1</strong>, since user commands can make edits only where needed in
@@ -1583,7 +1734,7 @@ posing a clear performance downside.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 25, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 31, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
 <p class="tableblock">On one hand, this increases extensibility, as the the graphic of a <code>ListViewCell</code> (<code>DiaryTextLineCell</code>) is not fixed.
 This allows <em>building other variants of diary lines easily</em>, such as a diary line containing a playable audio file.</p>
 <p class="tableblock">Secondly, <code>ListViews</code> render only the visible cells on the screen. Apart from the reducing the amount of nodes loaded
@@ -1595,7 +1746,7 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory-the-inventory-list"><a class="link" href="#inventory-the-inventory-list">3.9. [Inventory] The Inventory List</a></h3>
+<h3 id="inventory-the-inventory-list"><a class="link" href="#inventory-the-inventory-list">3.10. [Inventory] The Inventory List</a></h3>
 <div class="paragraph">
 <p>In the application, there can be two types of Inventory Lists:</p>
 </div>
@@ -1621,12 +1772,12 @@ This results in a considerable performance benefit.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-model-2"><a class="link" href="#aspect-model-2">3.9.3. Aspect : Model</a></h4>
+<h4 id="aspect-model-2"><a class="link" href="#aspect-model-2">3.10.3. Aspect : Model</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/inventory/InventoryModelClassDiagram.png" alt="InventoryModelClassDiagram">
 </div>
-<div class="title">Figure 27. Class diagram of a 'InventoryList' and an <code>Event</code>, and its contained models</div>
+<div class="title">Figure 33. Class diagram of a 'InventoryList' and an <code>Event</code>, and its contained models</div>
 </div>
 <div class="sect4">
 <h5 id="inventory"><a class="link" href="#inventory">Inventory</a></h5>
@@ -1671,7 +1822,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code">3.9.4. Aspect : User Interface of Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
+<h4 id="aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code">3.10.4. Aspect : User Interface of Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
 <div class="paragraph">
 <p>The Overall Trip Inventory List (with Model <code>InventoryList</code>) is displayed in the <code>TableView&lt;Inventory&gt;</code> of the <code>InventoryPage</code>, as seen in the object diagram:</p>
 </div>
@@ -1679,7 +1830,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 <div class="content">
 <img src="images/inventory/InventoryUiObjectDiagram.png" alt="InventoryUiObjectDiagram">
 </div>
-<div class="title">Figure 28. Object diagram of table view component, as contained by <code>InventoryPage</code> (not shown)</div>
+<div class="title">Figure 34. Object diagram of table view component, as contained by <code>InventoryPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The TableView has 3 columns. The first column numbers the items. The second column displays the item&#8217;s name. And the thrid column displays whether the item&#8217;s <code>isDone</code> property is true or false (through a checkbox).</p>
@@ -1689,7 +1840,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-user-interface-of-event-inventory-list-with-model-code-event-code"><a class="link" href="#aspect-user-interface-of-event-inventory-list-with-model-code-event-code">3.9.5. Aspect : User Interface of Event Inventory List (with Model <code>Event</code>)</a></h4>
+<h4 id="aspect-user-interface-of-event-inventory-list-with-model-code-event-code"><a class="link" href="#aspect-user-interface-of-event-inventory-list-with-model-code-event-code">3.10.5. Aspect : User Interface of Event Inventory List (with Model <code>Event</code>)</a></h4>
 <div class="paragraph">
 <p>The Event Inventory List (with Model <code>Event</code>) is displayed in the <code>ListView&lt;Inventory&gt;</code> of the <code>EventPage</code>, as seen in the object diagram:</p>
 </div>
@@ -1697,7 +1848,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 <div class="content">
 <img src="images/inventory/EventInventoryListUiObjectDiagram.png" alt="EventInventoryListUiObjectDiagram">
 </div>
-<div class="title">Figure 29. Object diagram of list view component, as contained by <code>EventPage</code> (not shown)</div>
+<div class="title">Figure 35. Object diagram of list view component, as contained by <code>EventPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The <code>ListView</code> uses the CSS styling of <code>resources/view/Inventory/InventoryListViewTheme.css' by calling `listView.getStylesheets().add(CSS_FILE_PATH)</code> with the File Path <code>CSS_FILE_PATH</code>)</p>
@@ -1707,12 +1858,12 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code">3.9.6. Aspect : Logic of adding item to Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
+<h4 id="aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code">3.10.6. Aspect : Logic of adding item to Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/inventory/AddInventorySequenceDiagram.png" alt="AddInventorySequenceDiagram">
 </div>
-<div class="title">Figure 30. Sequence diagram for adding an item to the Overall Trip Inventory List</div>
+<div class="title">Figure 36. Sequence diagram for adding an item to the Overall Trip Inventory List</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram, it can be observed that only if <code>InventoryViewParser</code> and <code>AddInventoryParser</code> returns a Command, will
@@ -1729,7 +1880,7 @@ list to make sure that the item to be added does not already exist - otherwise i
 </div>
 </div>
 <div class="sect3">
-<h4 id="possible-improvement-in-future-release"><a class="link" href="#possible-improvement-in-future-release">3.9.7. Possible Improvement in Future Release</a></h4>
+<h4 id="possible-improvement-in-future-release"><a class="link" href="#possible-improvement-in-future-release">3.10.7. Possible Improvement in Future Release</a></h4>
 <div class="paragraph">
 <p>Currently, both the Event Inventory List and the Overall Trip Inventory List utilise a common <code>Inventory</code> class to store
 inventory items.</p>
@@ -1746,14 +1897,14 @@ And have 2 different classes extend it for the 2 different use cases.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.11, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1784,7 +1935,7 @@ And have 2 different classes extend it for the 2 different use cases.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.11. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2714,4 +2865,4 @@ Expected: Similar to previous. Error message show sthe error committed.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-12 11:23:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-12 15:59:16 UTC</div></div></div></body></html>
