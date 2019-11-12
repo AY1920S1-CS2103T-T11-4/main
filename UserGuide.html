@@ -458,7 +458,7 @@ The last field <em>Photo</em> is an optional field, a default image will be used
 <div class="title">Figure 9. " <code>edit</code> command generates fields from your previously saved data</div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>: Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 8 different prefixes. The 8 prefixes refer to editing each fields as follows:</p>
+<p><strong>Step 3</strong>: Now that you are on the edit page, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/&lt;value&gt; &#8230;&#8203;</code>. There are 6 different prefixes. The 6 prefixes refer to editing each fields as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -479,12 +479,6 @@ The last field <em>Photo</em> is an optional field, a default image will be used
 </li>
 <li>
 <p>Photo File Path : <code>fp/</code></p>
-</li>
-<li>
-<p>Add an inventory item to the Event Inventory List: 'inv/' (This prefix can be called more than once in the edit command)</p>
-</li>
-<li>
-<p>Deletes an inventory item from the Event Inventory List: 'dinv/' (This prefix can be called more than once in the edit command)</p>
 </li>
 </ol>
 </div>
@@ -573,7 +567,7 @@ You have successfully created/edited a trip!</p>
 <div class="title">Figure 14. Index used to execute commands</div>
 </div>
 <div class="paragraph">
-<p>Upon execution of either command on the events page, you will be directed to a page where editing the necessary details to create a new event is possible. This page contains a form with 4 necessary fields and 2 optional fields (optional fields are marked with italics).</p>
+<p>Upon execution of either command on the events page, you will be directed to a page where editing the necessary details to create a new event is possible. This page contains a form with 4 necessary fields and 3 optional fields (optional fields are marked with italics).</p>
 </div>
 <div class="ulist">
 <ul>
@@ -637,6 +631,16 @@ You have successfully created/edited a trip!</p>
 </ul>
 </div>
 </li>
+<li>
+<p><em>Inventory Items Needed</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Constraints</strong>: You can add or delete multiple inventory items (which will be displayed on the list below this field), or you can leave the the field blank</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="admonitionblock note">
@@ -646,7 +650,7 @@ You have successfully created/edited a trip!</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <strong>Total Budget</strong> field is optional and can be left blank
+The <strong>Total Budget</strong> and <strong>Inventory Items Needed</strong> field is optional and can be left blank
 </td>
 </tr>
 </table>
@@ -681,7 +685,7 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 <div class="title">Figure 16. Form with previously saved information</div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>: Now on the <em>edit events page</em>, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/value&gt; &#8230;&#8203;</code>. There are 5 different prefixes, each to edit one of the 6 fields displayed. The 5 prefixes are as follows:</p>
+<p><strong>Step 3</strong>: Now on the <em>edit events page</em>, to edit a specific field, execute the following command: <code>edit &lt;prefix&gt;/&lt;value&gt; &lt;prefix&gt;/value&gt; &#8230;&#8203;</code>. There are 8 different prefixes to edit one of the 7 fields displayed. The 8 prefixes are as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -703,7 +707,25 @@ The <strong>Total Budget</strong> field is optional and can be left blank
 <li>
 <p>Description : <code>d/</code></p>
 </li>
+<li>
+<p>Add an inventory item to the event&#8217;s inventory list: <code>inv/&lt;name of inventory item to add&gt;</code></p>
+</li>
+<li>
+<p>Delete an inventory item from the event&#8217;s inventory list: <code>dinv/&lt;index number of item to delete&gt;</code></p>
+</li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To delete an item from the inventory list you can also select the item&#8217;s row and press backspace
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Below is an example of changing the destination of an existing event to "Hotel 89":</p>
@@ -2564,4 +2586,4 @@ as the <em>TravelPal</em> application file.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:49:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-12 11:23:40 UTC</div></div></div></body></html>
