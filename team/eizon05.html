@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Karan Dev Sapra - Project Portfolio for TravelPal</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TravelPal</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Karan Dev Sapra - Project Portfolio for <em>TravelPal</em></h1></div><div id="content"><div class="sect1">
+<h2 id="about-our-project"><a class="link" href="#about-our-project">About Our Project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio page documents my contribution to the team project <em>TravelPal</em> which I undertook along with 4 other computer science students. This application , which is an alteration of another pre-existing basic command line interace desktop addressbook application , is an all-in-one holiday planner that enables travellers to meticulously plan their travels including features like expenditure and inventory managing.</p>
+</div>
+<div class="paragraph">
+<p>Due to our project requirements, TravelPal is primarily for users who prefer to use a Command Line Interface (CLI), rather than the more traditional way of using a mouse. The display of our application, however, encompasses a Graphical User Interface (GUI) for easy readability and navigability.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, our project specification defines our target user to be students who are travel enthusiasts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section details my contribution to the TravelPal application, as well as a summary of my code
+implementation and the value adddition it has to the project in terms of functionalitiy and usefullness.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="strong-major-enhancements-strong-implementation-of-the-em-trip-inventory-manager-em-feature"><a class="link" href="#strong-major-enhancements-strong-implementation-of-the-em-trip-inventory-manager-em-feature"><strong>Major enhancements</strong>: Implementation of the <em>Trip Inventory Manager</em> feature</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: The <em>Trip Inventory Manager</em> allows users to create a list of inventory items they need on their trip. Users can choose to manually add a new inventory item or add an inventory item inside of an event in the trip itinerary - which will automatically be reflected on the Trip Inventory List. If the item has already been purhcashed or packed by the user, he is able to mark it using a checkbox.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: As it is very common for people to forget things before a trip, this feature prevents them from being forgetful. Moreoever, since the inventory items you store in an event are seen in the Trip Inventory Manager - whenever a user is planning his trip&#8217;s events - at the same time he can take a note of the items he would need to bring for the event. Furthermore, since the target users are travel enthusiasits, they are more prone to travel their trips more meitulously - and hence this feature would be a good use case for them.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This modification requires understanding and interaction of other features such as the event feature since every event stores its own inventory List. Therefore, I had to be mindful to design all my classes with OOP (Object Oriented Programming) principles such as the SOLID principles (mnemonic acronym for five important OOP design principles) to prevent bugs.</p>
+</li>
+<li>
+<p><strong>Credits</strong>: I had read the Developer Guide and code of the address book application to modify and implement my features.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="second-enhancements-preventing-duplicate-inventory-items"><a class="link" href="#second-enhancements-preventing-duplicate-inventory-items">Second enhancements: Preventing Duplicate Inventory Items.</a></h4>
+<div class="paragraph">
+<p>One of the most important contributions of mine was in preventing the Travel Inventory Manager from showing any duplicate inventory items.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: If the Travel Inventory Manager already contains an inventory with a specific name, the Travel Inventory Manager should not show any duplicates (of the same name).</p>
+</li>
+<li>
+<p><strong>Justification</strong>: Having multiplate duplicate inventory items would make the <em>Travel Inventory Manager</em> difficult to read and would make packing difficult. Therefore, this feature was essential to implement to maintain readibility and organization.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: As each event stores an inventory list, the same name could appear in different events (since the events are not supposed to cross check amongst each other). Therefore, I had to spend a lot of time thinking of a workable solution to only delete the inventory item name from the Travel Inventory Manager if no more events had an inventory item of that name in them. I finally thought of a solution which involves keeping count of the number of Events that have a particular inventory item name, for all names in the <em>Travel Inventory Manager</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Code contributed: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=eizon05&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=eizon05&amp;tabRepo=AY1920S1-CS2103T-T11-4%2Fmain%5Bmaster%5D">RepoSense code</a>][<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Aclosed+is%3Apr+author%3Aeizon05+">Github pull requests</a>]</p>
+</li>
+<li>
+<p>Idea generation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributing in developing some of the main idea of <em>TravelPal</em> (expenses, currency, inventory, events etc.) during the project&#8217;s
+inception. (see <a href="https://docs.google.com/document/d/1mKmIZghbtYwgSWdDTiRQDLdXjKNhjuys8uSO8Y6McyI/edit">travelpal idea generation google docs</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test cases for <em>Inventory Manager</em></p>
+</li>
+<li>
+<p>Updated the UI to make it more interactive and user friendly <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/171">#171</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed Pull Requests: [<a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Aeizon05+">My reviews</a>]</p>
+</li>
+<li>
+<p>Updated ContactUs page <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/16">#16</a></p>
+</li>
+<li>
+<p>Created first draft and initial layout and plan of the User Guide <a href="https://github.com/AY1920S1-CS2103T-T11-4/main/pull/17">#17</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section displays the section of User Guide relating to the usage of the <em>Trip Inventory Manager</em> which was created and edited by me.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="trip-inventory-manager"><a class="link" href="#trip-inventory-manager">Trip Inventory Manager</a></h3>
+<div class="sect3">
+<h4 id="introduction"><a class="link" href="#introduction">Introduction</a></h4>
+<div class="paragraph">
+<p>TravelPal&#8217;s <em>Trip Inventory Manager</em> is an integrated inventory planning and management system. It displays all the inventory items required for your trip in an intuitive and simple manner. Thus, making packing for your next trip a super easy task!</p>
+</div>
+<div class="paragraph">
+<p>There are two types of inventory items:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Event-specific inventory items (auto-generated from event)</p>
+</li>
+<li>
+<p>Non-event-specific inventory items</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This section of the user guide explains how to view and manage your inventory items using <em>Trip Inventory Manager</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="user-interface-overview"><a class="link" href="#user-interface-overview">User Interface Overview</a></h4>
+<div class="paragraph">
+<p>Shown below is the <em>Trip Inventory Manager</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/expense/userguide/InventoryManager.png" alt="InventoryManager">
+</div>
+<div class="title">Figure 1. Overview of Trip Inventory Manager user interface</div>
+</div>
+<div class="paragraph">
+<p>The <em>Trip Inventory Manger</em> displays all your event-specific inventory items and non-even-specific inventory items in one table. To provide the best reading experience, <em>Trip Inventory Manger</em> does not display duplicate names.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="commands"><a class="link" href="#commands">Commands</a></h4>
+<div class="paragraph">
+<p>On the <em>Trip Inventory Manager</em> page, the following command are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add &lt;name&gt;</code>: Adds a non-event-specfic inventory item with the name, &lt;name&gt;.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+&lt;name&gt; must not already exist in the <em>Trip Inventory Manger</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete &lt;index of inventory item&gt;</code>: deletes the inventory item</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The inventory item to delete must exclusively be a non-event-specific inventory item. Otherwise, to delete it, you will have to delete the inventory item from all events it is inside.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check &lt;index of inventory item&gt;</code>: marks the inventory item as packed</p>
+</li>
+<li>
+<p><code>uncheck &lt;index of inventory item&gt;</code>: marks the inventory item as not yet packed</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+See the <a href="https://ay1920s1-cs2103t-t11-4.github.io/main/UserGuide.html">user guide</a> for usage scenarios which are not mentioned in this project portfolio page.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section of the Developer Guide titled <em>The Inventory List</em> (which details the its' Models, User Interface and Logic) was created and edited by me.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="inventory-the-inventory-list"><a class="link" href="#inventory-the-inventory-list">[Inventory] The Inventory List</a></h3>
+<div class="paragraph">
+<p>In the application, there can be two types of Inventory Lists:</p>
+</div>
+<div class="sect4">
+<h5 id="1-overall-trip-inventory-list"><a class="link" href="#1-overall-trip-inventory-list">1. Overall Trip Inventory List</a></h5>
+<div class="paragraph">
+<p>An overall trip inventory list is the inventory list of all the items the user needs for the trip.</p>
+</div>
+<div class="paragraph">
+<p>Each trip only has <strong>one</strong> overall trip inventory list.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="2-an-event-inventory-list"><a class="link" href="#2-an-event-inventory-list">2. An Event inventory list</a></h5>
+<div class="paragraph">
+<p>An event inventory list is the inventory list of all the items the user needs for the event.</p>
+</div>
+<div class="paragraph">
+<p>Each trip can have <strong>mutiple</strong> event inventory lists.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, in a trip, all the events inventory lists are subsets of one overall trip inventory list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-model"><a class="link" href="#aspect-model">Aspect : Model</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventory/InventoryModelClassDiagram.png" alt="InventoryModelClassDiagram">
+</div>
+<div class="title">Figure 2. Class diagram of a 'InventoryList' and an <code>Event</code>, and its contained models</div>
+</div>
+<div class="sect4">
+<h5 id="inventory"><a class="link" href="#inventory">Inventory</a></h5>
+<div class="paragraph">
+<p>The model for an inventory item stored in memory is stored in the <code>Inventory</code> class.</p>
+</div>
+<div class="paragraph">
+<p>It contains three attributes: the <code>name</code>, <code>isDone</code> and <code>eventOccurances</code>. The <code>name</code> attribute is implemented using a
+custom built <code>Name</code> class which ensures that the <code>name</code> is valid. <code>isDone</code> was implemented using a BooleanProperty and indicates
+whether the inventory item has been packed. While, <code>eventInstances</code> is an integer which represents the total number of
+<code>Event</code> models that have the same inventory item.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="event"><a class="link" href="#event">Event</a></h5>
+<div class="paragraph">
+<p><code>Inventory</code> models are contained within an <code>Event</code>, if the corresponding inventory items are part of an event. <code>Event</code> stores
+the <code>Inventory</code> models in an <code>ArrayList</code>. Therefore, each <code>Event</code> model contains an Event Inventory List (as defined above).</p>
+</div>
+<div class="paragraph">
+<p>Since, currently, the application does allow the user to alter the 'isDone' toggle of an <code>Inventory</code> model contained in an event,
+the <code>isDone</code> attribute is never set once it is is initialised (as <code>false</code>).</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, as the <code>eventInstances</code> attribute is only relevant to the Overall Trip Inventory List, the <code>eventInstances</code>
+attribute is set as <code>-1</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="inventorylist"><a class="link" href="#inventorylist">InventoryList</a></h5>
+<div class="paragraph">
+<p>All unique (by name) <code>Inventory</code> models in any <code>Event</code> model is contained within an <code>InventoryList</code>. It stores the inventory items in a
+JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> contains the Overall Trip Inventory List (as defined above).</p>
+</div>
+<div class="paragraph">
+<p>An <code>ObservableList</code> was chosen as the user interface requires the changes in the inventory list to be displayed instantly. Furthermore,
+<code>isDone</code> was implemented using a <code>BooleanProperty</code> instead of a simple <code>boolean</code> to instantly detect and display changes in any inventory item&#8217;s <code>isDone</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, an <code>InventoryList</code> can also contain miscellaneous inventory items (not contained in any event).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-user-interface-of-overall-trip-inventory-list-with-model-code-inventorylist-code">Aspect : User Interface of Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
+<div class="paragraph">
+<p>The Overall Trip Inventory List (with Model <code>InventoryList</code>) is displayed in the <code>TableView&lt;Inventory&gt;</code> of the <code>InventoryPage</code>, as seen in the object diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventory/InventoryUiObjectDiagram.png" alt="InventoryUiObjectDiagram">
+</div>
+<div class="title">Figure 3. Object diagram of table view component, as contained by <code>InventoryPage</code> (not shown)</div>
+</div>
+<div class="paragraph">
+<p>The TableView has 3 columns. The first column numbers the items. The second column displays the item&#8217;s name. And the thrid column displays whether the item&#8217;s <code>isDone</code> property is true or false (through a checkbox).</p>
+</div>
+<div class="paragraph">
+<p>Both the first and the second column&#8217;s <code>cellValueFactory</code> were set to <code>new PropertyValueFactory(STRING)</code> with String <code>STRING</code>. However, the third column was set to <code>CheckBoxTableCell.forTableColumn(BOOLEAN)</code> with Boolean <code>BOOLEAN</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-user-interface-of-event-inventory-list-with-model-code-event-code"><a class="link" href="#aspect-user-interface-of-event-inventory-list-with-model-code-event-code">Aspect : User Interface of Event Inventory List (with Model <code>Event</code>)</a></h4>
+<div class="paragraph">
+<p>The Event Inventory List (with Model <code>Event</code>) is displayed in the <code>ListView&lt;Inventory&gt;</code> of the <code>EventPage</code>, as seen in the object diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventory/EventInventoryListUiObjectDiagram.png" alt="EventInventoryListUiObjectDiagram">
+</div>
+<div class="title">Figure 4. Object diagram of list view component, as contained by <code>EventPage</code> (not shown)</div>
+</div>
+<div class="paragraph">
+<p>The <code>ListView</code> uses the CSS styling of <code>resources/view/Inventory/InventoryListViewTheme.css' by calling `listView.getStylesheets().add(CSS_FILE_PATH)</code> with the File Path <code>CSS_FILE_PATH</code>)</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the reason why <code>ListView</code> and <code>ListCell</code> are in package <code>Ui.itinerary</code> is because <code>EventPage</code> is in itinerary <code>Ui.itinerary</code>. Similarly, <code>Event</code> is in package <code>Model.itinerary</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code"><a class="link" href="#aspect-logic-of-adding-item-to-overall-trip-inventory-list-with-model-code-inventorylist-code">Aspect : Logic of adding item to Overall Trip Inventory List (with Model <code>InventoryList</code>)</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventory/AddInventorySequenceDiagram.png" alt="AddInventorySequenceDiagram">
+</div>
+<div class="title">Figure 5. Sequence diagram for adding an item to the Overall Trip Inventory List</div>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram, it can be observed that only if <code>InventoryViewParser</code> and <code>AddInventoryParser</code> returns a Command, will
+the Command be executed. This ensures the AddCommand is only executed when intended.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, as seen from the sequence diagram, whenever the <code>AddInventoryCommand</code> is executed, it will always return the <code>InventoryView</code> that
+corresponds to the Trip that the user is correctly on - ensuring that there is only one Overall Trip Inventory List.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the <code>InventoryList</code> calls its own internal function of <code>add</code> to add an item to its list - which loops through the entire
+list to make sure that the item to be added does not already exist - otherwise it does not add it
+. Therefore, this also allows all the items in InventoryList to be unique.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="possible-improvement-in-future-release"><a class="link" href="#possible-improvement-in-future-release">Possible Improvement in Future Release</a></h4>
+<div class="paragraph">
+<p>Currently, both the Event Inventory List and the Overall Trip Inventory List utilise a common <code>Inventory</code> class to store
+inventory items.</p>
+</div>
+<div class="paragraph">
+<p>However, an inventory item in the Event Inventory List does not need to keep count of the <code>eventInstances</code> attribute. Although, the
+current solution of setting <code>eventInstances</code> to -1 allows both classes to share the <code>Inventory</code> class, it might not be scalable and
+there may lead to bugs in the future.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, in a future update, it would be rational to remove make the <code>Inventory</code> class an abstract class with just a <code>Name</code> attribute.
+And have 2 different classes extend it for the 2 different use cases.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="achievements-and-learnings"><a class="link" href="#achievements-and-learnings">Achievements and Learnings</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Development <em>TravelPal</em> has been my first time working with and modifying a pre-existing brown-field software engineering projects. During the process, I have gained a lot practice in programming and in maintaining object oriented principles. This was also my first time using Git and working on a software engineering project as a team. I feel I have improved a lot through this experience, both personally and as a team player.</p>
+</div>
+</div>
+</div></div></body></html>
