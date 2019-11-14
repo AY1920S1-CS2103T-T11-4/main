@@ -977,21 +977,6 @@ command is executed the <code>Booking</code> in <code>BookingList</code> will be
 <p>The following sequence diagram shows the sequence of method call when <code>DoneEditCommand#execute(model)</code> is called in
 <code>LogicManager</code>.</p>
 </div>
-<div id="booking_model_ui_class_diagram" class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/bookings/developerguide/BookingModelClassDiagram.png" alt="BookingModelClassDiagram">
-</div>
-<div class="title">Figure 21. Class diagram showing the model of Booking</div>
-</div>
-<div class="paragraph">
-<p>Model shows the fields available in a Booking, namely, <em>name</em>, <em>contact</em> and <em>budget</em>.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/bookings/developerguide/BookingUiClassDiagram.png" alt="BookingUiClassDiagram">
-</div>
-<div class="title">Figure 22. Class diagram showing the UI of Booking</div>
-</div>
 <div class="paragraph">
 <p>UI Diagram shows the calling of various other classes (via <code>FXML</code> pages) which are linked to creation of Booking.</p>
 </div>
@@ -1002,7 +987,7 @@ command is executed the <code>Booking</code> in <code>BookingList</code> will be
 <div class="content">
 <img src="images/bookings/developerguide/EditBookingDiagram.png" alt="EditBookingDiagram">
 </div>
-<div class="title">Figure 23. Activity diagram showing the <code>edit</code> functionality of Booking</div>
+<div class="title">Figure 21. Activity diagram showing the <code>edit</code> functionality of Booking</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1019,6 +1004,12 @@ When error is thrown, the user is expected to use a valid index.
 </div>
 <div class="sect4">
 <h5 id="delete-a-booking"><a class="link" href="#delete-a-booking">Delete a Booking</a></h5>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/bookings/developerguide/DeleteBookingDiagram.png" alt="DeleteBookingDiagram">
+</div>
+<div class="title">Figure 22. Activity diagram showing the <code>delete</code> functionality of Booking</div>
+</div>
 <div class="paragraph">
 <p>Deletion of booking is similar to the <em>Delete Trip/Day/Event</em> feature (see <a href="#Delete-Trip">Section 3.2, &#8220;[Itinerary] Delete Trip/Day/Event&#8221;</a>).</p>
 </div>
@@ -1030,7 +1021,7 @@ Below is the sequence diagram of deleting an expense:</p>
 <div class="content">
 <img src="images/bookings/developerguide/BookingDeleteSequenceDiagram.png" alt="BookingDeleteSequenceDiagram">
 </div>
-<div class="title">Figure 24. Activity diagram showing the execution of deleting an expense</div>
+<div class="title">Figure 23. Activity diagram showing the execution of deleting an expense</div>
 </div>
 <hr>
 </div>
@@ -1268,7 +1259,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/diary/DiaryPhotoModelClassDiagram.png" alt="DiaryPhotoModelClassDiagram">
 </div>
-<div class="title">Figure 25. Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</div>
+<div class="title">Figure 24. Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models</div>
 </div>
 <div class="sect4">
 <h5 id="photo"><a class="link" href="#photo">Photo</a></h5>
@@ -1280,7 +1271,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 The <code>imagePath</code> and <code>dateTaken</code> were implemented respectively with the robust java apis of <code>Path</code> and <code>LocalDateTime</code>, while <code>description</code> is simply a <code>String</code>.</p>
 </div>
 <div class="paragraph">
-<p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 25, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
+<p>In addition, a JavaFX <code>Image</code> is also stored inside the <code>DiaryPhoto</code> (not shown in <a href="#diary_photo_model_class_diagram">Figure 24, &#8220;Class diagram of a <code>PhotoList</code> as contained by a diary entry, and its contained models&#8221;</a> for brevity),
 which holds the <code>Image</code> to use for displaying in an <code>ImageView</code> inside the user interface. The <code>Image</code> is cached this way,
 as on-demand <code>Image</code> construction in the user interface involves costly I/O operations.</p>
 </div>
@@ -1339,7 +1330,7 @@ in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 <div class="content">
 <img src="images/diary/DiaryPhotoUiObjectDiagram.png" alt="DiaryPhotoUiObjectDiagram">
 </div>
-<div class="title">Figure 26. Object diagram of the diary gallery component, as contained by <code>DiaryPage</code> (not shown)</div>
+<div class="title">Figure 25. Object diagram of the diary gallery component, as contained by <code>DiaryPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The main JavaFX component responsible for displaying the photos is a <code>ListView&lt;DiaryPhoto&gt;</code> component.
@@ -1378,7 +1369,7 @@ a number of operations happen, as per the UML sequence diagram below (<a href="#
 <div class="content">
 <img src="images/diary/DiaryAddPhotoParser.png" alt="addphotoparser_parse_sequence_diagram">
 </div>
-<div class="title">Figure 27. Sequence diagram of the parse method in AddPhotoParser</div>
+<div class="title">Figure 26. Sequence diagram of the parse method in AddPhotoParser</div>
 </div>
 <div class="sect5">
 <h6 id="adding_photo_diary_step_1"><a class="link" href="#adding_photo_diary_step_1">Parsing the image file path</a></h6>
@@ -1389,7 +1380,7 @@ a number of operations happen, as per the UML sequence diagram below (<a href="#
 If present, the OS file choosing gui is opened using <code>ImageChooser</code> (a simple extension of JavaFX&#8217;s <code>FileChooser</code> enforcing image file extensions), and the data file path prefix is ignored.</p>
 </li>
 <li>
-<p>The <code>getFilePath</code> subroutine is then called, detailed in <a href="#diary_getfilepath_activity_diagram">Figure 28, &#8220;Activity diagram of getFilePath subroutine&#8221;</a>, which checks for the
+<p>The <code>getFilePath</code> subroutine is then called, detailed in <a href="#diary_getfilepath_activity_diagram">Figure 27, &#8220;Activity diagram of getFilePath subroutine&#8221;</a>, which checks for the
 existence and validity of the image as supplied by the <code>ImageChooser</code> or the file path in the <code>fp/</code> argument.</p>
 </li>
 <li>
@@ -1401,7 +1392,7 @@ existence and validity of the image as supplied by the <code>ImageChooser</code>
 <div class="content">
 <img src="images/diary/AddPhotoParserGetFilePathActivityDiagram.png" alt="AddPhotoParserGetFilePathActivityDiagram" width="95%">
 </div>
-<div class="title">Figure 28. Activity diagram of getFilePath subroutine</div>
+<div class="title">Figure 27. Activity diagram of getFilePath subroutine</div>
 </div>
 </div>
 <div class="sect5">
@@ -1421,7 +1412,7 @@ If validation of the description, as described in <a href="#photo_model">Section
 <div class="content">
 <img src="images/diary/AddPhotoParserParseDescriptionActivityDiagram.png" alt="AddPhotoParserParseDescriptionActivityDiagram" width="95%">
 </div>
-<div class="title">Figure 29. Activity diagram of parseDescription subroutine</div>
+<div class="title">Figure 28. Activity diagram of parseDescription subroutine</div>
 </div>
 </div>
 <div class="sect5">
@@ -1529,7 +1520,7 @@ of each <code>DiaryEntry</code>, and supports common list operations.</p>
 <div class="content">
 <img src="images/diary/DiaryModelClassDiagram.png" alt="DiaryModelClassDiagram">
 </div>
-<div class="title">Figure 30. Class diagram of the models used in diary text editing</div>
+<div class="title">Figure 29. Class diagram of the models used in diary text editing</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1552,7 +1543,7 @@ in one of <code>DiaryPage&#8217;s</code> placeholders.</p>
 <div class="content">
 <img src="images/diary/DiaryUiClassDiagram.png" alt="DiaryUiClassDiagram">
 </div>
-<div class="title">Figure 31. Class diagram showing the user interface of the main diary entry text display</div>
+<div class="title">Figure 30. Class diagram showing the user interface of the main diary entry text display</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1598,16 +1589,16 @@ constructor of <code>DiaryEntryDisplay</code> during the initialisation of <code
 <div class="content">
 <img src="images/diary/DiaryFillPageCallbackTrimmed.png" alt="DiaryFillPageCallbackTrimmed">
 </div>
-<div class="title">Figure 32. Sequence diagram of updating of DiaryPage UI post command execution</div>
+<div class="title">Figure 31. Sequence diagram of updating of DiaryPage UI post command execution</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>The <code>model</code> is updated, depending on whether the edit box is currently shown to the user.<br>
 1.1. The edited but uncommitted text stored in the current <code>EditDiaryEntryDescriptor</code> will be updated
-if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 32, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
+if the edit box is shown. (second branch in the diagram <a href="#DiaryPageFillPage">Figure 31, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)<br>
 1.2. Otherwise, the current <code>DiaryEntry</code> in the <code>PageStatus</code> of the <code>model</code> is updated immediately.
-(first branch in the diagram <a href="#DiaryPageFillPage">Figure 32, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
+(first branch in the diagram <a href="#DiaryPageFillPage">Figure 31, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)</p>
 </li>
 <li>
 <p>The text in the <code>DiaryEntryEditBox</code> is then refreshed with the updated <code>model</code> in the <code>fillPage</code>
@@ -1639,7 +1630,7 @@ based on the parsed input, setting them as the <code>graphic</code> for the <cod
 </td>
 <td class="content">
 For <code>DiaryLines</code> with photos, the parsing process uses the photoList as set in the <code>DiaryPage&#8217;s</code>
-<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 32, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
+<code>fillPage</code> method. (see branch 1 in <a href="#DiaryPageFillPage">Figure 31, &#8220;Sequence diagram of updating of DiaryPage UI post command execution&#8221;</a>)
 </td>
 </tr>
 </table>
@@ -1734,7 +1725,7 @@ posing a clear performance downside.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 31, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The second solution is to use a wrapper (<code>DiaryEntryDisplay) around a `ListView</code> containing <code>DiaryLine</code> s. (see <a href="#diary-entry-ui-class-diagram">Figure 30, &#8220;Class diagram showing the user interface of the main diary entry text display&#8221;</a>)</p>
 <p class="tableblock">On one hand, this increases extensibility, as the the graphic of a <code>ListViewCell</code> (<code>DiaryTextLineCell</code>) is not fixed.
 This allows <em>building other variants of diary lines easily</em>, such as a diary line containing a playable audio file.</p>
 <p class="tableblock">Secondly, <code>ListViews</code> render only the visible cells on the screen. Apart from the reducing the amount of nodes loaded
@@ -1777,7 +1768,7 @@ This results in a considerable performance benefit.</p></td>
 <div class="content">
 <img src="images/inventory/InventoryModelClassDiagram.png" alt="InventoryModelClassDiagram">
 </div>
-<div class="title">Figure 33. Class diagram of a 'InventoryList' and an <code>Event</code>, and its contained models</div>
+<div class="title">Figure 32. Class diagram of a 'InventoryList' and an <code>Event</code>, and its contained models</div>
 </div>
 <div class="sect4">
 <h5 id="inventory"><a class="link" href="#inventory">Inventory</a></h5>
@@ -1830,7 +1821,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 <div class="content">
 <img src="images/inventory/InventoryUiObjectDiagram.png" alt="InventoryUiObjectDiagram">
 </div>
-<div class="title">Figure 34. Object diagram of table view component, as contained by <code>InventoryPage</code> (not shown)</div>
+<div class="title">Figure 33. Object diagram of table view component, as contained by <code>InventoryPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The TableView has 3 columns. The first column numbers the items. The second column displays the item&#8217;s name. And the thrid column displays whether the item&#8217;s <code>isDone</code> property is true or false (through a checkbox).</p>
@@ -1848,7 +1839,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 <div class="content">
 <img src="images/inventory/EventInventoryListUiObjectDiagram.png" alt="EventInventoryListUiObjectDiagram">
 </div>
-<div class="title">Figure 35. Object diagram of list view component, as contained by <code>EventPage</code> (not shown)</div>
+<div class="title">Figure 34. Object diagram of list view component, as contained by <code>EventPage</code> (not shown)</div>
 </div>
 <div class="paragraph">
 <p>The <code>ListView</code> uses the CSS styling of <code>resources/view/Inventory/InventoryListViewTheme.css' by calling `listView.getStylesheets().add(CSS_FILE_PATH)</code> with the File Path <code>CSS_FILE_PATH</code>)</p>
@@ -1863,7 +1854,7 @@ JavaFX <code>ObservableList</code>. Therefore, the <code>InventoryList</code> co
 <div class="content">
 <img src="images/inventory/AddInventorySequenceDiagram.png" alt="AddInventorySequenceDiagram">
 </div>
-<div class="title">Figure 36. Sequence diagram for adding an item to the Overall Trip Inventory List</div>
+<div class="title">Figure 35. Sequence diagram for adding an item to the Overall Trip Inventory List</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram, it can be observed that only if <code>InventoryViewParser</code> and <code>AddInventoryParser</code> returns a Command, will
@@ -2865,4 +2856,4 @@ Expected: Similar to previous. Error message show sthe error committed.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-14 09:42:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-14 15:56:12 UTC</div></div></div></body></html>
